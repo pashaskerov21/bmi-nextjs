@@ -13,12 +13,20 @@ export async function generateStaticParams() {
 // }
 
 export default async function Root({ children, params, }: { children: React.ReactNode, params: { lang: string } }) {
-  <html lang={params.lang}>
-    <head>
-      {/* <RootHead settingData={settingData[0]} requiredSettingTranslate={requiredSettingTranslate} /> */}
-    </head>
-    <body>{children}</body>
-  </html>
+  const [settingData, settingTranslateData, menuData, menuTranslateData]:
+    [SettingType[] | undefined, SettingTranslateType[] | undefined, MenuType[] | undefined, MenuTranslateType[] | undefined] = await Promise.all([
+      fetchSetting(), fetchSettingTranslate(), fetchMenu(), fetchMenuTranslate()])
+  if (settingData && settingTranslateData && menuData && menuTranslateData) {
+    const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === params.lang && data.setting_id === settingData[0].id);
+    if (requiredSettingTranslate) {
+      return (
+        <html lang={params.lang}>
+          <head>
+            <RootHead settingData={settingData[0]} requiredSettingTranslate={requiredSettingTranslate} />
+          </head>
+          <body>{children}</body>
+        </html>
+      )
+    }
+  }
 }
-
-

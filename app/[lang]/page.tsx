@@ -12,7 +12,6 @@ export default async function IndexPage({params: { lang },}: {params: { lang: Lo
       <LocaleSwitcher />
       <p>Current locale: {lang}</p>
       <p>{t.title}</p>
-      <Image src='../../../public/next.svg' width={40} height={40} alt=''/>
     </div>
   )
 }
