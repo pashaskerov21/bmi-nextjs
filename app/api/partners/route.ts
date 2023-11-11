@@ -1,4 +1,4 @@
-import { partnerData } from "data";
+import { partnerData } from "@/src/data";
 
 export async function GET(request: Request) {
     try {

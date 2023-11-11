@@ -1,4 +1,4 @@
-import { menuData } from "data";
+import { menuData } from "@/src/data";
 
 export async function GET(request: Request) {
     try {

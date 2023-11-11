@@ -1,4 +1,4 @@
-import { eventTranslateData } from "data";
+import { eventTranslateData } from "@/src/data";
 
 export async function GET(request: Request) {
     try {

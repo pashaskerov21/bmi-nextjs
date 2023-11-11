@@ -1,4 +1,4 @@
-import { aboutTranslateData } from "data";
+import { aboutTranslateData } from "@/src/data";
 
 export async function GET(request: Request) {
     try {

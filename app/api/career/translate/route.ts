@@ -1,4 +1,4 @@
-import { careerTranslateData } from "data";
+import { careerTranslateData } from "@/src/data";
 
 export async function GET(request: Request) {
     try {

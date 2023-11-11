@@ -1,4 +1,4 @@
-import { galleryData } from "data";
+import { galleryData } from "@/src/data";
 
 export async function GET(request: Request) {
     try {
