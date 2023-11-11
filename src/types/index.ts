@@ -1,6 +1,7 @@
 // settings
 export type SettingType = {
     id: number,
+    theme: string,
     mail: string | null,
     phone: string | null,
     facebook: string | null,

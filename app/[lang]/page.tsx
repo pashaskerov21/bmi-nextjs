@@ -9,9 +9,7 @@ export default async function IndexPage({params: { lang },}: {params: { lang: Lo
 
   return (
     <div>
-      <LocaleSwitcher />
       <p>Current locale: {lang}</p>
-      <p>{t.title}</p>
     </div>
   )
 }
