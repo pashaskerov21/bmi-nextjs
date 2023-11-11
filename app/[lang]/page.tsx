@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getTranslate } from '../../get-translate'
 import { Locale } from '../../i18n-config'
 import Counter from './components/counter'
@@ -11,6 +12,7 @@ export default async function IndexPage({params: { lang },}: {params: { lang: Lo
       <LocaleSwitcher />
       <p>Current locale: {lang}</p>
       <p>{t.title}</p>
+      <Image src='../../../public/next.svg' width={40} height={40} alt=''/>
     </div>
   )
 }
