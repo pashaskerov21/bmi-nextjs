@@ -26,13 +26,13 @@ const Footer: React.FC<FooterProps> = ({ settingData, menuData, requiredMenuTran
                 <Container>
                     <div className="top-grid">
                         <Link href='/' className='logo grid-item'>
-                            <Image src={settingData.logo.textIconWhite} width={240} height={160} alt='logo' />
+                            <Image src={settingData.logo.textIconWhite} width={240} height={160} priority={true} alt='logo' />
                         </Link>
                         <div className="footer-links">
                             <h3 className="title">{footerDictionary.menus}</h3>
                             {
                                 menuData.map(link => (
-                                    <React.Fragment>
+                                    <React.Fragment key={link.id}>
                                         <MenuLink linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
                                     </React.Fragment>
                                 ))

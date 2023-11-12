@@ -6,6 +6,7 @@ import { darkTheme } from '../styles/theme/dark'
 import { MenuTranslateType, MenuType, SettingTranslateType, SettingType } from '../types'
 import { GlobalStyles } from '../styles/global'
 import { Footer, Header } from '../partials'
+import { ScrollButton } from '../components'
 
 type RootLayoutProps = {
     children: React.ReactNode,
@@ -37,6 +38,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, settingData, menuData
             <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
             <GlobalStyles />
                 <body>
+                    <ScrollButton/>
                     <Header menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} settingData={settingData} theme={theme} toggleTheme={toggleTheme} activeLocale={activeLocale}/>
                     {loading && <div className='preloader'></div>}
                     <main>{children}</main>

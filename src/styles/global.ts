@@ -320,6 +320,11 @@ input{
             }
         }
     }
+    &.banner-slider{
+        .slick-slide{
+            padding: 0;
+        }
+    }
 }
 
 .preloader{

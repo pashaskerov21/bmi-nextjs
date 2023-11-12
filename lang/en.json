@@ -1,9 +1,12 @@
 {
-  "footer":{
-      "menus": "Menus",
-      "useful_links": "Useful links",
-      "contact": "Contact",
-      "faq": "FAQ",
-      "career": "Career"
+  "footer": {
+    "menus": "Menus",
+    "useful_links": "Useful links",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "career": "Career"
+  },
+  "button": {
+    "details": "details"
   }
 }
