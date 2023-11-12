@@ -25,7 +25,7 @@ export const GeneralNavBar = styled.nav<GeneralNavBarProps>`
     .inner{
         width: 100%;
         ${row_between};
-        padding: 5px 0;
+        padding: 8px 0;
         .right{
             ${row_justify_end};
             margin-left: 20px;
@@ -95,7 +95,7 @@ export const GeneralNavBar = styled.nav<GeneralNavBarProps>`
                 margin-left: 3px;
                 button{
                     color: ${props => props.theme.text_color_v2};
-                    font-size: 20px;
+                    font-size: 24px;
                     margin-left: 5px;
                 }
             }
@@ -332,6 +332,7 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
                 margin-bottom: 5px;
                 text-transform: capitalize;
                 transition: all 0.2s;
+                ${row_center};
                 @media (min-width: 992px){
                     color: ${props => props.theme.text_color_v1};
                     margin-bottom: 0;

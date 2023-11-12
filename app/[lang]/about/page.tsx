@@ -9,7 +9,7 @@ const About = async ({params: { lang },}: {params: { lang: Locale }}) => {
     return (
         <div>
             <LocaleSwitcher/>
-            {t.about}
+            
         </div>
     )
 }

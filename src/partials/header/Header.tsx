@@ -24,10 +24,10 @@ type HeaderProps = {
     requiredMenuTranslate: MenuTranslateType[],
     theme: string,
     toggleTheme: () => void,
-    currentLanguage: string,
+    activeLocale: string,
 }
 
-const Header: React.FC<HeaderProps> = ({ settingData, menuData, requiredMenuTranslate, theme, toggleTheme, currentLanguage }) => {
+const Header: React.FC<HeaderProps> = ({ settingData, menuData, requiredMenuTranslate, theme, toggleTheme, activeLocale }) => {
     const [fixed, setFixed] = React.useState<boolean>(false);
     React.useEffect(() => {
         window.addEventListener('scroll', function () {
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ settingData, menuData, requiredMenuTran
                                 </ThemeButton>
                             </div>
                             <div className="bottom">
-                                <Languages currentLanguage={currentLanguage}/>
+                                <Languages activeLocale={activeLocale}/>
                                 <Search searchShow={searchShow} toggleSearch={toggleSearch} />
                                 <div className="mobile d-lg-none">
                                     <button className='search-button' onClick={toggleSearch}>
@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({ settingData, menuData, requiredMenuTran
                     </div>
                 </Container>
             </GeneralNavBar>
-            <Menu fixed={fixed} menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} menuShow={menuShow} settingData={settingData} theme={theme} toggleMenu={toggleMenu} currentLanguage={currentLanguage}/>
+            <Menu fixed={fixed} menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} menuShow={menuShow} settingData={settingData} theme={theme} toggleMenu={toggleMenu} activeLocale={activeLocale}/>
         </header>
     )
 }

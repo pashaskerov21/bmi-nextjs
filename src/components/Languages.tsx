@@ -5,10 +5,10 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 
 type LanguagesProps = {
-    currentLanguage: string,
+    activeLocale: string,
 }
 
-const Languages:React.FC<LanguagesProps> = ({currentLanguage}) => {
+const Languages: React.FC<LanguagesProps> = ({ activeLocale }) => {
     const pathName = usePathname()
     const redirectedPathName = (locale: string) => {
         if (!pathName) return '/'
@@ -20,7 +20,9 @@ const Languages:React.FC<LanguagesProps> = ({currentLanguage}) => {
         <div className='languages'>
             {
                 i18n.locales.map((locale) => (
-                    <Link href={redirectedPathName(locale)} locale={locale} className={currentLanguage === locale ? 'active' : ''}>{locale}</Link>
+                    <React.Fragment key={locale}>
+                        <Link href={redirectedPathName(locale)} locale={locale} className={activeLocale === locale ? 'active' : ''}>{locale}</Link>
+                    </React.Fragment>
                 ))
             }
         </div>

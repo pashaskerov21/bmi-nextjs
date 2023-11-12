@@ -19,10 +19,10 @@ type MenuProps = {
     menuShow: boolean,
     toggleMenu: () => void,
     fixed: boolean,
-    currentLanguage: string,
+    activeLocale: string,
 }
 
-const Menu: React.FC<MenuProps> = ({ settingData, menuData, requiredMenuTranslate, theme, menuShow, toggleMenu, fixed, currentLanguage }) => {
+const Menu: React.FC<MenuProps> = ({ settingData, menuData, requiredMenuTranslate, theme, menuShow, toggleMenu, fixed, activeLocale }) => {
     return (
         <React.Fragment>
             <MenuBackdrop $menuShow={menuShow} onClick={toggleMenu} />
@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = ({ settingData, menuData, requiredMenuTranslat
                             <Image src={settingData.logo.shortWhite} width={100} height={50} alt='' />
                         </Link>
                         <div className="right">
-                            <Languages currentLanguage={currentLanguage}/>
+                            <Languages activeLocale={activeLocale}/>
                             <button type='button' className="close-button" onClick={toggleMenu}>
                                 <FaXmark />
                             </button>
@@ -44,12 +44,11 @@ const Menu: React.FC<MenuProps> = ({ settingData, menuData, requiredMenuTranslat
                             <Image src={theme === 'dark' ? settingData.logo.shortWhite : settingData.logo.short} width={140} height={50} alt='' />
                         </Link>
                         <div className={`page-links ${fixed ? 'fix-true' : ''}`}>
-
                             {
                                 menuData.map(link => (
-                                    <React.Fragment key={link.id}>
+                                    <div key={link.id} onClick={toggleMenu}>
                                         <MenuLink linkData={link} requiredMenuTranslate={requiredMenuTranslate}/>
-                                    </React.Fragment>
+                                    </div>
                                 ))
                             }
                         </div>

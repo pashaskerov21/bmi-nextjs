@@ -10,6 +10,7 @@ export default async function IndexPage({params: { lang },}: {params: { lang: Lo
   return (
     <div>
       <p>Current locale: {lang}</p>
+      <p>{t.footer.useful_links}</p>
     </div>
   )
 }

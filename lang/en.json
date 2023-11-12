@@ -1,4 +1,9 @@
 {
-  "title": "hello",
-  "about" : "about"
+  "footer":{
+      "menus": "Menus",
+      "useful_links": "Useful links",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "career": "Career"
+  }
 }

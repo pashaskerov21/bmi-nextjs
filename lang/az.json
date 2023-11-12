@@ -1,4 +1,9 @@
 {
-    "title": "salam",
-    "about" : "haqqinda"
+    "footer":{
+        "menus": "Menyular",
+        "useful_links": "Faydalı linklər",
+        "contact": "Əlaqə",
+        "faq": "Tez-tez soruşulanlar",
+        "career": "Karyera"
+    }
 }
