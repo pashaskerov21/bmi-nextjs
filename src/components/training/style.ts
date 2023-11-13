@@ -189,6 +189,7 @@ export const TrainingModalWrapper = styled.div`
                 font-weight: 600;
                 z-index: 99;
                 cursor: pointer;
+                text-transform:capitalize;
                 @media (min-width: 768px){
                     font-size: 12px;
                 }

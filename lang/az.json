@@ -8,7 +8,9 @@
     },
     "button": {
         "details": "ətraflı",
-        "registration": "qeydiyyat"
+        "registration": "qeydiyyat",
+        "prev_training": "əvvəlki təlim",
+        "next_training": "sonrakı təlim"
     },
     "title": {
         "home": "əsas səhifə",

@@ -8,7 +8,9 @@
   },
   "button": {
     "details": "details",
-    "registration": "registration"
+    "registration": "registration",
+    "prev_training": "prev training",
+    "next_training": "next training"
   },
   "title": {
     "home": "home",

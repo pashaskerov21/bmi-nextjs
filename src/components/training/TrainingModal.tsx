@@ -56,8 +56,8 @@ const TrainingModal: React.FC<ModalProps> = ({
                             <div className='arrow-btn prev' onClick={handlePrev}><FaChevronLeft /></div>
                             <div className='arrow-btn next' onClick={handleNext}><FaChevronRight /></div>
                             <div className="training-control">
-                                <div className='custom-btn' onClick={handlePrev}><FaArrowLeftLong /> Əvvəlki təlim</div>
-                                <div className='custom-btn' onClick={handleNext}>Next Training <FaArrowRightLong /></div>
+                                <div className='custom-btn' onClick={handlePrev}><FaArrowLeftLong /> {buttonDictionary.prev_training}</div>
+                                <div className='custom-btn' onClick={handleNext}>{buttonDictionary.next_training} <FaArrowRightLong /></div>
                             </div>
                             <Slider ref={slideRef as React.RefObject<any>} {...trainingModalSliderSettings}>
 
