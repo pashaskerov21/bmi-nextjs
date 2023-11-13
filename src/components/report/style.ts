@@ -25,6 +25,7 @@ export const ItemWrapper = styled.div`
         margin-top: 10px;
         font-weight: 600;
         margin-bottom: 20px;
+        font-size: 24px;
         @media (min-width: 992px){
             font-size: 30px;
         }

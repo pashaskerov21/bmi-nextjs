@@ -46,11 +46,11 @@ const Counter: React.FC<CounterProps> = ({ value }) => {
 
     const handleScroll = () => {
         if (window.innerWidth < 768) {
-            if (window.scrollY > (counterItem.current?.offsetTop || 0) + 500) {
+            if (window.scrollY > (counterItem.current?.offsetTop || 0) + 100) {
                 setCounterStatus(true);
             }
         }else{
-            if (window.scrollY > (counterItem.current?.offsetTop || 0) - 200) {
+            if (window.scrollY > (counterItem.current?.offsetTop || 0) - 500) {
                 setCounterStatus(true);
             }
         }
