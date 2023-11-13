@@ -7,11 +7,13 @@
         "career": "Karyera"
     },
     "button": {
-        "details": "ətraflı"
+        "details": "ətraflı",
+        "registration": "qeydiyyat"
     },
     "title": {
         "home": "əsas səhifə",
         "why_us": "niyə biz?",
-        "about_us": "haqqımızda"
+        "about_us": "haqqımızda",
+        "trainings": "təlimlər"
     }
 }

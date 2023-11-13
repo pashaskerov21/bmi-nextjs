@@ -24,7 +24,16 @@ type MenuProps = {
     activeLocale: string,
 }
 
-const Menu: React.FC<MenuProps> = ({ settingData, menuData, requiredMenuTranslate, theme, menuShow, toggleMenu, toggleTheme, fixed, activeLocale }) => {
+const Menu: React.FC<MenuProps> = ({
+    settingData,
+    menuData,
+    requiredMenuTranslate,
+    theme,
+    menuShow,
+    toggleMenu,
+    toggleTheme,
+    fixed,
+    activeLocale }) => {
     return (
         <React.Fragment>
             <MenuBackdrop $menuShow={menuShow} onClick={toggleMenu} />

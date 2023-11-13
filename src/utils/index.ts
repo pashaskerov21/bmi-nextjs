@@ -34,6 +34,8 @@ import {
 // slider settings
 import {
     bannerSettings,
+    trainingCategorySettings,
+    trainingModalSliderSettings
 } from './sliderSetting'
 
 
@@ -71,5 +73,7 @@ export {
     fetchCareerTranslate,
 
     bannerSettings,
+    trainingCategorySettings,
+    trainingModalSliderSettings,
 }
 

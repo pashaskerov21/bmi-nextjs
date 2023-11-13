@@ -17,7 +17,13 @@ type AboutProps = {
     titleDictionary: { [key: string]: string },
 }
 
-const AboutPageSection: React.FC<AboutProps> = ({ activeLocale, aboutData, aboutTranslateData, aboutReportData, aboutReportTranslateData, titleDictionary }) => {
+const AboutPageSection: React.FC<AboutProps> = ({
+    activeLocale,
+    aboutData,
+    aboutTranslateData,
+    aboutReportData,
+    aboutReportTranslateData,
+    titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -28,7 +34,7 @@ const AboutPageSection: React.FC<AboutProps> = ({ activeLocale, aboutData, about
     return (
         <Section $py={20} $py_xl={40}>
             <Container>
-                <PageTitle titleDictionary={titleDictionary} title={titleDictionary.about_us} breadcrumbs={breadcrumbs}/>
+                <PageTitle titleDictionary={titleDictionary} title={titleDictionary.about_us} breadcrumbs={breadcrumbs} />
                 <Row>
                     <RowCol>
                         <AboutContentWrapper>

@@ -7,11 +7,13 @@
     "career": "Career"
   },
   "button": {
-    "details": "details"
+    "details": "details",
+    "registration": "registration"
   },
   "title": {
     "home": "home",
     "why_us": "why us?",
-    "about_us": "about us"
+    "about_us": "about us",
+    "trainings": "trainings"
   }
 }

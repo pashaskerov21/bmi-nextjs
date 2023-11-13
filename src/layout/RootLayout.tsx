@@ -18,10 +18,17 @@ type RootLayoutProps = {
     requiredMenuTranslate: MenuTranslateType[],
     activeLocale: string,
     requiredSettingTranslate: SettingTranslateType,
-    footerDictionary: {[key: string]: string},
+    footerDictionary: { [key: string]: string },
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children, settingData, menuData, requiredMenuTranslate, activeLocale, requiredSettingTranslate, footerDictionary }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({
+    children,
+    settingData,
+    menuData,
+    requiredMenuTranslate,
+    activeLocale,
+    requiredSettingTranslate,
+    footerDictionary }) => {
     const [theme, setTheme] = React.useState<string>(`${settingData.theme}`);
     const toggleTheme = React.useCallback(() => {
         if (theme === 'dark') {
@@ -41,13 +48,24 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, settingData, menuData
     return (
         <React.Fragment>
             <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
-            <GlobalStyles />
+                <GlobalStyles />
                 <body>
-                    <ScrollButton/>
-                    <Header menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} settingData={settingData} theme={theme} toggleTheme={toggleTheme} activeLocale={activeLocale}/>
+                    <ScrollButton />
+                    <Header
+                        menuData={menuData}
+                        requiredMenuTranslate={requiredMenuTranslate}
+                        settingData={settingData}
+                        theme={theme}
+                        toggleTheme={toggleTheme}
+                        activeLocale={activeLocale} />
                     {loading && <div className='preloader'></div>}
                     <main>{children}</main>
-                    <Footer menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} settingData={settingData} requiredSettingTranslate={requiredSettingTranslate} footerDictionary={footerDictionary}/>
+                    <Footer
+                        menuData={menuData}
+                        requiredMenuTranslate={requiredMenuTranslate}
+                        settingData={settingData}
+                        requiredSettingTranslate={requiredSettingTranslate}
+                        footerDictionary={footerDictionary} />
                 </body>
             </ThemeProvider>
         </React.Fragment>

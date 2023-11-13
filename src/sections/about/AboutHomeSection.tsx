@@ -17,7 +17,14 @@ type AboutProps = {
     buttonDictionary: { [key: string]: string },
 }
 
-const AboutHomeSection: React.FC<AboutProps> = ({ activeLocale, aboutData, aboutTranslateData, aboutReportData, aboutReportTranslateData, titleDictionary, buttonDictionary }) => {
+const AboutHomeSection: React.FC<AboutProps> = ({
+    activeLocale,
+    aboutData,
+    aboutTranslateData,
+    aboutReportData,
+    aboutReportTranslateData,
+    titleDictionary,
+    buttonDictionary }) => {
     return (
         <Section $py={20} $py_xl={40}>
             <Container>
@@ -26,7 +33,11 @@ const AboutHomeSection: React.FC<AboutProps> = ({ activeLocale, aboutData, about
                         <AboutContentWrapper>
                             <h1 className="title">{titleDictionary.why_us}</h1>
                             <div className="text">
-                                <AboutText activeLocale={activeLocale} about_id={aboutData.id} aboutTranslateData={aboutTranslateData} buttonDictionary={buttonDictionary} />
+                                <AboutText
+                                    activeLocale={activeLocale}
+                                    about_id={aboutData.id}
+                                    aboutTranslateData={aboutTranslateData}
+                                    buttonDictionary={buttonDictionary} />
                             </div>
                             <AboutReportWrapper>
                                 {
@@ -37,7 +48,10 @@ const AboutHomeSection: React.FC<AboutProps> = ({ activeLocale, aboutData, about
                                                 <div className="info">
                                                     <span>{data.value}</span>
                                                     <span>
-                                                        <ReportTitle activeLocale={activeLocale} report_id={data.id} aboutReportTranslateData={aboutReportTranslateData} />
+                                                        <ReportTitle
+                                                            activeLocale={activeLocale}
+                                                            report_id={data.id}
+                                                            aboutReportTranslateData={aboutReportTranslateData} />
                                                     </span>
                                                 </div>
                                             </div>

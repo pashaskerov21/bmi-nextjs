@@ -2,6 +2,7 @@ import BannerSection from "./banner/BannerSection";
 import ReportSection from "./report/ReportSection";
 import AboutHomeSection from "./about/AboutHomeSection";
 import AboutPageSection from "./about/AboutPageSection";
+import TrainingHomeSection from "./training/TrainingHomeSection";
 
 
 export {
@@ -9,4 +10,5 @@ export {
     ReportSection,
     AboutHomeSection,
     AboutPageSection,
+    TrainingHomeSection,
 }

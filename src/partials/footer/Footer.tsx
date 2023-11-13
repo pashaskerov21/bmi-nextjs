@@ -15,11 +15,16 @@ type FooterProps = {
     menuData: MenuType[],
     requiredMenuTranslate: MenuTranslateType[],
     requiredSettingTranslate: SettingTranslateType,
-    footerDictionary: {[key: string]: string},
+    footerDictionary: { [key: string]: string },
 }
 
-const Footer: React.FC<FooterProps> = ({ settingData, menuData, requiredMenuTranslate, requiredSettingTranslate, footerDictionary }) => {
-    
+const Footer: React.FC<FooterProps> = ({
+    settingData, 
+    menuData, 
+    requiredMenuTranslate, 
+    requiredSettingTranslate, 
+    footerDictionary }) => {
+
     return (
         <footer>
             <FooterTop>
@@ -55,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ settingData, menuData, requiredMenuTran
                                     <span className="label">{settingData.phone}</span>
                                 </Link>
                             </div>
-                            <SocialMedia settingData={settingData}/>
+                            <SocialMedia settingData={settingData} />
                         </div>
                     </div>
                 </Container>

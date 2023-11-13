@@ -12,7 +12,6 @@ type MenuLinkProps = {
 const MenuLink: React.FC<MenuLinkProps> = ({ linkData, requiredMenuTranslate }) => {
     const pathname = usePathname();
     const requiredLink: MenuTranslateType | undefined = requiredMenuTranslate.find((item) => item.menu_id === linkData.id);
-    // const isActive = linkData.path === '/' ? pathname === linkData.path : pathname.includes(linkData.path.replace(/\//g, ''));
     const isActive = (linkData.path === '/' && ['/az', '/en'].includes(pathname)) || (linkData.path !== '/' && pathname.includes(linkData.path)) ? true : false;
     if (requiredLink) {
         return (

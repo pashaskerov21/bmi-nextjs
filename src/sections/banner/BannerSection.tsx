@@ -11,20 +11,22 @@ type BannerSectionProps = {
   activeLocale: string,
   bannerData: BannerType[],
   bannerTranslateData: BannerTranslateType[],
-  buttonDictionary: {[key:string]:string}
+  buttonDictionary: { [key: string]: string }
 }
 
 const BannerSection: React.FC<BannerSectionProps> = ({ activeLocale, bannerData, bannerTranslateData, buttonDictionary }) => {
-  
 
-  
   return (
     <Section $mt_xl={20}>
       <Slider {...bannerSettings}>
         {
           bannerData.map((data) => (
             <React.Fragment key={data.id}>
-              <BannerSlide activeLocale={activeLocale} slideData={data} bannerTranslateData={bannerTranslateData} buttonDictionary={buttonDictionary}/>
+              <BannerSlide
+                activeLocale={activeLocale}
+                slideData={data}
+                bannerTranslateData={bannerTranslateData}
+                buttonDictionary={buttonDictionary} />
             </React.Fragment>
           ))
         }

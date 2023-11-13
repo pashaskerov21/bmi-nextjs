@@ -15,9 +15,20 @@ export async function generateStaticParams() {
 // }
 
 export default async function Root({ children, params: { lang }, }: { children: React.ReactNode, params: { lang: Locale } }) {
-  const [settingData, settingTranslateData, menuData, menuTranslateData]:
-    [SettingType[] | undefined, SettingTranslateType[] | undefined, MenuType[] | undefined, MenuTranslateType[] | undefined] = await Promise.all([
-      fetchSetting(), fetchSettingTranslate(), fetchMenu(), fetchMenuTranslate()]);
+  const [
+    settingData,
+    settingTranslateData,
+    menuData,
+    menuTranslateData]:
+    [
+      SettingType[] | undefined,
+      SettingTranslateType[] | undefined,
+      MenuType[] | undefined,
+      MenuTranslateType[] | undefined] = await Promise.all([
+        fetchSetting(),
+        fetchSettingTranslate(),
+        fetchMenu(),
+        fetchMenuTranslate()]);
 
   const t = await getTranslate(lang)
   const footerDictionary: { [key: string]: string } = t.footer;
@@ -29,10 +40,18 @@ export default async function Root({ children, params: { lang }, }: { children: 
       return (
         <html lang={lang}>
           <head>
-            <RootHead settingData={settingData[0]} requiredSettingTranslate={requiredSettingTranslate} />
+            <RootHead
+              settingData={settingData[0]}
+              requiredSettingTranslate={requiredSettingTranslate} />
           </head>
           <StyledComponentsRegistry>
-            <RootLayout settingData={settingData[0]} menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} activeLocale={lang} requiredSettingTranslate={requiredSettingTranslate} footerDictionary={footerDictionary}>
+            <RootLayout
+              settingData={settingData[0]}
+              menuData={menuData}
+              requiredMenuTranslate={requiredMenuTranslate}
+              activeLocale={lang}
+              requiredSettingTranslate={requiredSettingTranslate}
+              footerDictionary={footerDictionary}>
               {children}
             </RootLayout>
           </StyledComponentsRegistry>

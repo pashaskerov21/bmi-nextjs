@@ -17,8 +17,11 @@ export const AboutContentWrapper = styled.div`
         }
     }
     .text{
-        font-size: 16px;
+        font-size: 14px;
         line-height: 24px;
+        @media (min-width: 1200px){
+            font-size: 16px;
+        }
         a{
             margin-left: 10px;
             font-weight: 600;

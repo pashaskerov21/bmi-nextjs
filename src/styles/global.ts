@@ -271,7 +271,6 @@ input{
 
 .slick-slider{
     width: 100%;
-    padding-bottom: 50px;
     overflow: hidden;
     
     .slick-track{
@@ -304,7 +303,7 @@ input{
                     height: 15px;
                     border-radius: 50%;
                     background-color: ${props => props.theme.text_color_v2};                    
-                    color: transparent;
+                    color: transparent !important;
                 }
             }
         }
@@ -324,6 +323,14 @@ input{
         .slick-slide{
             padding: 0;
         }
+    }
+    &.trainings-slider{
+        @media (min-width: 576px){
+            padding-bottom: 30px;
+        }
+    }
+    &.training-modal{
+        padding-bottom: 40px;
     }
 }
 
