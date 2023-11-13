@@ -5,13 +5,8 @@ import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTran
 import { Locale } from '../../../i18n-config'
 import { AboutPageSection, ReportSection } from '@/src/sections'
 
-type AboutPageProps = {
-    params: {
-        lang: Locale,
-    }
-}
 
-const AboutPage: React.FC<AboutPageProps> = async ({ params: { lang } }) => {
+const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale }}) => {
     const [reportData, reportTranslateData, aboutData, aboutTranslateData, aboutReportData, aboutReportTranslateData]:
         [ReportType[] | undefined, ReportTranslateType[] | undefined, AboutType[] | undefined, AboutTranslateType[] | undefined, AboutReportType[] | undefined, AboutReportTranslateType[] | undefined] = await Promise.all(
             [fetchReport(), fetchReportTranslate(), fetchAbout(), fetchAboutTranslate(), fetchAboutReport(), fetchAboutReportTranslate()]);
