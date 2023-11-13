@@ -3,19 +3,22 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsChevronRight } from 'react-icons/bs'
 import Link from 'next/link';
-import { column_align_start, row_justify_start } from '@/src/styles/mixin';
+import { column_align_start, column_center, row_center, row_justify_start } from '@/src/styles/mixin';
 import { Breadcrumb } from '../types';
 
 const PageTitleWrapper = styled.div`
     width: 100%;
-    ${column_align_start};
+    ${column_center};
     padding: 10px 0;
     margin-bottom: 10px;
+    @media (min-width: 992px){
+        ${column_align_start}
+    }
     @media (min-width: 1200px){
         margin-bottom: 20px;
     }
     .title{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-transform: uppercase;
         @media (min-width: 992px){
             font-size: 32px;
@@ -23,9 +26,12 @@ const PageTitleWrapper = styled.div`
     }
     .breadcrumbs{
         width: 100%;
-        ${row_justify_start};
+        ${row_center};
         flex-wrap: wrap;
         gap: 5px;
+        @media (min-width: 992px){
+            ${row_justify_start}
+        }
         a{
             text-transform: capitalize;
             font-size: 12px;

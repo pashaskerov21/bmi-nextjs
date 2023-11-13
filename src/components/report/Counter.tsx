@@ -28,7 +28,7 @@ const Counter: React.FC<CounterProps> = ({ value }) => {
                 startValue += 25;
                 remainder = endValue % 25;
                 endValue = endValue - remainder;
-            }else if (endValue >= 5000) {
+            } else if (endValue >= 5000) {
                 startValue += 50;
                 remainder = endValue % 50;
                 endValue = endValue - remainder;
@@ -45,8 +45,14 @@ const Counter: React.FC<CounterProps> = ({ value }) => {
 
 
     const handleScroll = () => {
-        if (window.scrollY > (counterItem.current?.offsetTop || 0) - 500) {
-            setCounterStatus(true);
+        if (window.innerWidth < 768) {
+            if (window.scrollY > (counterItem.current?.offsetTop || 0) + 500) {
+                setCounterStatus(true);
+            }
+        }else{
+            if (window.scrollY > (counterItem.current?.offsetTop || 0) - 200) {
+                setCounterStatus(true);
+            }
         }
     };
 
@@ -65,7 +71,7 @@ const Counter: React.FC<CounterProps> = ({ value }) => {
             countFunction.current()
         }
     }, [counterStatus, countFunction])
-    
+
     return (
         <div ref={counterItem}>
             <div className='count-value'>{count}</div>
