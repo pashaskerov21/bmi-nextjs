@@ -211,3 +211,9 @@ export type CareerTranslateType = {
     text: string,
     lang: string,
 }
+// breadcrumb
+export type Breadcrumb = {
+    id: number;
+    name?: string;
+    path: string;
+};

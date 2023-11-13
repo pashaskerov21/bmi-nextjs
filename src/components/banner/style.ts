@@ -31,9 +31,9 @@ export const SlideWrapper = styled.div<BannerSlideProps>`
                 font-size: 40px;
                 max-width: 500px;
             }
-            @media (min-width: 1200px){
+            /* @media (min-width: 1200px){
                 font-size: 55px;
-            }
+            } */
         }
         a.detail{
             ${row_center};

@@ -45,4 +45,4 @@ const BannerSlide: React.FC<BannerSlideProps> = ({ activeLocale, slideData, bann
     )
 }
 
-export default BannerSlide
+export default React.memo(BannerSlide)

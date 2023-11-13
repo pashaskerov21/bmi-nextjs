@@ -8,5 +8,10 @@
     },
     "button": {
         "details": "ətraflı"
+    },
+    "title": {
+        "home": "əsas səhifə",
+        "why_us": "niyə biz?",
+        "about_us": "haqqımızda"
     }
 }

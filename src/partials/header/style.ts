@@ -69,15 +69,15 @@ export const GeneralNavBar = styled.nav<GeneralNavBarProps>`
                         font-weight: 600;
                         margin-right: 8px;
                         color: ${props => props.theme.text_color_v2};
-                        opacity: 0.7;
+                        opacity: 0.6;
                         position: relative;
                         &::after{
                             content: '';
                             position: absolute;
                             left: 0;
-                            bottom: -3px;
+                            bottom: -2px;
                             width: 100%;
-                            height: 1px;
+                            height: 2px;
                             background-color: ${props => props.theme.text_color_v2};
                             opacity: 0;
                         }
@@ -280,7 +280,6 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
     overflow: auto;
     .fix-logo{
         display: none;
-        margin-right: 30px;
     }
     @media (min-width: 576px){
         padding: 0 12px
@@ -312,7 +311,14 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
     .body{
         width: 100%;
         @media (min-width: 992px){
-            ${row_between}
+            ${row_between};
+        }
+        .right{
+            width: 100%;
+            @media (min-width: 992px){
+                ${row_justify_end};
+                padding-left: 30px;
+            }
         }
         .page-links{
             width: 100%;
@@ -336,12 +342,14 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
                 @media (min-width: 992px){
                     color: ${props => props.theme.text_color_v1};
                     margin-bottom: 0;
-                    font-size: 16px;
+                    font-size: 11px;
                     padding: 10px 15px;
                     text-align: center;
-                    font-size: 14px;
                 }
                 @media (min-width: 1200px){
+                    font-size:14px;
+                }
+                @media (min-width: 1400px){
                     font-size:16px;
                 }
                 &:hover{
@@ -371,6 +379,36 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
                     }
                 }
                 
+            }
+        }
+        .languages{
+            ${row_justify_end};
+            margin-left: 10px;
+            display: none;
+            @media (min-width: 992px){
+                display: flex;
+            }
+            a{
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 600;
+                margin-right: 8px;
+                color: ${props => props.theme.text_color_v2};
+                opacity: 0.6;
+                position: relative;
+                @media (min-width: 1400px){
+                    font-size: 16px;
+                }
+                &.active{
+                    opacity: 1;
+                }
+            }
+        }
+        ${ThemeButton}{
+            margin-left: 10px;
+            display: none;
+            @media (min-width: 992px){
+                display: block;
             }
         }
     }

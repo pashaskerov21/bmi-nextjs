@@ -8,5 +8,10 @@
   },
   "button": {
     "details": "details"
+  },
+  "title": {
+    "home": "home",
+    "why_us": "why us?",
+    "about_us": "about us"
   }
 }

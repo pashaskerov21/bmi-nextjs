@@ -7,6 +7,9 @@ import { MenuTranslateType, MenuType, SettingTranslateType, SettingType } from '
 import { GlobalStyles } from '../styles/global'
 import { Footer, Header } from '../partials'
 import { ScrollButton } from '../components'
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 
 type RootLayoutProps = {
     children: React.ReactNode,
@@ -32,7 +35,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, settingData, menuData
 
     React.useEffect(() => {
         setLoading(false);
-    })
+    });
+
+    React.useEffect(() => { Fancybox.bind("[data-fancybox]", {}) }, [])
     return (
         <React.Fragment>
             <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>

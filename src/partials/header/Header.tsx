@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({ settingData, menuData, requiredMenuTran
                     </div>
                 </Container>
             </GeneralNavBar>
-            <Menu fixed={fixed} menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} menuShow={menuShow} settingData={settingData} theme={theme} toggleMenu={toggleMenu} activeLocale={activeLocale}/>
+            <Menu fixed={fixed} menuData={menuData} requiredMenuTranslate={requiredMenuTranslate} menuShow={menuShow} settingData={settingData} theme={theme} toggleMenu={toggleMenu} toggleTheme={toggleTheme} activeLocale={activeLocale}/>
         </header>
     )
 }
