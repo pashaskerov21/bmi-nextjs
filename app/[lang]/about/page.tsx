@@ -5,6 +5,7 @@ import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutTyp
 import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchReport, fetchReportTranslate } from '@/src/utils'
 import { AboutPageSection, ReportSection } from '@/src/sections'
 import { Metadata } from 'next'
+import { notFound, redirect } from 'next/navigation'
 
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
@@ -17,6 +18,7 @@ export async function generateMetadata({ params: { lang }, }: { params: { lang: 
 }
 
 const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
+    
     const [
         reportData,
         reportTranslateData,
@@ -52,13 +54,13 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
                         aboutReportData={aboutReportData}
                         aboutReportTranslateData={aboutReportTranslateData}
                         titleDictionary={titleDictionary} />
-                ) : null}
+                ) : redirect('/404')}
                 {(reportData && reportTranslateData) ? (
                     <ReportSection
                         activeLocale={lang}
                         reportData={reportData}
                         reportTranslateData={reportTranslateData} />
-                ) : null}
+                )  : redirect('/404')}
             </Suspense>
         </React.Fragment>
     )

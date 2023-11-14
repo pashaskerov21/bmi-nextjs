@@ -52,4 +52,4 @@ const TrainingPageSection: React.FC<TrainingProps> = ({
     )
 }
 
-export default TrainingPageSection
+export default React.memo(TrainingPageSection)

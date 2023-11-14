@@ -17,5 +17,9 @@
         "why_us": "Niyə biz?",
         "about_us": "Haqqımızda",
         "trainings": "Təlimlər"
+    },
+    "error_404": {
+        "page_404": "Səhifə tapılmadı",
+        "category_404": ""
     }
 }

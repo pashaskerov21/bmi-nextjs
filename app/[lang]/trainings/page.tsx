@@ -5,6 +5,7 @@ import { getTranslate } from '@/get-translate';
 import { TrainingCategoryTranslateType, TrainingCategoryType } from '@/src/types';
 import { fetchTrainingCategory, fetchTrainingCategoryTranslate } from '@/src/utils';
 import { TrainingPageSection } from '@/src/sections';
+import { notFound, redirect } from 'next/navigation';
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
   const t = await getTranslate(lang);
@@ -32,7 +33,7 @@ const Trainings = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
             trainingCategoryTranslateData={trainingCategoryTranslateData}
             titleDictionary={titleDictionary}
             buttonDictionary={buttonDictionary} />
-        ) : null}
+        ) : redirect('/404')}
       </Suspense>
     </React.Fragment>
   )

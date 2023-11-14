@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react'
 import { getTranslate } from '../../get-translate'
-import { Locale } from '../../i18n-config'
+import { Locale, i18n } from '../../i18n-config'
 import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, ReportTranslateType, ReportType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
 import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchReport, fetchReportTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
 import { AboutHomeSection, BannerSection, ReportSection, TrainingHomeSection } from '@/src/sections'
+import { notFound } from 'next/navigation'
 
 const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
   const [
@@ -50,6 +51,9 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
   const buttonDictionary = t.button;
   const titleDictionary = t.title;
 
+  if(!i18n.locales.includes(lang)){
+    notFound();
+  }
   return (
     <React.Fragment>
       <Suspense fallback={<div className='preloader'></div>}>

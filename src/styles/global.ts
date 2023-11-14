@@ -51,9 +51,6 @@ button{
 header, main, section, footer{
   width: 100%;
 }
-main{
-    min-height: 40vh;
-}
 header{
     min-height: 50px;
     ${column_center};

@@ -17,5 +17,9 @@
     "why_us": "Why us?",
     "about_us": "About us",
     "trainings": "Trainings"
+  },
+  "error_404": {
+    "page_404": "Page not found",
+    "category_404": ""
   }
 }
