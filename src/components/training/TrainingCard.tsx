@@ -9,7 +9,6 @@ type CardProps = {
     categoryData: TrainingCategoryType,
     trainingCategoryTranslateData: TrainingCategoryTranslateType[],
     buttonDictionary: { [key: string]: string },
-    slug?: string,
 }
 
 const TrainingCard: React.FC<CardProps> = ({
@@ -17,8 +16,7 @@ const TrainingCard: React.FC<CardProps> = ({
     cardType,
     categoryData,
     trainingCategoryTranslateData,
-    buttonDictionary,
-    slug }) => {
+    buttonDictionary }) => {
     const requiredTranslate: TrainingCategoryTranslateType | undefined = trainingCategoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
@@ -32,7 +30,7 @@ const TrainingCard: React.FC<CardProps> = ({
                             <div className="detail">{buttonDictionary.details}</div>
                         ) : (
                             <React.Fragment>
-                                <Link href={slug ? slug.toLocaleLowerCase() : '/'} className='detail'>{buttonDictionary.details}</Link>
+                                <Link href={`/trainings/${requiredTranslate ? encodeURIComponent(requiredTranslate.title.toLocaleLowerCase()) : ''}`} className='detail'>{buttonDictionary.details}</Link>
                             </React.Fragment>
                         )
                     }

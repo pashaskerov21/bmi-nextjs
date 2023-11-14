@@ -4,7 +4,17 @@ import { getTranslate } from '../../../get-translate'
 import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, ReportTranslateType, ReportType } from '@/src/types'
 import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchReport, fetchReportTranslate } from '@/src/utils'
 import { AboutPageSection, ReportSection } from '@/src/sections'
+import { Metadata } from 'next'
 
+
+export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
+    const t = await getTranslate(lang);
+    const titleDictionary = t.title;
+    const aboutTitle = `BMI | ${titleDictionary.about_us}`;
+    return {
+        title: aboutTitle,
+    }
+}
 
 const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
     const [

@@ -280,6 +280,7 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
     overflow: auto;
     .fix-logo{
         display: none;
+        margin-right: 30px;
     }
     @media (min-width: 576px){
         padding: 0 12px
@@ -317,7 +318,6 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
             width: 100%;
             @media (min-width: 992px){
                 ${row_justify_end};
-                padding-left: 30px;
             }
         }
         .page-links{
