@@ -4,33 +4,33 @@ import { TrainingCardWrapper } from './style'
 import Link from 'next/link'
 
 type CardProps = {
-    activeLocale: string,
     cardType: string,
-    categoryData: TrainingCategoryType,
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
+    title: string,
+    image: string,
+    slug?: string,
     buttonDictionary: { [key: string]: string },
 }
 
 const TrainingCard: React.FC<CardProps> = ({
-    activeLocale,
     cardType,
-    categoryData,
-    trainingCategoryTranslateData,
+    title,
+    image,
+    slug,
     buttonDictionary }) => {
-    const requiredTranslate: TrainingCategoryTranslateType | undefined = trainingCategoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
-            <TrainingCardWrapper $bgImage={categoryData.image}>
+            <TrainingCardWrapper $bgImage={image}>
                 <div className="content">
                     <div className="title">
-                        {requiredTranslate?.title}
+                        {title}
                     </div>
                     {
                         cardType === 'button' ? (
                             <div className="detail">{buttonDictionary.details}</div>
                         ) : (
                             <React.Fragment>
-                                <Link href={`/trainings/${requiredTranslate ? encodeURIComponent(requiredTranslate.title.toLocaleLowerCase()) : ''}`} className='detail'>{buttonDictionary.details}</Link>
+                                <Link href={slug ? slug.toLocaleLowerCase() : '/'} className='detail'>{buttonDictionary.details}</Link>
+                                {/* <Link href={`/trainings/${encodeURIComponent(title.toLocaleLowerCase())}`} className='detail'>{buttonDictionary.details}</Link> */}
                             </React.Fragment>
                         )
                     }

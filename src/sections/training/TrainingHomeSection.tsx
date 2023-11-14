@@ -45,11 +45,10 @@ const TrainingHomeSection: React.FC<TrainingProps> = ({
                             trainingCategoryData.map((data) => (
                                 <React.Fragment key={data.id}>
                                     <div className="slide-inner" onClick={() => handleCategoryCard(data)}>
-                                        <TrainingCard
-                                            cardType='button'
+                                        <CardContent
                                             activeLocale={activeLocale}
                                             categoryData={data}
-                                            trainingCategoryTranslateData={trainingCategoryTranslateData}
+                                            categoryTranslateData={trainingCategoryTranslateData}
                                             buttonDictionary={buttonDictionary} />
                                     </div>
                                 </React.Fragment>
@@ -67,6 +66,28 @@ const TrainingHomeSection: React.FC<TrainingProps> = ({
                     trainingTranslateData={trainingTranslateData}
                     showTrainingModal={showTrainingModal}
                     toggleTrainingModal={toggleTrainingModal}
+                    buttonDictionary={buttonDictionary} />
+            ) : null}
+        </React.Fragment>
+    )
+}
+
+type CardProps = {
+    activeLocale: string,
+    categoryData: TrainingCategoryType,
+    categoryTranslateData: TrainingCategoryTranslateType[],
+    buttonDictionary: { [key: string]: string },
+}
+
+const CardContent: React.FC<CardProps> = ({ activeLocale, categoryData, categoryTranslateData, buttonDictionary }) => {
+    const requiredTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
+    return (
+        <React.Fragment>
+            {requiredTranslate ? (
+                <TrainingCard
+                    cardType='button'
+                    title={requiredTranslate.title}
+                    image={categoryData.image}
                     buttonDictionary={buttonDictionary} />
             ) : null}
         </React.Fragment>

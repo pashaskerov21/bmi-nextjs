@@ -36,19 +36,40 @@ const TrainingPageSection: React.FC<TrainingProps> = ({
                     {
                         trainingCategoryData.map((data) => (
                             <React.Fragment key={data.id}>
-                                <TrainingCard
-                                    cardType='link'
+                                <CardContent
                                     activeLocale={activeLocale}
                                     categoryData={data}
-                                    trainingCategoryTranslateData={trainingCategoryTranslateData}
-                                    buttonDictionary={buttonDictionary}
-                                />
+                                    categoryTranslateData={trainingCategoryTranslateData}
+                                    buttonDictionary={buttonDictionary} />
                             </React.Fragment>
                         ))
                     }
                 </Grid>
             </Container>
         </Section>
+    )
+}
+
+type CardProps = {
+    activeLocale: string,
+    categoryData: TrainingCategoryType,
+    categoryTranslateData: TrainingCategoryTranslateType[],
+    buttonDictionary: { [key: string]: string },
+}
+
+const CardContent: React.FC<CardProps> = ({ activeLocale, categoryData, categoryTranslateData, buttonDictionary }) => {
+    const requiredTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
+    return (
+        <React.Fragment>
+            {requiredTranslate ? (
+                <TrainingCard
+                    cardType='link'
+                    title={requiredTranslate.title}
+                    image={categoryData.image}
+                    slug={`/trainings/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}
+                    buttonDictionary={buttonDictionary} />
+            ) : null}
+        </React.Fragment>
     )
 }
 

@@ -4,16 +4,10 @@ import { Locale } from '@/i18n-config'
 import { TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
 import { fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
 import { Metadata } from 'next'
-import { trainerTranslateData } from '@/src/data'
-import { notFound, redirect } from 'next/navigation'
-import { Page404Section } from '@/src/sections'
+import { redirect } from 'next/navigation'
+import { CategoryPageSection } from '@/src/sections'
 
-type CategoryPageProps = {
-    params: {
-        lang: Locale,
-        categoryslug: string
-    }
-}
+
 
 export const generateMetadata = async ({ params: { lang, categoryslug } }: { params: { lang: Locale, categoryslug: string } }): Promise<Metadata> => {
     const t = await getTranslate(lang);
@@ -40,10 +34,10 @@ export const generateMetadata = async ({ params: { lang, categoryslug } }: { par
 }
 
 
-const CategoryPage: React.FC<CategoryPageProps> = async ({ params: { lang, categoryslug } }) => {
+const CategoryPage = async ({ params: { lang, categoryslug } }: { params: { lang: Locale, categoryslug: string } }) => {
     const t = await getTranslate(lang);
-    const errorDictionary = t.error_404;
     const titleDictionary = t.title;
+    const buttonDictionary = t.button;
     const categorySlug = decodeURIComponent(categoryslug);
 
     const [
@@ -54,14 +48,14 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params: { lang, categ
             TrainingCategoryType[] | undefined,
             TrainingCategoryTranslateType[] | undefined,
             TrainingType[] | undefined,
-            TrainingTranslateType[] | undefined,
+            TrainingTranslateType[] | undefined
         ] = await Promise.all([
             fetchTrainingCategory(),
             fetchTrainingCategoryTranslate(),
             fetchTraining(),
             fetchTrainingTranslate(),
         ]);
-    if (trainingCategoryData && trainingCategoryTranslateData && trainingData && trainerTranslateData) {
+    if (trainingCategoryData && trainingCategoryTranslateData && trainingData && trainingTranslateData) {
         const requiredCategoryTranslate: TrainingCategoryTranslateType | undefined = trainingCategoryTranslateData?.find((data) => data.lang === lang && data.title.toLocaleLowerCase() === categorySlug);
         if (requiredCategoryTranslate) {
             const categoryData: TrainingCategoryType | undefined = trainingCategoryData.find((data) => data.id === requiredCategoryTranslate.category_id);
@@ -69,7 +63,16 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params: { lang, categ
             if (categoryData && filteredTrainings) {
                 return (
                     <React.Fragment>
-                        <Suspense fallback={<div className='preloader'></div>}></Suspense>
+                        <Suspense fallback={<div className='preloader'></div>}>
+                            <CategoryPageSection
+                                activeLocale={lang} 
+                                categoryData={categoryData} 
+                                categoryTranslateData={requiredCategoryTranslate}
+                                trainingData={filteredTrainings}
+                                trainingTranslateData={trainingTranslateData}
+                                titleDictionary={titleDictionary} 
+                                buttonDictionary={buttonDictionary} />
+                        </Suspense>
                     </React.Fragment>
                 )
             } else {
