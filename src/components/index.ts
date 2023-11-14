@@ -9,6 +9,7 @@ import PageTitle from "./PageTitle";
 import SectionTitle from "./SectionTitle";
 import TrainingCard from "./training/TrainingCard";
 import TrainingModal from "./training/TrainingModal";
+import TrainingAccordion from "./training/TrainingAccordion";
 
 export {
     SocialMedia,
@@ -22,4 +23,5 @@ export {
     SectionTitle,
     TrainingCard,
     TrainingModal,
+    TrainingAccordion,
 }

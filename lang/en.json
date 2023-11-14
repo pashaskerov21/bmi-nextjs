@@ -16,7 +16,11 @@
     "home": "Home",
     "why_us": "Why us?",
     "about_us": "About us",
-    "trainings": "Trainings"
+    "trainings": "Trainings",
+    "trainers": "Trainers",
+    "general_info": "General information",
+    "training_content": "Training Content",
+    "training_payment": "Training Payment"
   },
   "error_404": {
     "page_404": "Page not found",

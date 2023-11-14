@@ -16,7 +16,11 @@
         "home": "Əsas səhifə",
         "why_us": "Niyə biz?",
         "about_us": "Haqqımızda",
-        "trainings": "Təlimlər"
+        "trainings": "Təlimlər",
+        "trainers": "Təlimçilər",
+        "general_info": "Ümumi məlumat",
+        "training_content": "Təlimin mündəricatı",
+        "training_payment": "Təlimin ödənişi"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",

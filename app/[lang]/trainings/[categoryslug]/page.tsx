@@ -29,8 +29,6 @@ export const generateMetadata = async ({ params: { lang, categoryslug } }: { par
     } else {
         return {}
     }
-
-
 }
 
 

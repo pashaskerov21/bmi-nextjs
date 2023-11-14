@@ -5,8 +5,9 @@ import ReportSection from "./report/ReportSection";
 import AboutHomeSection from "./about/AboutHomeSection";
 import AboutPageSection from "./about/AboutPageSection";
 import TrainingHomeSection from "./training/TrainingHomeSection";
-import TrainingPageSection from "./training/TrainingPageSection";
-import CategoryPageSection from "./training/CategoryPageSection";
+import TrainingPageSection from "./training/TrainingsPageSection";
+import CategoryPageSection from "./training/CategoryInnerSection";
+import TrainingInnerSection from "./training/TrainingInnerSection";
 
 
 export {
@@ -18,4 +19,5 @@ export {
     TrainingHomeSection,
     TrainingPageSection,
     CategoryPageSection,
+    TrainingInnerSection,
 }

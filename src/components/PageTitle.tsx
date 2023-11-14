@@ -11,6 +11,7 @@ const PageTitleWrapper = styled.div`
     ${column_center};
     padding: 10px 0;
     margin-bottom: 10px;
+    text-align: center;
     @media (min-width: 992px){
         ${column_align_start}
     }
