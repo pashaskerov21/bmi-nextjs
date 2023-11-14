@@ -28,7 +28,7 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
         <TrainingAccordionWrapper>
             <div className={`accordion-item ${activeItem === 'generalinfo' && 'active'}`}>
                 <div className="accordion-button" onClick={() => handleAccordionButton('generalinfo')}>
-                    <h3 className="title">ümumi məlumat</h3>
+                    <h3 className="title">{titleDictionary.general_info}</h3>
                     <button><FaChevronDown /></button>
                 </div>
                 <div className="accordion-body">
@@ -41,7 +41,7 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
             </div>
             <div className={`accordion-item ${activeItem === 'content' && 'active'}`}>
                 <div className="accordion-button" onClick={() => handleAccordionButton('content')}>
-                    <h3 className="title">təlimin mündəricatı</h3>
+                    <h3 className="title">{titleDictionary.training_content}</h3>
                     <button><FaChevronDown /></button>
                 </div>
                 <div className="accordion-body">
@@ -54,7 +54,7 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
             </div>
             <div className={`accordion-item ${activeItem === 'trainers' && 'active'}`}>
                 <div className="accordion-button" onClick={() => handleAccordionButton('trainers')}>
-                    <h3 className="title">təlimçilər</h3>
+                    <h3 className="title">{titleDictionary.trainers}</h3>
                     <button><FaChevronDown /></button>
                 </div>
                 <div className="accordion-body">
@@ -65,7 +65,7 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
             </div>
             <div className={`accordion-item ${activeItem === 'payment' && 'active'}`}>
                 <div className="accordion-button" onClick={() => handleAccordionButton('payment')}>
-                    <h3 className="title">təlimin ödənişi</h3>
+                    <h3 className="title">{titleDictionary.training_payment}</h3>
                     <button><FaChevronDown /></button>
                 </div>
                 <div className="accordion-body">
