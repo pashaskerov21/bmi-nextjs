@@ -74,13 +74,13 @@ const CategoryPage = async ({ params: { lang, categoryslug } }: { params: { lang
                     </React.Fragment>
                 )
             } else {
-                redirect('/404')
+                redirect(`/${lang}/trainings`)
             }
         } else {
-            redirect('/404')
+            redirect(`/${lang}/trainings`)
         }
     } else {
-        redirect('/404')
+        redirect(`/${lang}/404`)
     }
 
 }

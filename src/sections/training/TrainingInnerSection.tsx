@@ -7,6 +7,7 @@ import { TrainingContentWrapper } from './style'
 import Image from 'next/image'
 
 type TrainingProps = {
+    activeLocale: string,
     categoryTranslateData: TrainingCategoryTranslateType,
     trainingData: TrainingType,
     trainingTranslateData: TrainingTranslateType,
@@ -17,6 +18,7 @@ type TrainingProps = {
 }
 
 const TrainingInnerSection: React.FC<TrainingProps> = ({
+    activeLocale,
     categoryTranslateData,
     trainingData,
     trainingTranslateData,
@@ -28,23 +30,27 @@ const TrainingInnerSection: React.FC<TrainingProps> = ({
         {
             id: 1,
             name: titleDictionary.trainings,
-            path: '/trainings'
+            path: `/${activeLocale}/trainings`
         },
         {
             id: 2,
             name: categoryTranslateData.title,
-            path: `/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}`
+            path: `/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}`
         },
         {
             id: 3,
             name: trainingTranslateData.title,
-            path: `/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(trainingTranslateData.title.toLocaleLowerCase())}`
+            path: `/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(trainingTranslateData.title.toLocaleLowerCase())}`
         },
     ]
     return (
         <Section $py={20}>
             <Container>
-                <PageTitle title={trainingTranslateData.title} breadcrumbs={breadcrumbs} titleDictionary={titleDictionary} />
+                <PageTitle
+                    activeLocale={activeLocale}
+                    title={trainingTranslateData.title}
+                    breadcrumbs={breadcrumbs}
+                    titleDictionary={titleDictionary} />
                 <TrainingContentWrapper>
                     <div className="banner-img">
                         <Image src={trainingData.innerImage} width={1000} height={400} alt='training-banner' />

@@ -90,7 +90,7 @@ const AboutText: React.FC<TextProps> = ({ activeLocale, about_id, aboutTranslate
         <React.Fragment>
             {requiredTranslate && requiredTranslate.text.length > 600 ? (
                 <p>
-                    {requiredTranslate.text.slice(0, 600)}... <Link href='/about'>{buttonDictionary.details}</Link>
+                    {requiredTranslate.text.slice(0, 600)}... <Link href={`/${activeLocale}/about`}>{buttonDictionary.details}</Link>
                 </p>
             ) : null}
         </React.Fragment>

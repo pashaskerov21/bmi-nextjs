@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = ({
             <LinkMenuWrapper $themeStatus={theme} $menuShow={menuShow} $fixed={fixed}>
                 <Container>
                     <div className="header d-lg-none">
-                        <Link href='/'>
+                        <Link href={`/${activeLocale}`}>
                             <Image src={settingData.logo.shortWhite} width={100} height={50} alt='' />
                         </Link>
                         <div className="right">
@@ -53,7 +53,7 @@ const Menu: React.FC<MenuProps> = ({
                     <div className="body">
                         {
                             fixed ? (
-                                <Link href='/' className='fix-logo'>
+                                <Link href={`/${activeLocale}`} className='fix-logo'>
                                     <Image src={theme === 'dark' ? settingData.logo.shortWhite : settingData.logo.short} width={100} height={50} alt='' />
                                 </Link>
                             ) : null
@@ -63,7 +63,7 @@ const Menu: React.FC<MenuProps> = ({
                                 {
                                     menuData.map(link => (
                                         <div key={link.id} onClick={toggleMenu}>
-                                            <MenuLink linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
+                                            <MenuLink activeLocale={activeLocale} linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
                                         </div>
                                     ))
                                 }

@@ -11,6 +11,7 @@ import { MenuLink, SocialMedia } from '@/src/components';
 
 
 type FooterProps = {
+    activeLocale: string,
     settingData: SettingType;
     menuData: MenuType[],
     requiredMenuTranslate: MenuTranslateType[],
@@ -19,6 +20,7 @@ type FooterProps = {
 }
 
 const Footer: React.FC<FooterProps> = ({
+    activeLocale,
     settingData, 
     menuData, 
     requiredMenuTranslate, 
@@ -30,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({
             <FooterTop>
                 <Container>
                     <div className="top-grid">
-                        <Link href='/' className='logo grid-item'>
+                        <Link href={`/${activeLocale}`} className='logo grid-item'>
                             <Image src={settingData.logo.textIconWhite} width={240} height={160} priority={true} alt='logo' />
                         </Link>
                         <div className="footer-links">
@@ -38,7 +40,7 @@ const Footer: React.FC<FooterProps> = ({
                             {
                                 menuData.map(link => (
                                     <React.Fragment key={link.id}>
-                                        <MenuLink linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
+                                        <MenuLink activeLocale={activeLocale} linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
                                     </React.Fragment>
                                 ))
                             }

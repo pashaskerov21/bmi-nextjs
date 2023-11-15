@@ -26,18 +26,22 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
         {
             id: 1,
             name: titleDictionary.trainings,
-            path: '/trainings'
+            path: `/${activeLocale}/trainings`
         },
         {
             id: 2,
             name: categoryTranslateData.title,
-            path: `/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}`
+            path: `/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}`
         }
     ]
     return (
         <Section $py={20}>
             <Container>
-                <PageTitle title={categoryTranslateData.title} breadcrumbs={breadcrumbs} titleDictionary={titleDictionary} />
+                <PageTitle
+                    activeLocale={activeLocale}
+                    title={categoryTranslateData.title}
+                    breadcrumbs={breadcrumbs}
+                    titleDictionary={titleDictionary} />
                 <Grid $col={5}>
                     {
                         trainingData.map((data) => (
@@ -66,7 +70,7 @@ type CardProps = {
     buttonDictionary: { [key: string]: string },
 }
 
-const CardContent: React.FC<CardProps> = ({ activeLocale,categoryTranslateData, trainingData, trainingTranslateData, buttonDictionary }) => {
+const CardContent: React.FC<CardProps> = ({ activeLocale, categoryTranslateData, trainingData, trainingTranslateData, buttonDictionary }) => {
     const requiredTrainingTranslate: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.training_id === trainingData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
@@ -75,7 +79,7 @@ const CardContent: React.FC<CardProps> = ({ activeLocale,categoryTranslateData, 
                     cardType='link'
                     title={requiredTrainingTranslate.title}
                     image={trainingData.cardImage}
-                    slug={`/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${requiredTrainingTranslate.title.toLocaleLowerCase()}`}
+                    slug={`/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${requiredTrainingTranslate.title.toLocaleLowerCase()}`}
                     buttonDictionary={buttonDictionary} />
             ) : null}
         </React.Fragment>

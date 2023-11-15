@@ -61,6 +61,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({
                     {loading && <div className='preloader'></div>}
                     <main>{children}</main>
                     <Footer
+                        activeLocale={activeLocale}
                         menuData={menuData}
                         requiredMenuTranslate={requiredMenuTranslate}
                         settingData={settingData}

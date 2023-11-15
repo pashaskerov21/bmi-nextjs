@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({
             <GeneralNavBar $fixed={fixed}>
                 <Container>
                     <div className="inner">
-                        <Link href='/' className='logo'>
+                        <Link href={`/${activeLocale}`} className='logo'>
                             <Image className='d-lg-none' src={theme === 'dark' ? settingData.logo.shortWhite : settingData.logo.short} width={90} height={40} priority={true} alt='logo' />
                             <Image className='d-none d-lg-block' src={theme === 'dark' ? settingData.logo.textIconVerticalWhite : settingData.logo.textIconVertical} width={300} height={120} priority={true} alt='logo' />
                         </Link>
@@ -111,7 +111,8 @@ const Header: React.FC<HeaderProps> = ({
                 settingData={settingData}
                 theme={theme}
                 toggleMenu={toggleMenu}
-                toggleTheme={toggleTheme} activeLocale={activeLocale} />
+                toggleTheme={toggleTheme} 
+                activeLocale={activeLocale} />
         </header>
     )
 }

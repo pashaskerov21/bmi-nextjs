@@ -59,17 +59,18 @@ const PageTitleWrapper = styled.div`
 
 
 type PageTitleProps = {
+    activeLocale: string,
     title?: string;
     breadcrumbs: Breadcrumb[];
     titleDictionary: { [key: string]: string },
 };
 
-const PageTitle: React.FC<PageTitleProps> = ({ title, breadcrumbs, titleDictionary, }) => {
+const PageTitle: React.FC<PageTitleProps> = ({ activeLocale,title, breadcrumbs, titleDictionary, }) => {
     return (
         <PageTitleWrapper>
             <h2 className="title">{title}</h2>
             <div className="breadcrumbs">
-                <Link href='/'>{titleDictionary.home}</Link>
+                <Link href={`/${activeLocale}`}>{titleDictionary.home}</Link>
                 {
                     breadcrumbs.map(link => (
                         <React.Fragment key={link.id}>

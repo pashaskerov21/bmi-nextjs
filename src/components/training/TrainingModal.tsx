@@ -113,8 +113,8 @@ const SlideContent: React.FC<ContentProps> = ({ category_id, training_id, active
                             {requiredTrainingTranslate.generalInformation.length > 200 ? requiredTrainingTranslate.generalInformation.slice(0, 200) + ' .....' : requiredTrainingTranslate.generalInformation}
                         </div>
                         <div className="buttons">
-                            <Link href={`/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>{buttonDictionary.details}</Link>
-                            <Link href={`/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>{buttonDictionary.registration}</Link>
+                            <Link href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>{buttonDictionary.details}</Link>
+                            <Link href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>{buttonDictionary.registration}</Link>
                         </div>
                     </React.Fragment>
                 ) : null

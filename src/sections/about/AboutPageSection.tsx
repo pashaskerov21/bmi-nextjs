@@ -27,14 +27,18 @@ const AboutPageSection: React.FC<AboutProps> = ({
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
-            path: '/about',
+            path: `/${activeLocale}/about`,
             name: titleDictionary.about_us,
         }
     ]
     return (
         <Section $py={20} $py_xl={40}>
             <Container>
-                <PageTitle titleDictionary={titleDictionary} title={titleDictionary.about_us} breadcrumbs={breadcrumbs} />
+                <PageTitle
+                    activeLocale={activeLocale}
+                    titleDictionary={titleDictionary}
+                    title={titleDictionary.about_us}
+                    breadcrumbs={breadcrumbs} />
                 <Row>
                     <RowCol>
                         <AboutContentWrapper>

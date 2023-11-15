@@ -22,13 +22,14 @@ const TrainingPageSection: React.FC<TrainingProps> = ({
         {
             id: 1,
             name: titleDictionary.trainings,
-            path: '/trainings'
+            path: `${activeLocale}/trainings`
         }
     ]
     return (
         <Section $py={20}>
             <Container>
                 <PageTitle
+                    activeLocale={activeLocale}
                     title={titleDictionary.trainings}
                     breadcrumbs={breadcrumbs}
                     titleDictionary={titleDictionary} />
@@ -66,7 +67,7 @@ const CardContent: React.FC<CardProps> = ({ activeLocale, categoryData, category
                     cardType='link'
                     title={requiredTranslate.title}
                     image={categoryData.image}
-                    slug={`/trainings/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}
+                    slug={`/${activeLocale}/trainings/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}
                     buttonDictionary={buttonDictionary} />
             ) : null}
         </React.Fragment>

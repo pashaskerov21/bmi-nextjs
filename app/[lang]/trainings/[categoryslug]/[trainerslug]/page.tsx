@@ -67,6 +67,7 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
                     <React.Fragment>
                         <Suspense fallback={<div className='preloader'></div>}>
                             <TrainingInnerSection
+                                activeLocale={lang}
                                 categoryTranslateData={requiredCategoryTranslateData}
                                 trainingData={requiredTrainingData}
                                 trainingTranslateData={requiredTrainingTranslateData}
@@ -78,15 +79,15 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
                     </React.Fragment>
                 )
             } else {
-                redirect('/404')
+                redirect(`/${lang}/trainings`)
             }
 
         } else {
-            redirect('/404')
+            redirect(`/${lang}/trainings`)
         }
 
     } else {
-        redirect('/404')
+        redirect(`/${lang}/404`)
     }
 }
 

@@ -17,31 +17,33 @@ const TrainerCard: React.FC<CardProps> = ({ activeLocale, trainerData, trainerTr
     const requiredTranslate: TrainerTranslateType | undefined = trainerTranslateData.find((data) => data.trainer_id === trainerData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
-            <TrainerCardWrapper>
-                <div className="image">
-                    <Image className='trainer-img' src={trainerData.image} width={300} height={300} alt='trainer' />
-                    <div className="linear-hover"></div>
-                    <div className="icons">
-                        <div className={`socials ${iconShow && 'active'}`}>
-                            <Link href={trainerData.facebook ? trainerData.facebook : '/'}><FaFacebookF /></Link>
-                            <Link href={trainerData.instagram ? trainerData.instagram : '/'}><FaInstagram /></Link>
-                            <Link href={trainerData.linkedin ? trainerData.linkedin : '/'}><FaLinkedinIn /></Link>
-                            <Link href={trainerData.twitter ? trainerData.twitter : '/'}><FaTwitter /></Link>
+            {
+                requiredTranslate ? (
+                    <TrainerCardWrapper>
+                        <div className="top">
+                            <Link href={`/${activeLocale}/trainers/${encodeURIComponent(requiredTranslate.name.toLocaleLowerCase())}`} className='image'>
+                                <Image className='trainer-img' src={trainerData.image} width={300} height={300} alt='trainer' />
+                                <div className="linear-hover"></div>
+                            </Link>
+                            <div className="icons">
+                                <div className={`socials ${iconShow && 'active'}`}>
+                                    <Link href={trainerData.facebook ? trainerData.facebook : '/'}><FaFacebookF /></Link>
+                                    <Link href={trainerData.instagram ? trainerData.instagram : '/'}><FaInstagram /></Link>
+                                    <Link href={trainerData.linkedin ? trainerData.linkedin : '/'}><FaLinkedinIn /></Link>
+                                    <Link href={trainerData.twitter ? trainerData.twitter : '/'}><FaTwitter /></Link>
+                                </div>
+                                <div className="show-btn" onClick={() => setIconShow(!iconShow)}>
+                                    <FaShareAlt />
+                                </div>
+                            </div>
                         </div>
-                        <div className="show-btn" onClick={() => setIconShow(!iconShow)}>
-                            <FaShareAlt/>
-                        </div>
-                    </div>
-                </div>
-                {
-                    requiredTranslate ? (
-                        <Link href={`/trainers/${encodeURIComponent(requiredTranslate.name.toLocaleLowerCase())}`} className='info'>
+                        <Link href={`/${activeLocale}/trainers/${encodeURIComponent(requiredTranslate.name.toLocaleLowerCase())}`} className='bottom'>
                             <div className='name'>{requiredTranslate.name}</div>
                             <div className='position'>{requiredTranslate.position}</div>
                         </Link>
-                    ) : null
-                }
-            </TrainerCardWrapper>
+                    </TrainerCardWrapper>
+                ) : null
+            }
         </React.Fragment>
     )
 }
