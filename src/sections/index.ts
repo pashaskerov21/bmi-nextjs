@@ -8,6 +8,7 @@ import TrainingHomeSection from "./training/TrainingHomeSection";
 import TrainingPageSection from "./training/TrainingsPageSection";
 import CategoryPageSection from "./training/CategoryInnerSection";
 import TrainingInnerSection from "./training/TrainingInnerSection";
+import TrainerHomeSection from "./trainer/TrainerHomeSection";
 
 
 export {
@@ -20,4 +21,5 @@ export {
     TrainingPageSection,
     CategoryPageSection,
     TrainingInnerSection,
+    TrainerHomeSection,
 }

@@ -11,11 +11,12 @@ const ScrollButtonWrapper = styled.div`
     border-radius: 10px;
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 20px;
     background-color: ${props => props.theme.text_color_v2};
     color: ${props => props.theme.bg_color_v1};
     font-size: 20px;
     box-shadow: 0 0 5px #fff;
+    z-index: 9999;
     svg{
         display: block;
     }

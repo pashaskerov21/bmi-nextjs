@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 import { getTranslate } from '../../get-translate'
 import { Locale, i18n } from '../../i18n-config'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, ReportTranslateType, ReportType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
-import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchReport, fetchReportTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
-import { AboutHomeSection, BannerSection, ReportSection, TrainingHomeSection } from '@/src/sections'
+import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
+import { AboutHomeSection, BannerSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
 import { notFound } from 'next/navigation'
 
 const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
@@ -19,7 +19,9 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
     trainingCategoryData,
     trainingCategoryTranslateData,
     trainingData,
-    trainingTranslateData]:
+    trainingTranslateData,
+    trainerData,
+    trainerTranslateData]:
     [
       BannerType[] | undefined,
       BannerTranslateType[] | undefined,
@@ -32,7 +34,9 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
       TrainingCategoryType[] | undefined,
       TrainingCategoryTranslateType[] | undefined,
       TrainingType[] | undefined,
-      TrainingTranslateType[] | undefined] = await Promise.all(
+      TrainingTranslateType[] | undefined,
+      TrainerType[] | undefined,
+      TrainerTranslateType[] | undefined] = await Promise.all(
         [
           fetchBanner(),
           fetchBannerTranslate(),
@@ -45,13 +49,15 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
           fetchTrainingCategory(),
           fetchTrainingCategoryTranslate(),
           fetchTraining(),
-          fetchTrainingTranslate()]);
+          fetchTrainingTranslate(),
+          fetchTrainer(),
+          fetchTrainerTranslate()]);
 
   const t = await getTranslate(lang);
   const buttonDictionary = t.button;
   const titleDictionary = t.title;
 
-  if(!i18n.locales.includes(lang)){
+  if (!i18n.locales.includes(lang)) {
     notFound();
   }
   return (
@@ -89,6 +95,13 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
             trainingTranslateData={trainingTranslateData}
             titleDictionary={titleDictionary}
             buttonDictionary={buttonDictionary} />
+        ) : null}
+        {(trainerData && trainerTranslateData) ? (
+          <TrainerHomeSection
+            activeLocale={lang}
+            trainerData={trainerData}
+            trainerTranslateData={trainerTranslateData}
+            titleDictionary={titleDictionary} />
         ) : null}
       </Suspense>
     </React.Fragment>

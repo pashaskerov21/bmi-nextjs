@@ -10,6 +10,7 @@ import SectionTitle from "./SectionTitle";
 import TrainingCard from "./training/TrainingCard";
 import TrainingModal from "./training/TrainingModal";
 import TrainingAccordion from "./training/TrainingAccordion";
+import TrainerCard from "./trainer/TrainerCard";
 
 export {
     SocialMedia,
@@ -24,4 +25,5 @@ export {
     TrainingCard,
     TrainingModal,
     TrainingAccordion,
+    TrainerCard
 }

@@ -329,8 +329,11 @@ input{
             padding-bottom: 30px;
         }
     }
-    &.training-modal{
-        padding-bottom: 40px;
+    &.training-modal-slider{
+        padding: 40px 0;
+    }
+    &.trainer-slider{
+        padding-bottom: 30px;
     }
 }
 

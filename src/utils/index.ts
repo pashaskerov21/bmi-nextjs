@@ -35,7 +35,8 @@ import {
 import {
     bannerSettings,
     trainingCategorySettings,
-    trainingModalSliderSettings
+    trainingModalSliderSettings,
+    trainerSliderettings
 } from './sliderSetting'
 
 
@@ -75,5 +76,6 @@ export {
     bannerSettings,
     trainingCategorySettings,
     trainingModalSliderSettings,
+    trainerSliderettings,
 }
 
