@@ -24,7 +24,8 @@
     "training_content": "Training Content",
     "training_payment": "Training Payment",
     "events": "Events",
-    "event_home": "Events that we are the organizer and organizational supporter of"
+    "event_home": "Events that we are the organizer and organizational supporter of",
+    "other_events": "Other events"
   },
   "error_404": {
     "page_404": "Page not found",

@@ -332,7 +332,9 @@ input{
     &.training-modal-slider{
         padding: 40px 0;
     }
-    &.trainer-slider{
+    &.trainer-slider,
+    &.event-gallery-slider,
+    &.other-events-slider{
         padding-bottom: 30px;
     }
     &.other-training-slider{

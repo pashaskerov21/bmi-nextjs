@@ -202,3 +202,75 @@ export const eventHomeSliderSettings = {
       }
   ]
 };
+
+export const eventGallerySliderSettings = {
+  className: 'event-gallery-slider',
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  initialSlide: 0,
+  responsive: [
+      {
+          breakpoint: 1200,
+          settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+          }
+      },
+      {
+          breakpoint: 992,
+          settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+          }
+      },
+      {
+          breakpoint: 768,
+          settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+          }
+      }
+  ]
+};
+
+export const otherEventsSliderSettings = {
+  className: "other-events-slider",
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  initialSlide: 0,
+  responsive: [
+      {
+          breakpoint: 1200,
+          settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+          }
+      },
+      {
+          breakpoint: 992,
+          settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+          }
+      },
+      {
+          breakpoint: 768,
+          settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+          }
+      }
+  ]
+};

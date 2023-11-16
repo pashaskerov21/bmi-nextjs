@@ -1,36 +1,46 @@
-import { EventDataType } from '@/src/types'
 import React from 'react'
 import { EventCardSecondWrapper } from './style'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaCalendarAlt } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
+import { EventTranslateType, EventType } from '@/src/types'
 
-type EventCardSecondProps = {
-  eventItem: EventDataType,
+type EventCardProps = {
+  activeLocale: string,
+  eventData: EventType,
+  eventTranslateData: EventTranslateType[],
+  buttonDictionary: { [key: string]: string },
 }
 
-const EventCardSecond: React.FC<EventCardSecondProps> = ({ eventItem }) => {
+const EventCardSecond: React.FC<EventCardProps> = ({ activeLocale, eventData, eventTranslateData, buttonDictionary }) => {
+  const requiredTranslate: EventTranslateType | undefined = eventTranslateData.find((data) => data.event_id === eventData.id && data.lang === activeLocale)
   return (
-    <EventCardSecondWrapper>
-      <div className="image">
-        <Image src={eventItem.cover} width={400} height={200} alt='' />
-        <div className="hover">
-          <Link href={`/events/${encodeURIComponent(eventItem.title.toLocaleLowerCase())}`}>ətraflı</Link>
-        </div>
-      </div>
-      <h3 className="title">{eventItem.title}</h3>
-      <div className="icons">
-        <div className="item">
-          <FaCalendarAlt />
-          <span>{eventItem.date}</span>
-        </div>
-        <div className="item">
-          <FaLocationDot />
-          <span>{eventItem.location}</span>
-        </div>
-      </div>
-    </EventCardSecondWrapper>
+    <React.Fragment>
+      {
+        requiredTranslate ? (
+          <EventCardSecondWrapper>
+            <div className="image">
+              <Image src={eventData.cover} width={400} height={200} alt='' />
+              <div className="hover">
+                <Link href={`/events/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}>{buttonDictionary.details}</Link>
+              </div>
+            </div>
+            <h3 className="title">{requiredTranslate.title}</h3>
+            <div className="icons">
+              <div className="item">
+                <FaCalendarAlt />
+                <span>{requiredTranslate.date}</span>
+              </div>
+              <div className="item">
+                <FaLocationDot />
+                <span>{requiredTranslate.location}</span>
+              </div>
+            </div>
+          </EventCardSecondWrapper>
+        ) : null
+      }
+    </React.Fragment>
   )
 }
 

@@ -24,7 +24,8 @@
         "training_content": "Təlimin mündəricatı",
         "training_payment": "Təlimin ödənişi",
         "events": "Tədbirlər",
-        "event_home": "Təşkilatçısı və təşkilati dəstəkçisi olduğumuz tədbirlər"
+        "event_home": "Təşkilatçısı və təşkilati dəstəkçisi olduğumuz tədbirlər",
+        "other_events": "Digər tədbirlər"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",

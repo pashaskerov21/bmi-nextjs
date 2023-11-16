@@ -14,6 +14,8 @@ import TrainerInnerSection from "./trainer/TrainerInnerSection";
 import OtherTrainingSection from "./training/OtherTrainingSection";
 import EventHomeSection from "./event/EventHomeSection";
 import EventsPageSection from "./event/EventsPageSection";
+import EventInnerSection from "./event/EventInnerSection";
+import OtherEventSection from "./event/OtherEventSection";
 
 export {
     Page404Section,
@@ -31,4 +33,6 @@ export {
     OtherTrainingSection,
     EventHomeSection,
     EventsPageSection,
+    EventInnerSection,
+    OtherEventSection,
 }
