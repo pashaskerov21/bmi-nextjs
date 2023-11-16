@@ -17,11 +17,14 @@
         "why_us": "Niyə biz?",
         "about_us": "Haqqımızda",
         "trainings": "Təlimlər",
+        "other_trainings": "Digər təlimlər",
         "trainers": "Təlimçilər",
         "trainer_home": "Peşəkar təlimçilərdən öyrən",
         "general_info": "Ümumi məlumat",
         "training_content": "Təlimin mündəricatı",
-        "training_payment": "Təlimin ödənişi"
+        "training_payment": "Təlimin ödənişi",
+        "events": "Tədbirlər",
+        "event_home": "Təşkilatçısı və təşkilati dəstəkçisi olduğumuz tədbirlər"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",

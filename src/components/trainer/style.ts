@@ -44,7 +44,7 @@ export const TrainerCardWrapper = styled.div`
                     opacity: 1;
                 }
                 a{
-                    margin-right: 10px;
+                    margin-right: 7px;
                 }
             }
             .show-btn, a{

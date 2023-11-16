@@ -324,7 +324,7 @@ input{
             padding: 0;
         }
     }
-    &.trainings-slider{
+    &.training-category-slider{
         @media (min-width: 576px){
             padding-bottom: 30px;
         }
@@ -334,6 +334,12 @@ input{
     }
     &.trainer-slider{
         padding-bottom: 30px;
+    }
+    &.other-training-slider{
+        padding-bottom: 30px;
+        .slick-cloned{
+            display: none;
+        }
     }
 }
 

@@ -17,11 +17,14 @@
     "why_us": "Why us?",
     "about_us": "About us",
     "trainings": "Trainings",
+    "other_trainings": "Other Trainings",
     "trainers": "Trainers",
     "trainer_home": "Learn from professional trainers",
     "general_info": "General information",
     "training_content": "Training Content",
-    "training_payment": "Training Payment"
+    "training_payment": "Training Payment",
+    "events": "Events",
+    "event_home": "Events that we are the organizer and organizational supporter of"
   },
   "error_404": {
     "page_404": "Page not found",

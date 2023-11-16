@@ -63,6 +63,7 @@ const TrainingInnerSection: React.FC<TrainingProps> = ({
                         </div>
                     </div>
                     <TrainingAccordion
+                        activeLocale={activeLocale}
                         trainingTranslateData={trainingTranslateData}
                         trainerData={trainerData}
                         trainerTranslateData={trainerTranslateData}

@@ -2,8 +2,11 @@ import { TrainerTranslateType, TrainerType, TrainingTranslateType } from '@/src/
 import React from 'react'
 import { TrainingAccordionWrapper } from './style'
 import { FaChevronDown } from 'react-icons/fa6'
+import { Grid } from '@/src/styles/utils'
+import TrainerCard from '../trainer/TrainerCard'
 
 type AccordionProps = {
+    activeLocale: string,
     trainingTranslateData: TrainingTranslateType,
     trainerData: TrainerType[],
     trainerTranslateData: TrainerTranslateType[],
@@ -11,6 +14,7 @@ type AccordionProps = {
 }
 
 const TrainingAccordion: React.FC<AccordionProps> = ({
+    activeLocale,
     trainingTranslateData,
     trainerData,
     trainerTranslateData,
@@ -59,7 +63,16 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
                 </div>
                 <div className="accordion-body">
                     <div className="inner">
-                        
+                        <Grid $col={4}>
+                            {
+                                trainerData.map((data) => (
+                                    <TrainerCard
+                                        activeLocale={activeLocale}
+                                        trainerData={data}
+                                        trainerTranslateData={trainerTranslateData} />
+                                ))
+                            }
+                        </Grid>
                     </div>
                 </div>
             </div>

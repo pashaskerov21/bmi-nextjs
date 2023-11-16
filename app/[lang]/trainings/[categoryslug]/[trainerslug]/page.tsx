@@ -1,6 +1,6 @@
 import { getTranslate } from '@/get-translate';
 import { Locale } from '@/i18n-config';
-import { TrainingInnerSection } from '@/src/sections';
+import { OtherTrainingSection, TrainingInnerSection } from '@/src/sections';
 import { TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
 import { fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
 import { Metadata } from 'next';
@@ -59,7 +59,8 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
         const requiredTrainingTranslateData: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.lang === lang && data.title === trainingSlug);
         if (requiredCategoryTranslateData && requiredTrainingTranslateData) {
             const requiredTrainingData: TrainingType | undefined = trainingData.find((data) => data.id === requiredTrainingTranslateData.training_id);
-            if (requiredTrainingData) {
+            const otherTrainingData: TrainingType[] = trainingData.filter((data) => data.id !== requiredTrainingTranslateData.training_id && data.categoryID === requiredCategoryTranslateData.category_id);
+            if (requiredTrainingData && otherTrainingData) {
                 const filteredTrainers: TrainerType[] = requiredTrainingData.trainersID.map((id) => {
                     return trainerData.find((data) => data.id === id);
                 }).filter((trainer): trainer is TrainerType => trainer !== undefined);
@@ -73,6 +74,13 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
                                 trainingTranslateData={requiredTrainingTranslateData}
                                 trainerData={filteredTrainers}
                                 trainerTranslateData={trainerTranslateData}
+                                titleDictionary={titleDictionary}
+                                buttonDictionary={buttonDictionary} />
+                            <OtherTrainingSection
+                                activeLocale={lang}
+                                categoryTranslateData={requiredCategoryTranslateData}
+                                trainingData={otherTrainingData}
+                                trainingTranslateData={trainingTranslateData}
                                 titleDictionary={titleDictionary}
                                 buttonDictionary={buttonDictionary} />
                         </Suspense>

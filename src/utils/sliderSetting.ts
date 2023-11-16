@@ -8,7 +8,7 @@ export const bannerSettings = {
 }
 
 export const trainingCategorySettings = {
-  className: 'trainings-slider pagination-secondary',
+  className: 'training-category-slider pagination-secondary grid-slider',
   infinite: true,
   speed: 500,
   slidesToShow: 5,
@@ -116,5 +116,89 @@ export const trainerSliderettings = {
         slidesToScroll: 1
       }
     }
+  ]
+};
+
+export const otherTrainingSliderSettings = {
+  className: 'other-training-slider',
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+  initialSlide: 0,
+  dots: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  cssEase: "ease",
+  responsive: [
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 4,
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 3,
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    }
+  ]
+};
+
+export const eventHomeSliderSettings = {
+  className: 'grid-slider',
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  initialSlide: 0,
+  rows: 2,
+  responsive: [
+      {
+          breakpoint: 992,
+          settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+              
+          }
+      },
+      {
+          breakpoint: 768,
+          settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              rows: 1,
+          }
+      }
   ]
 };

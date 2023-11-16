@@ -11,6 +11,7 @@ import TrainingCard from "./training/TrainingCard";
 import TrainingModal from "./training/TrainingModal";
 import TrainingAccordion from "./training/TrainingAccordion";
 import TrainerCard from "./trainer/TrainerCard";
+import EventCard from "./event/EventCard";
 
 export {
     SocialMedia,
@@ -25,5 +26,6 @@ export {
     TrainingCard,
     TrainingModal,
     TrainingAccordion,
-    TrainerCard
+    TrainerCard,
+    EventCard,
 }
