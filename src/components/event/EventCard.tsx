@@ -21,7 +21,7 @@ const EventCard: React.FC<EventCardProps> = ({ activeLocale, eventData, eventTra
                         <Image className='cover' src={eventData.cover} width={500} height={500} alt='' />
                         <div className="content">
                             <Image className='logo' src={eventData.logo} width={100} height={100} alt='' />
-                            <Link href={`/events/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}>{requiredTranslate.title}</Link>
+                            <Link href={`/${activeLocale}/events/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}>{requiredTranslate.title}</Link>
                         </div>
                     </EventCardWrapper>
                 ) : null
