@@ -17,6 +17,7 @@ import EventsPageSection from "./event/EventsPageSection";
 import EventInnerSection from "./event/EventInnerSection";
 import OtherEventSection from "./event/OtherEventSection";
 import NewsHomeSection from "./news/NewsHomeSection";
+import NewsPageSection from "./news/NewsPageSection";
 
 export {
     Page404Section,
@@ -37,4 +38,5 @@ export {
     EventInnerSection,
     OtherEventSection,
     NewsHomeSection,
+    NewsPageSection
 }

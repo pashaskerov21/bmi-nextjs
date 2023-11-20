@@ -37,7 +37,7 @@ export const newsTranslateData = [
     {
         id: 2,
         news_id: 1,
-        lang: 'az',
+        lang: 'en',
         title: 'news title 1',
         date: '22 november 2023',
         location: 'Baku, Azerbaijan',
@@ -55,7 +55,7 @@ export const newsTranslateData = [
     {
         id: 4,
         news_id: 2,
-        lang: 'az',
+        lang: 'en',
         title: 'news title 2',
         date: '22 november 2023',
         location: 'Baku, Azerbaijan',
@@ -73,7 +73,7 @@ export const newsTranslateData = [
     {
         id: 6,
         news_id: 3,
-        lang: 'az',
+        lang: 'en',
         title: 'news title 3',
         date: '22 november 2023',
         location: 'Baku, Azerbaijan',
@@ -91,7 +91,7 @@ export const newsTranslateData = [
     {
         id: 8,
         news_id: 4,
-        lang: 'az',
+        lang: 'en',
         title: 'news title 4',
         date: '22 november 2023',
         location: 'Baku, Azerbaijan',
@@ -109,7 +109,7 @@ export const newsTranslateData = [
     {
         id: 10,
         news_id: 5,
-        lang: 'az',
+        lang: 'en',
         title: 'news title 5',
         date: '22 november 2023',
         location: 'Baku, Azerbaijan',
@@ -127,7 +127,7 @@ export const newsTranslateData = [
     {
         id: 12,
         news_id: 6,
-        lang: 'az',
+        lang: 'en',
         title: 'news title 6',
         date: '22 november 2023',
         location: 'Baku, Azerbaijan',
