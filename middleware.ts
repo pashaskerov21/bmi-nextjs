@@ -86,6 +86,9 @@ export function middleware(request: NextRequest) {
       '/news/img-1.webp',
       '/news/img-2.webp',
       '/news/img-3.webp',
+      '/news/img-4.webp',
+      '/news/img-5.webp',
+      '/news/img-6.webp',
 
       '/partners/img-1.webp',
       '/partners/img-2.webp',

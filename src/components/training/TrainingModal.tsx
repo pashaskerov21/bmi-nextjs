@@ -67,7 +67,7 @@ const TrainingModal: React.FC<ModalProps> = ({
                                             <div className="slide-inner">
                                                 <TrainingSlide>
                                                     <div className="image">
-                                                        <Image src={data.cardImage} width={450} height={450} alt='' />
+                                                        <Image src={data.cardImage} width={500} height={400} alt='' />
                                                     </div>
                                                     <div className="content">
                                                         <div className={`status-badge ${data.status ? 'online' : 'offline'}`}>

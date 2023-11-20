@@ -334,7 +334,8 @@ input{
     }
     &.trainer-slider,
     &.event-gallery-slider,
-    &.other-events-slider{
+    &.other-events-slider,
+    &.news-slider{
         padding-bottom: 30px;
     }
     &.other-training-slider{
