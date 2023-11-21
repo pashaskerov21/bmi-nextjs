@@ -10,9 +10,9 @@ import React, { Suspense } from 'react'
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
-    const trainersTitle = `BMI | ${titleDictionary.trainers}`;
+    const pageTitle = `BMI | ${titleDictionary.trainers}`;
     return {
-        title: trainersTitle,
+        title: pageTitle,
     }
 }
 

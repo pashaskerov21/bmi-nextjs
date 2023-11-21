@@ -10,9 +10,9 @@ import { NewsPageSection } from '@/src/sections';
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
-    const newsTitle = `BMI | ${titleDictionary.news}`;
+    const pageTitle = `BMI | ${titleDictionary.news}`;
     return {
-        title: newsTitle,
+        title: pageTitle,
     }
 }
 
@@ -20,7 +20,13 @@ const NewsPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
     const buttonDictionary = t.button;
-    const [newsData, newsTranslateData]: [NewsType[] | undefined, NewsTranslateType[] | undefined] = await Promise.all([fetchNews(), fetchNewsTranslate()])
+    const [
+        newsData,
+        newsTranslateData]: [
+            NewsType[] | undefined,
+            NewsTranslateType[] | undefined] = await Promise.all([
+                fetchNews(),
+                fetchNewsTranslate()]);
     return (
         <React.Fragment>
             <Suspense fallback={<div className='preloader'></div>}>

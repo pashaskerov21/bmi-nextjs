@@ -10,9 +10,9 @@ import { notFound, redirect } from 'next/navigation';
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
   const t = await getTranslate(lang);
   const titleDictionary = t.title;
-  const trainingTitle = `BMI | ${titleDictionary.trainings}`;
+  const pageTitle = `BMI | ${titleDictionary.trainings}`;
   return {
-    title: trainingTitle,
+    title: pageTitle,
   }
 }
 

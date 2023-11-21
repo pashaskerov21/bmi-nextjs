@@ -275,7 +275,7 @@ export const otherEventsSliderSettings = {
   ]
 };
 
-export const newsHomeSliderSettings = {
+export const newsSliderSettings = {
   className: 'news-slider',
   dots: true,
   infinite: true,

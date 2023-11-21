@@ -14,19 +14,19 @@ type NewsProps = {
   buttonDictionary: { [key: string]: string },
 }
 
-const NewsHomeSection: React.FC<NewsProps> = ({ activeLocale, newsData, newsTranslateData, titleDictionary, buttonDictionary }) => {
+const OtherNewsSection: React.FC<NewsProps> = ({ activeLocale, newsData, newsTranslateData, titleDictionary, buttonDictionary }) => {
   return (
     <Section $py={20}>
       <Container>
-        <SectionTitle title={titleDictionary.news} />
+        <SectionTitle title={titleDictionary.other_news} />
         <Slider {...newsSliderSettings}>
           {
             newsData.map((data) => (
               <div className='slide-inner' key={data.id}>
                 <NewsCard
                   activeLocale={activeLocale}
-                  newsData={data}
-                  newsTranslateData={newsTranslateData}
+                  newsData={data} 
+                  newsTranslateData={newsTranslateData} 
                   buttonDictionary={buttonDictionary} />
               </div>
             ))
@@ -37,4 +37,4 @@ const NewsHomeSection: React.FC<NewsProps> = ({ activeLocale, newsData, newsTran
   )
 }
 
-export default React.memo(NewsHomeSection)
+export default OtherNewsSection

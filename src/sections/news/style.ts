@@ -2,7 +2,7 @@ import { column_align_start, column_center, row_center } from "@/src/styles/mixi
 import styled from "styled-components";
 
 
-export const EventContentWrapper = styled.div`
+export const NewsContentWrapper = styled.div`
     width: 100%;
     ${column_center};
     .content-image{
@@ -47,17 +47,5 @@ export const EventContentWrapper = styled.div`
         @media (min-width: 1200px){
             font-size: 16px;
         }
-    }
-    .gallery-item{
-        width: 100%;
-        max-width: 350px;
-        height: 250px;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
-    .event-gallery-slider{
-        margin: 40px 0;        
     }
 `;

@@ -19,9 +19,9 @@ export const generateMetadata = async ({ params: { lang, categoryslug } }: { par
         if (requiredTranslate) {
             let firstLetter = requiredTranslate.title.charAt(0).toLocaleUpperCase();
             let result = firstLetter + requiredTranslate.title.slice(1);
-            const categoryTitle = `${titleDictionary.trainings} | ${result}`
+            const pageTitle = `${titleDictionary.trainings} | ${result}`
             return {
-                title: categoryTitle
+                title: pageTitle
             }
         } else {
             return {}

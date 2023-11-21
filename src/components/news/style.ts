@@ -9,11 +9,12 @@ export const NewsCardWrapper = styled.div`
     border-radius: 5px;
     transition: all 0.3s;
     margin: 3px 0;
+    box-shadow: 0 0 2px ${props => props.theme.text_color_v2};
     @media (min-width: 768px){
         margin: 5px;
     }
     &:hover{
-        box-shadow: 0 0 5px ${props => props.theme.text_color_v2};
+        box-shadow: 0 0 10px ${props => props.theme.text_color_v2};
     }
     .image{
         width: 100%;

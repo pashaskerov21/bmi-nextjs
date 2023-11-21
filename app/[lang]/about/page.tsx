@@ -11,9 +11,9 @@ import { notFound, redirect } from 'next/navigation'
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
-    const aboutTitle = `BMI | ${titleDictionary.about_us}`;
+    const pageTitle = `BMI | ${titleDictionary.about_us}`;
     return {
-        title: aboutTitle,
+        title: pageTitle,
     }
 }
 

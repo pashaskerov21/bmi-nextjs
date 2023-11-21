@@ -17,9 +17,9 @@ export const generateMetadata = async ({ params: { lang, slug } }: { params: { l
         if (requiredTranslate) {
             let firstLetter = requiredTranslate.title.charAt(0).toLocaleUpperCase();
             let result = firstLetter + requiredTranslate.title.slice(1);
-            const trainerTitle = `${titleDictionary.events} | ${result}`
+            const pageTitle = `${titleDictionary.events} | ${result}`
             return {
-                title: trainerTitle
+                title: pageTitle
             }
         } else {
             return {}
@@ -50,8 +50,8 @@ const EventInnerPage = async ({ params: { lang, slug } }: { params: { lang: Loca
         if (requiredTranslateData) {
             const requiredData: EventType | undefined = eventData.find((data) => data.id === requiredTranslateData.event_id);
             const filteredGalleryData: EventGalleryType[] = eventGalleryData.filter((data) => data.event_id === requiredTranslateData.event_id);
-            const otherEventData: EventType[] = eventData.filter((data) => data.id !== requiredTranslateData.event_id);
-            const otherEventDataTranslate: EventTranslateType[] = eventTranslateData.filter((data) => data.event_id !== requiredTranslateData.event_id)
+            const otherEventData: EventType[] | undefined = eventData.filter((data) => data.id !== requiredTranslateData.event_id);
+            const otherEventTranslateData: EventTranslateType[] | undefined = eventTranslateData.filter((data) => data.event_id !== requiredTranslateData.event_id)
             if (requiredData) {
                 return (
                     <React.Fragment>
@@ -62,12 +62,16 @@ const EventInnerPage = async ({ params: { lang, slug } }: { params: { lang: Loca
                                 eventTranslateData={requiredTranslateData}
                                 titleDictionary={titleDictionary}
                                 filteredGalleryData={filteredGalleryData} />
-                            <OtherEventSection
-                                activeLocale={lang} 
-                                eventData={otherEventData}
-                                eventTranslateData={otherEventDataTranslate}
-                                titleDictionary={titleDictionary}
-                                buttonDictionary={buttonDictionary}/>
+                            {
+                                (otherEventData && otherEventTranslateData) ? (
+                                    <OtherEventSection
+                                        activeLocale={lang}
+                                        eventData={otherEventData}
+                                        eventTranslateData={otherEventTranslateData}
+                                        titleDictionary={titleDictionary}
+                                        buttonDictionary={buttonDictionary} />
+                                ) : null
+                            }
                         </Suspense>
                     </React.Fragment>
                 )

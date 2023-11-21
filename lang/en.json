@@ -26,7 +26,8 @@
     "events": "Events",
     "event_home": "Events that we are the organizer and organizational supporter of",
     "other_events": "Other events",
-    "news": "News"
+    "news": "News",
+    "other_news": "Other news"
   },
   "error_404": {
     "page_404": "Page not found",

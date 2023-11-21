@@ -26,7 +26,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ activeLocale, newsData, newsTransla
               <div className="text">
                 {requiredTranslate.text.slice(0, 250) + ' ...'}
               </div>
-              <Link href={`/news/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}>{buttonDictionary.details} ...</Link>
+              <Link href={`/${activeLocale}/news/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}>{buttonDictionary.details} ...</Link>
             </div>
           </NewsCardWrapper>
         ) : null
