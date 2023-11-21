@@ -41,7 +41,9 @@ import {
     eventHomeSliderSettings,
     eventGallerySliderSettings,
     otherEventsSliderSettings,
-    newsSliderSettings
+    newsSliderSettings,
+    customerSliderSettings,
+    partnerSliderSettings
 } from './sliderSetting'
 
 
@@ -86,6 +88,8 @@ export {
     eventHomeSliderSettings,
     eventGallerySliderSettings,
     otherEventsSliderSettings,
-    newsSliderSettings
+    newsSliderSettings,
+    customerSliderSettings,
+    partnerSliderSettings,
 }
 

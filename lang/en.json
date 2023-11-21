@@ -30,7 +30,9 @@
     "other_events": "Other events",
     "news": "News",
     "other_news": "Other news",
-    "gallery_home": "From our training and events"
+    "gallery_home": "From our training and events",
+    "customers": "Our customers",
+    "partners": "Our partners"
   },
   "error_404": {
     "page_404": "Page not found",

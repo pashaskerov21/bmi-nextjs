@@ -186,7 +186,7 @@ export const fetchCustomer = async () => {
 }
 // partner
 export const fetchPartner = async () => {
-    const res = await fetch(`${process.env.BASE_URL}/api/partner`);
+    const res = await fetch(`${process.env.BASE_URL}/api/partners`);
     if (!res.ok) {
         throw new Error('Failed to fetch data')
     }

@@ -30,7 +30,9 @@
         "other_events": "Digər tədbirlər",
         "news": "Xəbərlər",
         "other_news": "Digər xəbərlər",
-        "gallery_home": "Təlim və tədbirlərimizdən"
+        "gallery_home": "Təlim və tədbirlərimizdən",
+        "customers": "Müştərilərimiz",
+        "partners": "Tərəfdaşlarımız"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",

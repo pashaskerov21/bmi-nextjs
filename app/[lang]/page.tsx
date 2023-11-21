@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 import { getTranslate } from '../../get-translate'
 import { Locale, i18n } from '../../i18n-config'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, EventTranslateType, EventType, GalleryType, NewsTranslateType, NewsType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
-import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchEvent, fetchEventTranslate, fetchGallery, fetchNews, fetchNewsTranslate, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
-import { AboutHomeSection, BannerSection, EventHomeSection, GallerySection, NewsHomeSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
+import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, CustomerType, EventTranslateType, EventType, GalleryType, NewsTranslateType, NewsType, PartnerType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchCustomer, fetchEvent, fetchEventTranslate, fetchGallery, fetchNews, fetchNewsTranslate, fetchPartner, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
+import { AboutHomeSection, BannerSection, CustomerSection, EventHomeSection, GallerySection, NewsHomeSection, PartnerSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
 import { notFound } from 'next/navigation'
 
 const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
@@ -26,7 +26,9 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
     eventTranslateData,
     newsData,
     newsTranslateData,
-    galleryData]:
+    galleryData,
+    customerData,
+    partnerData]:
     [
       BannerType[] | undefined,
       BannerTranslateType[] | undefined,
@@ -46,7 +48,9 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
       EventTranslateType[] | undefined,
       NewsType[] | undefined,
       NewsTranslateType[] | undefined,
-      GalleryType[] | undefined] = await Promise.all(
+      GalleryType[] | undefined,
+      CustomerType[] | undefined,
+      PartnerType[] | undefined] = await Promise.all(
         [
           fetchBanner(),
           fetchBannerTranslate(),
@@ -66,7 +70,9 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
           fetchEventTranslate(),
           fetchNews(),
           fetchNewsTranslate(),
-          fetchGallery()]);
+          fetchGallery(),
+          fetchCustomer(),
+          fetchPartner()]);
 
   const t = await getTranslate(lang);
   const buttonDictionary = t.button;
@@ -140,6 +146,20 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
             buttonDictionary={buttonDictionary}
             galleryData={galleryData} />
         ) : null}
+        {
+          customerData ? (
+            <CustomerSection
+              titleDictionary={titleDictionary}
+              customerData={customerData} />
+          ) : null
+        }
+        {
+          partnerData ? (
+            <PartnerSection
+              titleDictionary={titleDictionary}
+              partnerData={partnerData} />
+          ) : null
+        }
       </Suspense>
     </React.Fragment>
   )

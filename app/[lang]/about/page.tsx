@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 import { Locale } from '../../../i18n-config'
 import { getTranslate } from '../../../get-translate'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, GalleryType, ReportTranslateType, ReportType } from '@/src/types'
-import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchGallery, fetchReport, fetchReportTranslate } from '@/src/utils'
-import { AboutPageSection, GallerySection, ReportSection } from '@/src/sections'
+import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, CustomerType, GalleryType, PartnerType, ReportTranslateType, ReportType } from '@/src/types'
+import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchCustomer, fetchGallery, fetchPartner, fetchReport, fetchReportTranslate } from '@/src/utils'
+import { AboutPageSection, CustomerSection, GallerySection, PartnerSection, ReportSection } from '@/src/sections'
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
@@ -26,7 +26,9 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
         aboutTranslateData,
         aboutReportData,
         aboutReportTranslateData,
-        galleryData]:
+        galleryData,
+        customerData,
+        partnerData]:
         [
             ReportType[] | undefined,
             ReportTranslateType[] | undefined,
@@ -34,7 +36,9 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
             AboutTranslateType[] | undefined,
             AboutReportType[] | undefined,
             AboutReportTranslateType[] | undefined,
-            GalleryType[] | undefined] = await Promise.all(
+            GalleryType[] | undefined,
+            CustomerType[] | undefined,
+            PartnerType[] | undefined] = await Promise.all(
                 [
                     fetchReport(),
                     fetchReportTranslate(),
@@ -42,7 +46,9 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
                     fetchAboutTranslate(),
                     fetchAboutReport(),
                     fetchAboutReportTranslate(),
-                    fetchGallery()]);
+                    fetchGallery(),
+                    fetchCustomer(),
+                    fetchPartner()]);
 
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
@@ -71,6 +77,20 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
                         buttonDictionary={buttonDictionary}
                         galleryData={galleryData} />
                 ) : null}
+                {
+                    customerData ? (
+                        <CustomerSection
+                            titleDictionary={titleDictionary}
+                            customerData={customerData} />
+                    ) : null
+                }
+                {
+                    partnerData ? (
+                        <PartnerSection
+                            titleDictionary={titleDictionary}
+                            partnerData={partnerData} />
+                    ) : null
+                }
             </Suspense>
         </React.Fragment>
     )

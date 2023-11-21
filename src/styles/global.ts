@@ -344,6 +344,15 @@ input{
             display: none;
         }
     }
+    &.customer-slider,
+    &.partner-slider{
+        img{
+            object-fit: contain;
+        }
+        @media (min-width: 768px){
+            padding-bottom: 30px;
+        }
+    }
 }
 
 .preloader{

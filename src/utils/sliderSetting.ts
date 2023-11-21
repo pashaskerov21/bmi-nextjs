@@ -183,23 +183,23 @@ export const eventHomeSliderSettings = {
   initialSlide: 0,
   rows: 2,
   responsive: [
-      {
-          breakpoint: 992,
-          settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2,
-              
-          }
-      },
-      {
-          breakpoint: 768,
-          settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              rows: 1,
-          }
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+
       }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        rows: 1,
+      }
+    }
   ]
 };
 
@@ -212,30 +212,30 @@ export const eventGallerySliderSettings = {
   slidesToScroll: 4,
   initialSlide: 0,
   responsive: [
-      {
-          breakpoint: 1200,
-          settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-          }
-      },
-      {
-          breakpoint: 992,
-          settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-          }
-      },
-      {
-          breakpoint: 768,
-          settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-          }
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
       }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
   ]
 };
 
@@ -248,30 +248,30 @@ export const otherEventsSliderSettings = {
   slidesToScroll: 4,
   initialSlide: 0,
   responsive: [
-      {
-          breakpoint: 1200,
-          settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-          }
-      },
-      {
-          breakpoint: 992,
-          settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-          }
-      },
-      {
-          breakpoint: 768,
-          settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-          }
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
       }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
   ]
 };
 
@@ -284,20 +284,131 @@ export const newsSliderSettings = {
   slidesToScroll: 3,
   initialSlide: 0,
   responsive: [
-      {
-          breakpoint: 1200,
-          settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-          }
-      },
-      {
-          breakpoint: 768,
-          settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-          }
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2
       }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+};
+
+export const customerSliderSettings = {
+  className: 'customer-slider',
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 6,
+  slidesToScroll: 6,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots: false,
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+      }
+    },
+  ]
+};
+export const partnerSliderSettings = {
+  className: 'partner-slider',
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 8,
+  slidesToScroll: 8,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        dots: false,
+      }
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots: false,
+      }
+    },
+    {
+      breakpoint: 300,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+      }
+    },
   ]
 };
