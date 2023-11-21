@@ -10,7 +10,9 @@
     "details": "details",
     "registration": "registration",
     "prev_training": "prev training",
-    "next_training": "next training"
+    "next_training": "next training",
+    "photos": "photos",
+    "videos": "videos"
   },
   "title": {
     "home": "Home",
@@ -27,7 +29,8 @@
     "event_home": "Events that we are the organizer and organizational supporter of",
     "other_events": "Other events",
     "news": "News",
-    "other_news": "Other news"
+    "other_news": "Other news",
+    "gallery_home": "From our training and events"
   },
   "error_404": {
     "page_404": "Page not found",

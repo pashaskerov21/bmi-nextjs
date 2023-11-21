@@ -14,6 +14,8 @@ import TrainerCard from "./trainer/TrainerCard";
 import EventCard from "./event/EventCard";
 import EventCardSecond from "./event/EventCardSecond";
 import NewsCard from "./news/NewsCard";
+import Photos from "./gallery/Photos";
+import Videos from "./gallery/Videos";
 
 export {
     SocialMedia,
@@ -32,4 +34,6 @@ export {
     EventCard,
     EventCardSecond,
     NewsCard,
+    Photos,
+    Videos,
 }

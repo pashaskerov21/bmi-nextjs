@@ -20,6 +20,7 @@ import NewsHomeSection from "./news/NewsHomeSection";
 import NewsPageSection from "./news/NewsPageSection";
 import NewsInnerSection from "./news/NewsInnerSection";
 import OtherNewsSection from "./news/OtherNewsSection";
+import GallerySection from "./gallery/GallerySection";
 
 export {
     Page404Section,
@@ -43,4 +44,5 @@ export {
     NewsPageSection,
     NewsInnerSection,
     OtherNewsSection,
+    GallerySection,
 }

@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
 import { Locale } from '../../../i18n-config'
 import { getTranslate } from '../../../get-translate'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, ReportTranslateType, ReportType } from '@/src/types'
-import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchReport, fetchReportTranslate } from '@/src/utils'
-import { AboutPageSection, ReportSection } from '@/src/sections'
+import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, GalleryType, ReportTranslateType, ReportType } from '@/src/types'
+import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchGallery, fetchReport, fetchReportTranslate } from '@/src/utils'
+import { AboutPageSection, GallerySection, ReportSection } from '@/src/sections'
 import { Metadata } from 'next'
-import { notFound, redirect } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
@@ -18,31 +18,35 @@ export async function generateMetadata({ params: { lang }, }: { params: { lang: 
 }
 
 const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
-    
+
     const [
         reportData,
         reportTranslateData,
         aboutData,
         aboutTranslateData,
         aboutReportData,
-        aboutReportTranslateData]:
+        aboutReportTranslateData,
+        galleryData]:
         [
             ReportType[] | undefined,
             ReportTranslateType[] | undefined,
             AboutType[] | undefined,
             AboutTranslateType[] | undefined,
             AboutReportType[] | undefined,
-            AboutReportTranslateType[] | undefined] = await Promise.all(
+            AboutReportTranslateType[] | undefined,
+            GalleryType[] | undefined] = await Promise.all(
                 [
                     fetchReport(),
                     fetchReportTranslate(),
                     fetchAbout(),
                     fetchAboutTranslate(),
                     fetchAboutReport(),
-                    fetchAboutReportTranslate()]);
+                    fetchAboutReportTranslate(),
+                    fetchGallery()]);
 
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
+    const buttonDictionary = t.button;
     return (
         <React.Fragment>
             <Suspense fallback={<div className='preloader'></div>}>
@@ -54,13 +58,19 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
                         aboutReportData={aboutReportData}
                         aboutReportTranslateData={aboutReportTranslateData}
                         titleDictionary={titleDictionary} />
-                ) : redirect('/404')}
+                ) : redirect(`/${lang}/404`)}
                 {(reportData && reportTranslateData) ? (
                     <ReportSection
                         activeLocale={lang}
                         reportData={reportData}
                         reportTranslateData={reportTranslateData} />
-                )  : redirect('/404')}
+                ) : null}
+                {galleryData ? (
+                    <GallerySection
+                        titleDictionary={titleDictionary}
+                        buttonDictionary={buttonDictionary}
+                        galleryData={galleryData} />
+                ) : null}
             </Suspense>
         </React.Fragment>
     )

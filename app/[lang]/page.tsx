@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 import { getTranslate } from '../../get-translate'
 import { Locale, i18n } from '../../i18n-config'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, EventTranslateType, EventType, NewsTranslateType, NewsType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
-import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchEvent, fetchEventTranslate, fetchNews, fetchNewsTranslate, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
-import { AboutHomeSection, BannerSection, EventHomeSection, NewsHomeSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
+import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, EventTranslateType, EventType, GalleryType, NewsTranslateType, NewsType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchEvent, fetchEventTranslate, fetchGallery, fetchNews, fetchNewsTranslate, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
+import { AboutHomeSection, BannerSection, EventHomeSection, GallerySection, NewsHomeSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
 import { notFound } from 'next/navigation'
 
 const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
@@ -25,7 +25,8 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
     eventData,
     eventTranslateData,
     newsData,
-    newsTranslateData]:
+    newsTranslateData,
+    galleryData]:
     [
       BannerType[] | undefined,
       BannerTranslateType[] | undefined,
@@ -44,7 +45,8 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
       EventType[] | undefined,
       EventTranslateType[] | undefined,
       NewsType[] | undefined,
-      NewsTranslateType[] | undefined] = await Promise.all(
+      NewsTranslateType[] | undefined,
+      GalleryType[] | undefined] = await Promise.all(
         [
           fetchBanner(),
           fetchBannerTranslate(),
@@ -63,7 +65,8 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
           fetchEvent(),
           fetchEventTranslate(),
           fetchNews(),
-          fetchNewsTranslate(),]);
+          fetchNewsTranslate(),
+          fetchGallery()]);
 
   const t = await getTranslate(lang);
   const buttonDictionary = t.button;
@@ -130,6 +133,12 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
             titleDictionary={titleDictionary}
             buttonDictionary={buttonDictionary}
           />
+        ) : null}
+        {galleryData ? (
+          <GallerySection
+            titleDictionary={titleDictionary}
+            buttonDictionary={buttonDictionary}
+            galleryData={galleryData} />
         ) : null}
       </Suspense>
     </React.Fragment>
