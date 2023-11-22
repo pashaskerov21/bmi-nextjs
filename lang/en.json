@@ -26,6 +26,7 @@
     "general_info": "General information",
     "training_content": "Training Content",
     "training_payment": "Training Payment",
+    "registration": "Registration",
     "events": "Events",
     "event_home": "Events that we are the organizer and organizational supporter of",
     "other_events": "Other events",
@@ -65,6 +66,10 @@
       "email": "E-mail required",
       "email_format": "Enter the correct email format",
       "phone": "Phone required"
+    },
+    "success": {
+      "congrulations": "Congrulations",
+      "apply_text": "Your application has been sent successfully"
     }
   }
 }

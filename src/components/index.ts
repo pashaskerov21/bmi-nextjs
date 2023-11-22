@@ -18,6 +18,7 @@ import Photos from "./gallery/Photos";
 import Videos from "./gallery/Videos";
 
 import ApplyFormContainer from "./form/ApplyFormContainer";
+import AccordionFormContainer from "./form/AccordionFormContainer";
 
 
 export {
@@ -39,5 +40,6 @@ export {
     NewsCard,
     Photos,
     Videos,
-    ApplyFormContainer
+    ApplyFormContainer,
+    AccordionFormContainer,
 }

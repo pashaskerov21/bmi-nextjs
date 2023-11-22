@@ -4,6 +4,7 @@ import { TrainingAccordionWrapper } from './style'
 import { FaChevronDown } from 'react-icons/fa6'
 import { Grid } from '@/src/styles/utils'
 import TrainerCard from '../trainer/TrainerCard'
+import AccordionFormContainer from '../form/AccordionFormContainer'
 
 type AccordionProps = {
     activeLocale: string,
@@ -11,6 +12,12 @@ type AccordionProps = {
     trainerData: TrainerType[],
     trainerTranslateData: TrainerTranslateType[],
     titleDictionary: { [key: string]: string },
+    buttonDictionary: { [key: string]: string },
+    formDictionary: {
+        [key: string]: {
+            [key: string]: string
+        }
+    },
 }
 
 const TrainingAccordion: React.FC<AccordionProps> = ({
@@ -19,6 +26,8 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
     trainerData,
     trainerTranslateData,
     titleDictionary,
+    buttonDictionary,
+    formDictionary,
 }) => {
     const [activeItem, setActiveItem] = React.useState<string>();
     const handleAccordionButton = (key: string) => {
@@ -86,6 +95,19 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
                         <div className="text">
                             {trainingTranslateData.payment}
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className={`accordion-item ${activeItem === 'registration' && 'active'}`}>
+                <div className="accordion-button" onClick={() => handleAccordionButton('registration')}>
+                    <h3 className="title">{titleDictionary.registration}</h3>
+                    <button><FaChevronDown /></button>
+                </div>
+                <div className="accordion-body">
+                    <div className="inner">
+                        <AccordionFormContainer
+                            buttonDictionary={buttonDictionary}
+                            formDictionary={formDictionary} />
                     </div>
                 </div>
             </div>

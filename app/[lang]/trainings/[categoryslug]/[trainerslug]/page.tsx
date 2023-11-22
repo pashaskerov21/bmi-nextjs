@@ -33,6 +33,7 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
     const buttonDictionary = t.button;
+    const formDictionary = t.form;
 
     const categorySlug = decodeURIComponent(categoryslug);
     const trainingSlug = decodeURIComponent(trainerslug);
@@ -75,7 +76,8 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
                                 trainerData={filteredTrainers}
                                 trainerTranslateData={trainerTranslateData}
                                 titleDictionary={titleDictionary}
-                                buttonDictionary={buttonDictionary} />
+                                buttonDictionary={buttonDictionary}
+                                formDictionary={formDictionary} />
                             <OtherTrainingSection
                                 activeLocale={lang}
                                 categoryTranslateData={requiredCategoryTranslateData}

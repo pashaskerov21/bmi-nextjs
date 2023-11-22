@@ -69,8 +69,8 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
 
     Swal.fire({
       icon: "success",
-      title: "Congrulations",
-      text: "Something went wrong!",
+      title: formDictionary.success.congrulations,
+      text: formDictionary.success.apply_text,
     });
   }
   return (

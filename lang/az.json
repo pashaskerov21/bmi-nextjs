@@ -26,6 +26,7 @@
         "general_info": "Ümumi məlumat",
         "training_content": "Təlimin mündəricatı",
         "training_payment": "Təlimin ödənişi",
+        "registration": "Qeydiyyat",
         "events": "Tədbirlər",
         "event_home": "Təşkilatçısı və təşkilati dəstəkçisi olduğumuz tədbirlər",
         "other_events": "Digər tədbirlər",
@@ -65,6 +66,10 @@
             "email": "E-mail tələb olunur",
             "email_format": "Düzgün email formatı daxil edin",
             "phone": "Telefon nömrəsi tələb olunur"
+        },
+        "success": {
+            "congrulations": "Təbriklər",
+            "apply_text": "Müraciətiniz uğurla göndərildi"
         }
     }
 }

@@ -15,6 +15,11 @@ type TrainingProps = {
     trainerTranslateData: TrainerTranslateType[],
     titleDictionary: { [key: string]: string },
     buttonDictionary: { [key: string]: string },
+    formDictionary: {
+        [key: string]: {
+            [key: string]: string
+        }
+    },
 }
 
 const TrainingInnerSection: React.FC<TrainingProps> = ({
@@ -25,7 +30,8 @@ const TrainingInnerSection: React.FC<TrainingProps> = ({
     trainerData,
     trainerTranslateData,
     titleDictionary,
-    buttonDictionary }) => {
+    buttonDictionary,
+    formDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -67,7 +73,9 @@ const TrainingInnerSection: React.FC<TrainingProps> = ({
                         trainingTranslateData={trainingTranslateData}
                         trainerData={trainerData}
                         trainerTranslateData={trainerTranslateData}
-                        titleDictionary={titleDictionary} />
+                        titleDictionary={titleDictionary}
+                        buttonDictionary={buttonDictionary}
+                        formDictionary={formDictionary} />
                 </TrainingContentWrapper>
             </Container>
         </Section>
