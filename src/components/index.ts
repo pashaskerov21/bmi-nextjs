@@ -17,6 +17,9 @@ import NewsCard from "./news/NewsCard";
 import Photos from "./gallery/Photos";
 import Videos from "./gallery/Videos";
 
+import ApplyFormContainer from "./form/ApplyFormContainer";
+
+
 export {
     SocialMedia,
     Languages,
@@ -36,4 +39,5 @@ export {
     NewsCard,
     Photos,
     Videos,
+    ApplyFormContainer
 }

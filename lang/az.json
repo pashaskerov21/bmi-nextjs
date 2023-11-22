@@ -12,7 +12,8 @@
         "prev_training": "əvvəlki təlim",
         "next_training": "sonrakı təlim",
         "photos": "fotolar",
-        "videos": "videolar"
+        "videos": "videolar",
+        "apply": "Müraciət göndər"
     },
     "title": {
         "home": "Əsas səhifə",
@@ -32,10 +33,38 @@
         "other_news": "Digər xəbərlər",
         "gallery_home": "Təlim və tədbirlərimizdən",
         "customers": "Müştərilərimiz",
-        "partners": "Tərəfdaşlarımız"
+        "partners": "Tərəfdaşlarımız",
+        "apply": "Müraciət et"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",
         "category_404": ""
+    },
+    "form": {
+        "label": {
+            "training": "Təlim Seç",
+            "fullname": "Ad, soyad *",
+            "workplace": "İş yeri *",
+            "position": "Vəzifə *",
+            "email": "E-mail *",
+            "phone": "Telefon *"
+        },
+        "placeholder": {
+            "training": "Təlim seçin",
+            "fullname": "Adınız və soyadınız",
+            "workplace": "İş yerinizi daxil edin",
+            "position": "Vəzifənizi daxil edin",
+            "email": "Şəxsi e-mail ünvanınızı daxil edin",
+            "phone": "+994 55 555 55 55"
+        },
+        "error": {
+            "training": "Təlim tələb olunur",
+            "fullname": "Ad və soyad tələb olunur",
+            "workplace": "İş yeri tələb olunur",
+            "position": "Vəzifə tələb olunur",
+            "email": "E-mail tələb olunur",
+            "email_format": "Düzgün email formatı daxil edin",
+            "phone": "Telefon nömrəsi tələb olunur"
+        }
     }
 }

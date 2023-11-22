@@ -3,7 +3,7 @@ import { getTranslate } from '../../get-translate'
 import { Locale, i18n } from '../../i18n-config'
 import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, CustomerType, EventTranslateType, EventType, GalleryType, NewsTranslateType, NewsType, PartnerType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
 import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchCustomer, fetchEvent, fetchEventTranslate, fetchGallery, fetchNews, fetchNewsTranslate, fetchPartner, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
-import { AboutHomeSection, BannerSection, CustomerSection, EventHomeSection, GallerySection, NewsHomeSection, PartnerSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
+import { AboutHomeSection, ApplyFormSection, BannerSection, CustomerSection, EventHomeSection, GallerySection, NewsHomeSection, PartnerSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
 import { notFound } from 'next/navigation'
 
 const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
@@ -77,6 +77,7 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
   const t = await getTranslate(lang);
   const buttonDictionary = t.button;
   const titleDictionary = t.title;
+  const formDictionary = t.form;
 
   if (!i18n.locales.includes(lang)) {
     notFound();
@@ -158,6 +159,17 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
             <PartnerSection
               titleDictionary={titleDictionary}
               partnerData={partnerData} />
+          ) : null
+        }
+        {
+          (trainingData && trainingTranslateData) ? (
+            <ApplyFormSection
+              activeLocale={lang}
+              trainingData={trainingData}
+              trainingTranslateData={trainingTranslateData}
+              titleDictionary={titleDictionary}
+              formDictionary={formDictionary}
+              buttonDictionary={buttonDictionary} />
           ) : null
         }
       </Suspense>

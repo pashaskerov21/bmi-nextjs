@@ -23,6 +23,7 @@ import OtherNewsSection from "./news/OtherNewsSection";
 import GallerySection from "./gallery/GallerySection";
 import CustomerSection from "./customer/CustomerSection";
 import PartnerSection from "./partner/PartnerSection";
+import ApplyFormSection from "./appyform/ApplyFormSection";
 
 export {
     Page404Section,
@@ -49,4 +50,5 @@ export {
     GallerySection,
     CustomerSection,
     PartnerSection,
+    ApplyFormSection,
 }

@@ -12,7 +12,8 @@
     "prev_training": "prev training",
     "next_training": "next training",
     "photos": "photos",
-    "videos": "videos"
+    "videos": "videos",
+    "apply": "Send an application"
   },
   "title": {
     "home": "Home",
@@ -32,10 +33,38 @@
     "other_news": "Other news",
     "gallery_home": "From our training and events",
     "customers": "Our customers",
-    "partners": "Our partners"
+    "partners": "Our partners",
+    "apply": "Apply"
   },
   "error_404": {
     "page_404": "Page not found",
     "category_404": ""
+  },
+  "form": {
+    "label": {
+      "training": "Select Training",
+      "fullname": "First name, last name *",
+      "workplace": "Workplace *",
+      "position": "Position *",
+      "email": "E-mail *",
+      "phone": "Phone *"
+    },
+    "placeholder": {
+      "training": "Choose a training",
+      "fullname": "Your first and last name",
+      "workplace": "Enter your workplace",
+      "position": "Enter your position",
+      "email": "Enter your personal email address",
+      "phone": "+994 55 555 55 55"
+    },
+    "error": {
+      "training": "Training is required",
+      "fullname": "First and last name required",
+      "workplace": "Workplace required",
+      "position": "Position required",
+      "email": "E-mail required",
+      "email_format": "Enter the correct email format",
+      "phone": "Phone required"
+    }
   }
 }

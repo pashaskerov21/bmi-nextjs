@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { column_between, column_center, row_center } from "./mixin";
+import { column_align_start, column_between, column_center, row_center } from "./mixin";
 import { preloaderAnimation } from "./animation";
 
 export const GlobalStyles = createGlobalStyle`
@@ -71,6 +71,10 @@ input{
     outline: none;
     &::placeholder{
         user-select: none;
+    }
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        display: none;
     }
 }
 .swiper{
@@ -377,6 +381,59 @@ input{
         animation: ${preloaderAnimation} 0.7s linear infinite;
         @media (min-width: 992px){
             border-width: 7px;
+        }
+    }
+}
+
+
+.form-control{
+    width: 100%;
+    ${column_align_start};
+    position: relative;
+    padding-bottom: 25px;
+    label{
+        font-weight: 500;
+        margin-bottom: 8px;
+        margin-left: 6px;
+    }
+    input{
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        background-color: ${props => props.theme.bg_color_v1};
+        font-family: 'Montserrat', sans-serif;
+        &::placeholder{
+            font-weight: 600;
+            color: ${props => props.theme.text_color_v1};
+            opacity: 0.5;
+        }
+    }
+    .error{
+        position: absolute;
+        bottom: 0;
+        left: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #dc3545;
+    }
+    select{
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #ced4da;
+        background-color: ${props => props.theme.bg_color_v1};
+        color: ${props => props.theme.text_color_v1};
+        font-family: 'Montserrat', sans-serif;
+    }
+    option{
+        color: ${props => props.theme.text_color_v1};
+        font-family: 'Montserrat', sans-serif;
+        &.placeholder{
+            font-weight: 600;
+            color: ${props => props.theme.text_color_v1};
+            opacity: 0.5;
         }
     }
 }
