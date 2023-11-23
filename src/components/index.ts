@@ -8,6 +8,7 @@ import Counter from "./report/Counter";
 import PageTitle from "./PageTitle";
 import SectionTitle from "./SectionTitle";
 import TrainingCard from "./training/TrainingCard";
+import PopularTrainingCard from "./training/PopularTrainingCard";
 import TrainingModal from "./training/TrainingModal";
 import TrainingAccordion from "./training/TrainingAccordion";
 import TrainerCard from "./trainer/TrainerCard";
@@ -19,6 +20,8 @@ import Videos from "./gallery/Videos";
 
 import ApplyFormContainer from "./form/ApplyFormContainer";
 import AccordionFormContainer from "./form/AccordionFormContainer";
+
+import SiteToolbar from "./toolbar/SiteToolbar";
 
 
 export {
@@ -32,6 +35,7 @@ export {
     PageTitle,
     SectionTitle,
     TrainingCard,
+    PopularTrainingCard,
     TrainingModal,
     TrainingAccordion,
     TrainerCard,
@@ -42,4 +46,5 @@ export {
     Videos,
     ApplyFormContainer,
     AccordionFormContainer,
+    SiteToolbar
 }

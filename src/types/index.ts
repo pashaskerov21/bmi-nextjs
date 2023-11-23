@@ -104,6 +104,7 @@ export type TrainingType = {
     id: number,
     categoryID: number,
     status: boolean,
+    isPopular: boolean,
     cardImage: string,
     innerImage: string,
     trainersID: number[],

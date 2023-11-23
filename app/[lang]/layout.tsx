@@ -1,6 +1,6 @@
-import { MenuTranslateType, MenuType, SettingTranslateType, SettingType } from '@/src/types';
+import { MenuTranslateType, MenuType, SettingTranslateType, SettingType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
 import { Locale, i18n } from '../../i18n-config'
-import { fetchMenu, fetchMenuTranslate, fetchSetting, fetchSettingTranslate } from '@/src/utils';
+import { fetchMenu, fetchMenuTranslate, fetchSetting, fetchSettingTranslate, fetchTraining, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
 import { RootLayout, StyledComponentsRegistry } from '@/src/layout';
 import { getTranslate } from '@/get-translate';
 import { Metadata } from 'next';
@@ -16,15 +16,15 @@ export async function generateMetadata({ params: { lang }, }: { params: { lang: 
       fetchSetting(), fetchSettingTranslate(),]);
   if (settingData && settingTranslateData) {
     const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
-    if(requiredSettingTranslate){
-      return{
+    if (requiredSettingTranslate) {
+      return {
         title: requiredSettingTranslate.title,
         description: requiredSettingTranslate.description,
         icons: {
           icon: settingData[0].logo.iconWhite
         }
       }
-    }else{
+    } else {
       return {
         title: "BMI"
       }
@@ -44,21 +44,33 @@ export default async function Root({ children, params: { lang }, }: { children: 
     settingData,
     settingTranslateData,
     menuData,
-    menuTranslateData]:
+    menuTranslateData,
+    trainingCategoryTranslateData,
+    trainingData,
+    trainingTranslateData,]:
     [
       SettingType[] | undefined,
       SettingTranslateType[] | undefined,
       MenuType[] | undefined,
-      MenuTranslateType[] | undefined] = await Promise.all([
+      MenuTranslateType[] | undefined,
+      TrainingCategoryTranslateType[] | undefined,
+      TrainingType[] | undefined,
+      TrainingTranslateType[] | undefined] = await Promise.all([
         fetchSetting(),
         fetchSettingTranslate(),
         fetchMenu(),
-        fetchMenuTranslate()]);
+        fetchMenuTranslate(),
+        fetchTrainingCategoryTranslate(),
+        fetchTraining(),
+        fetchTrainingTranslate()]);
 
   const t = await getTranslate(lang)
   const footerDictionary: { [key: string]: string } = t.footer;
+  const titleDictionary = t.title;
+  const buttonDictionary = t.button;
+  const formDictionary = t.form;
 
-  if (settingData && settingTranslateData && menuData && menuTranslateData) {
+  if (settingData && settingTranslateData && menuData && menuTranslateData && trainingCategoryTranslateData && trainingData && trainingTranslateData) {
     const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
     const requiredMenuTranslate: MenuTranslateType[] | undefined = menuTranslateData.filter((data) => data.lang === lang)
     if (requiredSettingTranslate && requiredMenuTranslate) {
@@ -80,7 +92,14 @@ export default async function Root({ children, params: { lang }, }: { children: 
               requiredMenuTranslate={requiredMenuTranslate}
               activeLocale={lang}
               requiredSettingTranslate={requiredSettingTranslate}
-              footerDictionary={footerDictionary}>
+              footerDictionary={footerDictionary}
+              titleDictionary={titleDictionary}
+              buttonDictionary={buttonDictionary}
+              formDictionary={formDictionary}
+              trainingCategoryTranslateData={trainingCategoryTranslateData}
+              trainingData={trainingData}
+              trainingTranslateData={trainingTranslateData}
+            >
               {children}
             </RootLayout>
           </StyledComponentsRegistry>

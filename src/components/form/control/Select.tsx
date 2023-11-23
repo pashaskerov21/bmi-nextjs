@@ -18,7 +18,7 @@ const Select: React.FC<SelectProps> = ({ label, name, placeholder, options, ...r
         <div className='form-control'>
             <label htmlFor={name}>{label}</label>
             <Field as="select" id={name} name={name} {...rest}>
-                <option selected disabled value='' className='placeholder'>{placeholder}</option>
+                {/* <option selected disabled value='' className='placeholder'>{placeholder}</option> */}
                 {
                     options && options.map((option) => (
                         <option key={option.value} value={option.value}>{option.name}</option>

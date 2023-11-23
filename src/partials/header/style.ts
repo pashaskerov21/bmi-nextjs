@@ -273,7 +273,7 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
     max-width: 500px;
     min-height: 100vh;
     background-color: ${props => props.theme.primary_color_v1};
-    z-index: 9999;
+    z-index: 999999;
     ${column_justify_start};
     transition: all 0.3s;
     max-height: 100vh;

@@ -12,4 +12,5 @@ export const lightTheme = {
     text_color_v1: '#000000',
     text_color_v2: '#193263',
     text_color_v3: '#FFFFFF',    
+    text_color_v4: '#DB353A',    
 }

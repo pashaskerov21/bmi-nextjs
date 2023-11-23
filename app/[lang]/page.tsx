@@ -75,8 +75,8 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
           fetchPartner()]);
 
   const t = await getTranslate(lang);
-  const buttonDictionary = t.button;
   const titleDictionary = t.title;
+  const buttonDictionary = t.button;
   const formDictionary = t.form;
 
   if (!i18n.locales.includes(lang)) {

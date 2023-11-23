@@ -3,12 +3,14 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../styles/theme/light'
 import { darkTheme } from '../styles/theme/dark'
-import { MenuTranslateType, MenuType, SettingTranslateType, SettingType } from '../types'
+import { MenuTranslateType, MenuType, SettingTranslateType, SettingType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '../types'
 import { GlobalStyles } from '../styles/global'
 import { Footer, Header } from '../partials'
-import { ScrollButton } from '../components'
+import { ScrollButton, SiteToolbar } from '../components'
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 
 
 type RootLayoutProps = {
@@ -19,6 +21,16 @@ type RootLayoutProps = {
     activeLocale: string,
     requiredSettingTranslate: SettingTranslateType,
     footerDictionary: { [key: string]: string },
+    titleDictionary: { [key: string]: string },
+    buttonDictionary: { [key: string]: string },
+    formDictionary: {
+        [key: string]: {
+            [key: string]: string
+        }
+    },
+    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
+    trainingData: TrainingType[],
+    trainingTranslateData: TrainingTranslateType[],
 }
 
 const RootLayout: React.FC<RootLayoutProps> = ({
@@ -28,7 +40,13 @@ const RootLayout: React.FC<RootLayoutProps> = ({
     requiredMenuTranslate,
     activeLocale,
     requiredSettingTranslate,
-    footerDictionary }) => {
+    footerDictionary,
+    titleDictionary,
+    buttonDictionary,
+    formDictionary,
+    trainingCategoryTranslateData,
+    trainingData,
+    trainingTranslateData }) => {
     const [theme, setTheme] = React.useState<string>(`${settingData.theme}`);
     const toggleTheme = React.useCallback(() => {
         if (theme === 'dark') {
@@ -51,6 +69,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({
                 <GlobalStyles />
                 <body>
                     <ScrollButton />
+                    <SiteToolbar
+                        activeLocale={activeLocale}
+                        titleDictionary={titleDictionary}
+                        buttonDictionary={buttonDictionary}
+                        formDictionary={formDictionary}
+                        trainingCategoryTranslateData={trainingCategoryTranslateData}
+                        trainingData={trainingData}
+                        trainingTranslateData={trainingTranslateData}
+                    />
                     <Header
                         menuData={menuData}
                         requiredMenuTranslate={requiredMenuTranslate}

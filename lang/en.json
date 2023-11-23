@@ -35,7 +35,8 @@
     "gallery_home": "From our training and events",
     "customers": "Our customers",
     "partners": "Our partners",
-    "apply": "Apply"
+    "apply": "Application form",
+    "popular_trainings": "Popular trainings"
   },
   "error_404": {
     "page_404": "Page not found",

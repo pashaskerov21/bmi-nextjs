@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { column_align_start, column_between, column_center, row_center } from "./mixin";
-import { preloaderAnimation } from "./animation";
+import { backdropAnimation, preloaderAnimation } from "./animation";
 
 export const GlobalStyles = createGlobalStyle`
 * {
@@ -385,6 +385,19 @@ input{
     }
 }
 
+.black-backdrop{
+    z-index: 9990;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background-color: rgba(0,0,0, 0.8);
+    opacity: 0;
+    animation: ${backdropAnimation} 0.3s ease forwards;
+}
+
 
 .form-control{
     width: 100%;
@@ -403,6 +416,7 @@ input{
         border: 1px solid #ced4da;
         background-color: ${props => props.theme.bg_color_v1};
         font-family: 'Montserrat', sans-serif;
+        caret-color: ${props => props.theme.text_color_v1};
         &::placeholder{
             font-weight: 600;
             color: ${props => props.theme.text_color_v1};

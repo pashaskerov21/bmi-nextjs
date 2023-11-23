@@ -60,7 +60,7 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
     workplace: Yup.string().required(`${formDictionary.error.workplace}`),
     position: Yup.string().required(`${formDictionary.error.position}`),
     email: Yup.string().email(`${formDictionary.error.email_format}`).required(`${formDictionary.error.email}`),
-    phone: Yup.string().required(`${formDictionary.error.phone}`),
+    phone: Yup.string().required(`${formDictionary.error.phone}`).nullable(),
   })
 
   const onSubmit = (values: ApplyFormValues, actions: FormikHelpers<ApplyFormValues>) => {

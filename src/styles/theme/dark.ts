@@ -12,5 +12,6 @@ export const darkTheme = {
     text_color_v1: '#FFFFFF',
     text_color_v2: '#FFFFFF',
     text_color_v3: '#193263',
+    text_color_v4: '#FFFFFF',
     
 }

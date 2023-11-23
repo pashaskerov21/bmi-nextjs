@@ -36,7 +36,7 @@ const Menu: React.FC<MenuProps> = ({
     activeLocale }) => {
     return (
         <React.Fragment>
-            <MenuBackdrop $menuShow={menuShow} onClick={toggleMenu} />
+            {menuShow ? <div className='black-backdrop' onClick={toggleMenu}/> : null}
             <LinkMenuWrapper $themeStatus={theme} $menuShow={menuShow} $fixed={fixed}>
                 <Container>
                     <div className="header d-lg-none">

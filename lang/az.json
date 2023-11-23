@@ -35,7 +35,8 @@
         "gallery_home": "Təlim və tədbirlərimizdən",
         "customers": "Müştərilərimiz",
         "partners": "Tərəfdaşlarımız",
-        "apply": "Müraciət et"
+        "apply": "Müraciət formu",
+        "popular_trainings": "Populyar təlimlər"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",
