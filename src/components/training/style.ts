@@ -390,7 +390,7 @@ export const TrainingAccordionWrapper = styled.div`
             .accordion-body{
                 max-height: 1000px;
                 height: auto;
-                overflow: visible;
+                overflow: auto;
                 opacity: 1;
             }
         }

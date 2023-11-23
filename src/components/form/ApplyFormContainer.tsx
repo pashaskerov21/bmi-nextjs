@@ -124,7 +124,7 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
                 placeholder={formDictionary.placeholder.phone}
               />
 
-              <button type="submit">{buttonDictionary.apply}</button>
+              <button type="submit">{buttonDictionary.send_application}</button>
             </Form>
           )
         }

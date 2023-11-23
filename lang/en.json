@@ -13,7 +13,8 @@
     "next_training": "next training",
     "photos": "photos",
     "videos": "videos",
-    "apply": "Send an application",
+    "send_application": "Send an application",
+    "apply": "Apply",
     "send": "Send"
   },
   "title": {
@@ -40,7 +41,8 @@
     "popular_trainings": "Popular trainings",
     "contact_us": "Contact us",
     "apply_form": "Application form",
-    "faq": "Frequently asked questions"
+    "faq": "Frequently asked questions",
+    "career": "Career"
   },
   "error_404": {
     "page_404": "Page not found",

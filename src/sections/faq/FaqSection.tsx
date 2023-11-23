@@ -18,7 +18,7 @@ const FaqSection: React.FC<FaqProps> = ({ activeLocale, titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
-            path: `/${activeLocale}/about`,
+            path: `/${activeLocale}/faq`,
             name: titleDictionary.faq,
         }
     ]

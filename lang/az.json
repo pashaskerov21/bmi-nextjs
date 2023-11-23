@@ -13,7 +13,8 @@
         "next_training": "sonrakı təlim",
         "photos": "fotolar",
         "videos": "videolar",
-        "apply": "Müraciət göndər",
+        "send_application": "Müraciət göndər",
+        "apply": "Müraciət et",
         "send": "Göndər"
     },
     "title": {
@@ -40,7 +41,8 @@
         "popular_trainings": "Populyar təlimlər",
         "contact_us": "Bizimlə əlaqə",
         "apply_form": "Müraciət formu",
-        "faq": "Tez-tez soruşulanlar"
+        "faq": "Tez-tez soruşulanlar",
+        "career": "Karyera"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",

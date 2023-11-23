@@ -23,7 +23,7 @@ const ContactSection: React.FC<ContactProps> = ({ activeLocale, titleDictionary,
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
-            path: `/${activeLocale}/about`,
+            path: `/${activeLocale}/contact`,
             name: titleDictionary.contact_us,
         }
     ]
