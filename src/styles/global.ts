@@ -460,6 +460,28 @@ input{
         }
     }
 }
+.form-control.file{
+    .upload-btn{
+        width: 100%;
+        position: relative;
+        padding: 20px;
+        min-height: 100px;
+        ${column_center};
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        gap: 5px;
+        .icon{
+            color: ${props => props.theme.primary_color_v1};
+            font-size: 50px;
+        }
+        .placeholder{
+            font-weight: 600;
+        }
+        input{
+            display: none;
+        }
+    }
+}
 
 `;
 

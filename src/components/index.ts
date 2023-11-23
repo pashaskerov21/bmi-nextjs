@@ -21,6 +21,7 @@ import Videos from "./gallery/Videos";
 import ApplyFormContainer from "./form/ApplyFormContainer";
 import AccordionFormContainer from "./form/AccordionFormContainer";
 import ContactFormContainer from "./form/ContactFormContainer";
+import VacancyFormContainer from "./form/VacancyFormContainer";
 
 import SiteToolbar from "./toolbar/SiteToolbar";
 
@@ -49,4 +50,5 @@ export {
     AccordionFormContainer,
     ContactFormContainer,
     SiteToolbar,
+    VacancyFormContainer,
 }

@@ -67,34 +67,34 @@ const AccordionFormContainer: React.FC<AccordionFormContainerProps> = ({
                                 control='input'
                                 type="text"
                                 name='fullname'
-                                label={formDictionary.label.fullname}
+                                label={formDictionary.label.fullname + ' *'}
                                 placeholder={formDictionary.placeholder.fullname} />
                             <FormControl
                                 control='input'
                                 type="text"
                                 name='workplace'
-                                label={formDictionary.label.workplace}
+                                label={formDictionary.label.workplace  + ' *'}
                                 placeholder={formDictionary.placeholder.workplace}
                             />
                             <FormControl
                                 control='input'
                                 type="text"
                                 name='position'
-                                label={formDictionary.label.position}
+                                label={formDictionary.label.position  + ' *'}
                                 placeholder={formDictionary.placeholder.position}
                             />
                             <FormControl
                                 control='input'
                                 type="email"
                                 name='email'
-                                label={formDictionary.label.email}
+                                label={formDictionary.label.email  + ' *'}
                                 placeholder={formDictionary.placeholder.email}
                             />
                             <FormControl
                                 control='input'
                                 type="number"
                                 name='phone'
-                                label={formDictionary.label.phone}
+                                label={formDictionary.label.phone  + ' *'}
                                 placeholder={formDictionary.placeholder.phone}
                             />
 

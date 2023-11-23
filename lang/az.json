@@ -50,24 +50,32 @@
     },
     "form": {
         "label": {
+            "name": "Ad",
+            "surname": "Soyad",
             "training": "Təlim Seç",
-            "fullname": "Ad, soyad *",
-            "workplace": "İş yeri *",
-            "position": "Vəzifə *",
-            "email": "E-mail *",
-            "phone": "Telefon *",
-            "message": "Mesaj"
+            "fullname": "Ad, soyad",
+            "workplace": "İş yeri",
+            "position": "Vəzifə",
+            "email": "E-mail",
+            "phone": "Telefon",
+            "message": "Mesaj",
+            "cv": "CV"
         },
         "placeholder": {
+            "name": "Adınız",
+            "surname": "Soyadınız",
             "training": "Təlim seçin",
             "fullname": "Adınız və soyadınız",
             "workplace": "İş yerinizi daxil edin",
             "position": "Vəzifənizi daxil edin",
             "email": "Şəxsi e-mail ünvanınızı daxil edin",
             "phone": "+994 55 555 55 55",
-            "message": "Mesajınız"
+            "message": "Mesajınız",
+            "cv": "CV yüklə"
         },
         "error": {
+            "name": "Ad tələb olunur",
+            "surname": "Soyad tələb olunur",
             "training": "Təlim tələb olunur",
             "fullname": "Ad və soyad tələb olunur",
             "workplace": "İş yeri tələb olunur",
@@ -75,7 +83,8 @@
             "email": "E-mail tələb olunur",
             "email_format": "Düzgün email formatı daxil edin",
             "phone": "Telefon nömrəsi tələb olunur",
-            "message": "Mesaj tələb olunur"
+            "message": "Mesaj tələb olunur",
+            "cv": "CV tələb olunur"
         },
         "success": {
             "congrulations": "Təbriklər",

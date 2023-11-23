@@ -18,10 +18,10 @@ export async function generateMetadata({ params: { lang }, }: { params: { lang: 
 
 
 const CareerPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
-    const [careerData, careerTranslateData]: [CareerType[] | undefined, CareerTranslateType[] | undefined] = await Promise.all([fetchCareer(), fetchCareerTranslate()]);
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
     const buttonDictionary = t.button;
+    const [careerData, careerTranslateData]: [CareerType[] | undefined, CareerTranslateType[] | undefined] = await Promise.all([fetchCareer(), fetchCareerTranslate()]);
     return (
         <React.Fragment>
             <Suspense fallback={<div className='preloader'></div>}>

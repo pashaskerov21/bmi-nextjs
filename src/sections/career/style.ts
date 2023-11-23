@@ -119,3 +119,48 @@ export const CareerAccordion = styled.div`
     }
     
 `;
+
+export const VacancyContentWrapper = styled.div`
+    width: 100%;
+    ${column_center};
+    form{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        @media (min-width: 992px){
+            grid-template-columns: repeat(2,1fr)
+        }
+        button[type="submit"]{
+            @media (min-width: 992px){
+                grid-column: 1 / span 2;
+                place-self: end;
+            }
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            background-color: ${props => props.theme.primary_color_v1};
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: capitalize;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            &:hover{
+                background-color: ${props => props.theme.primary_color_v2};
+            }
+            &:disabled{
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+        .form-control.file{
+            @media (min-width: 992px){
+                grid-column: 1 / span 2;
+            }
+        }
+    }
+`;

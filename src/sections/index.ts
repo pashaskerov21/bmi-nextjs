@@ -27,6 +27,7 @@ import ApplyFormSection from "./appyform/ApplyFormSection";
 import ContactSection from "./contact/ContactSection";
 import FaqSection from "./faq/FaqSection";
 import CareerSection from "./career/CareerSection";
+import VacancySection from "./career/VacancySection";
 
 export {
     Page404Section,
@@ -57,4 +58,5 @@ export {
     ContactSection,
     FaqSection,
     CareerSection,
+    VacancySection,
 }

@@ -1,11 +1,13 @@
+'use client'
 import { Form, Formik, FormikHelpers } from 'formik'
-import React from 'react'
-import Swal from 'sweetalert2'
 import * as Yup from 'yup'
+import React from 'react'
 import FormControl from './FormControl'
+import Swal from 'sweetalert2'
 
 
-type ContactFormrProps = {
+
+type VacanyFormContainerProps = {
     buttonDictionary: { [key: string]: string },
     formDictionary: {
         [key: string]: {
@@ -13,34 +15,36 @@ type ContactFormrProps = {
         }
     },
 }
-
-const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictionary }) => {
-    type ContactFormValues = {
-        fullname: string,
+const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictionary, formDictionary }) => {
+    type ApplyFormValues = {
+        name: string,
+        surname: string,
         phone: number | string,
         email: string,
-        message: string,
+        cv: string,
     }
-    const initialValues: ContactFormValues = {
-        fullname: "",
+    const initialValues: ApplyFormValues = {
+        name: "",
+        surname: "",
         phone: "",
         email: "",
-        message: "",
+        cv: "",
     }
     const validationSchema = Yup.object({
-        fullname: Yup.string().required(`${formDictionary.error.fullname}`),
+        name: Yup.string().required(`${formDictionary.error.name}`),
+        surname: Yup.string().required(`${formDictionary.error.surname}`),
         phone: Yup.string().required(`${formDictionary.error.phone}`),
         email: Yup.string().email(`${formDictionary.error.email_format}`).required(`${formDictionary.error.email}`),
-        message: Yup.string().required(`${formDictionary.error.message}`),
+        cv: Yup.string().required(`${formDictionary.error.cv}`),
     })
-    const onSubmit = (values: ContactFormValues, actions: FormikHelpers<ContactFormValues>) => {
+    const onSubmit = (values: ApplyFormValues, actions: FormikHelpers<ApplyFormValues>) => {
         console.log(values);
         actions.resetForm();
 
         Swal.fire({
             icon: "success",
             title: formDictionary.success.congrulations,
-            text: formDictionary.success.contact_text,
+            text: formDictionary.success.apply_text,
         });
     }
     return (
@@ -55,9 +59,15 @@ const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictio
                             <FormControl
                                 control='input'
                                 type="text"
-                                name='fullname'
-                                label={formDictionary.label.fullname + ' *'}
-                                placeholder={formDictionary.placeholder.fullname}
+                                name='name'
+                                label={formDictionary.label.name + ' *'}
+                                placeholder={formDictionary.placeholder.name} />
+                            <FormControl
+                                control='input'
+                                type="text"
+                                name='surname'
+                                label={formDictionary.label.surname + ' *'}
+                                placeholder={formDictionary.placeholder.surname}
                             />
                             <FormControl
                                 control='input'
@@ -74,10 +84,11 @@ const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictio
                                 placeholder={formDictionary.placeholder.email}
                             />
                             <FormControl
-                                control='textarea'
-                                name='message'
-                                label={formDictionary.label.message + ' *'}
-                                placeholder={formDictionary.placeholder.message}
+                                control='file'
+                                type="file"
+                                name='cv'
+                                label={formDictionary.label.cv + ' *'}
+                                placeholder={formDictionary.placeholder.cv}
                             />
                             <button type="submit">{buttonDictionary.send}</button>
                         </Form>
@@ -88,4 +99,4 @@ const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictio
     )
 }
 
-export default React.memo(ContactForm)
+export default VacancyFormContainer

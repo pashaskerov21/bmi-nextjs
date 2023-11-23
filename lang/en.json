@@ -50,24 +50,32 @@
   },
   "form": {
     "label": {
+      "name": "Name",
+      "surname": "Surname",
       "training": "Select Training",
-      "fullname": "First name, last name *",
-      "workplace": "Workplace *",
-      "position": "Position *",
-      "email": "E-mail *",
-      "phone": "Phone *",
-      "message": "Message"
+      "fullname": "First name, last name",
+      "workplace": "Workplace",
+      "position": "Position",
+      "email": "E-mail",
+      "phone": "Phone",
+      "message": "Message",
+      "cv": "CV"
     },
     "placeholder": {
+      "name": "Your name",
+      "surname": "Your surname",
       "training": "Choose a training",
       "fullname": "Your first and last name",
       "workplace": "Enter your workplace",
       "position": "Enter your position",
       "email": "Enter your personal email address",
       "phone": "+994 55 555 55 55",
-      "message": "Your message"
+      "message": "Your message",
+      "cv": "Upload CV"
     },
     "error": {
+      "name": "Name required",
+      "surname": "Surname required",
       "training": "Training is required",
       "fullname": "First and last name required",
       "workplace": "Workplace required",
@@ -75,7 +83,8 @@
       "email": "E-mail required",
       "email_format": "Enter the correct email format",
       "phone": "Phone required",
-      "message": "Message required"
+      "message": "Message required",
+      "cv": "CV required"
     },
     "success": {
       "congrulations": "Congrulations",
