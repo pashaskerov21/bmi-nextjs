@@ -7,7 +7,7 @@ export const ToolbarButtonWrapper = styled.div`
     top: 50%;
     right: -250px;
     transform: translateY(-50%);
-    z-index: 9995;
+    z-index: 9900;
     width: 300px;
     ${column_center};
     gap: 10px;
@@ -18,7 +18,7 @@ export const ToolbarButtonWrapper = styled.div`
         transition: all 0.3s;
         cursor: pointer;
         @media (min-width: 992px){
-            transform: translateX(-180px);
+            transform: translateX(-170px);
         }
         .icon{
             padding-left: 5px;
@@ -33,7 +33,6 @@ export const ToolbarButtonWrapper = styled.div`
             opacity: 0;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1px;
             font-size: 13px;
             user-select: none;
             @media (min-width: 992px){
@@ -47,7 +46,7 @@ export const ToolbarButtonWrapper = styled.div`
             background-color: ${props => props.theme.primary_color_v2}
         }
         &.active{
-            transform: translateX(-180px);
+            transform: translateX(-170px);
             .label{
                 opacity: 1;
             }
@@ -71,7 +70,7 @@ export const CanvasWrapper = styled.div<CanvasProps>`
     transition: all 0.3s;
     max-height: 100vh;
     @media (min-width: 992px){
-        max-width: 600px;
+        max-width: 500px;
     }
     .canvas-content{
         width: 100%;
@@ -95,10 +94,10 @@ export const CanvasWrapper = styled.div<CanvasProps>`
                 text-transform: capitalize;
                 font-size: 22px;
                 @media (min-width: 576px){
-                    font-size: 28px
+                    font-size: 26px
                 }
                 @media (min-width: 1200px){
-                    font-size: 32px
+                    font-size: 30px
                 }
             }
             .close-button{
@@ -163,9 +162,38 @@ export const CanvasWrapper = styled.div<CanvasProps>`
             .trainings-container{
                 width: 100%;
                 ${column_center};
+                gap: 10px;
                 .popular-card{
-                    width: 100%;
+                    width: 95%;
                     ${column_align_start};
+                    padding: 20px;
+                    border-radius: 10px;
+                    transition: all 0.3s;
+                    &:hover{
+                        box-shadow: 0 0 10px ${props => props.theme.text_color_v2};
+                    }
+                    .image{
+                        width: 100%;
+                        height: 150px;
+                        margin-bottom: 15px;
+                        @media (min-width: 992px){
+                            height: 250px;
+                        }
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .title{
+                        font-size: 16px;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                        color: ${props => props.theme.text_color_v2};
+                        @media (min-width: 992px){
+                            font-size: 18px;
+                        }
+                    }
                 }
             }
         }

@@ -29,9 +29,17 @@ const TrainingHomeSection: React.FC<TrainingProps> = ({
     const handleCategoryCard = React.useCallback((category: TrainingCategoryType) => {
         setActiveCategory(category);
         setShowTrainingModal(!showTrainingModal);
+        const body = document.querySelector('body');
+        if (body) {
+            body.style.overflow = showTrainingModal ? "auto" : "hidden";
+        }
     }, [activeCategory, showTrainingModal])
     const toggleTrainingModal = React.useCallback(() => {
-        setShowTrainingModal(!showTrainingModal)
+        setShowTrainingModal(!showTrainingModal);
+        const body = document.querySelector('body');
+        if (body) {
+            body.style.overflow = showTrainingModal ? "auto" : "hidden";
+        }
     }, [showTrainingModal])
     return (
         <React.Fragment>

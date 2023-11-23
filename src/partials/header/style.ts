@@ -270,7 +270,7 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
     top: 0;
     right: ${props => props.$menuShow ? '0' : '-100%'};
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     min-height: 100vh;
     background-color: ${props => props.theme.primary_color_v1};
     z-index: 999999;

@@ -33,14 +33,22 @@ const SiteToolbar: React.FC<ToolbarProps> = ({
     const [showApplyCanvas, setShowApplyCanvas] = React.useState<boolean>(false);
     const [showTrainingCanvas, setShowTrainingCanvas] = React.useState<boolean>(false);
 
-    const toggleApplyCanvas = () => {
+    const toggleApplyCanvas = React.useCallback(() => {
         setShowApplyButton(false);
         setShowApplyCanvas(!showApplyCanvas);
-    }
-    const toggleTrainingCanvas = () => {
+        const body = document.querySelector('body')
+        if (body) {
+            body.style.overflow = showApplyCanvas ? "auto" : "hidden";
+        }
+    }, [showApplyCanvas])
+    const toggleTrainingCanvas = React.useCallback(() => {
         setShowTrainingButton(false);
         setShowTrainingCanvas(!showTrainingCanvas);
-    }
+        const body = document.querySelector('body')
+        if (body) {
+            body.style.overflow = showTrainingCanvas ? "auto" : "hidden";
+        }
+    }, [showTrainingCanvas])
 
     const popularTrainings: TrainingType[] | undefined = trainingData.filter((data) => data.isPopular);
     return (
@@ -56,7 +64,7 @@ const SiteToolbar: React.FC<ToolbarProps> = ({
                     <div className="icon" onClick={() => setShowTrainingButton(!showApplyButton)}>
                         <Image src='/icon/course.png' width={36} height={26} alt='icon' />
                     </div>
-                    <div className='label' onClick={() => setShowTrainingCanvas(!showTrainingCanvas)}>{titleDictionary.popular_trainings}</div>
+                    <div className='label' onClick={toggleTrainingCanvas}>{titleDictionary.popular_trainings}</div>
                 </div>
             </ToolbarButtonWrapper>
             <ApplyCanvas

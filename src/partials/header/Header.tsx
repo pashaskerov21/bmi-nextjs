@@ -56,6 +56,10 @@ const Header: React.FC<HeaderProps> = ({
     }, [searchShow])
     const toggleMenu = React.useCallback(() => {
         setMenuShow(!menuShow)
+        const body = document.querySelector('body')
+        if(body){
+            body.style.overflow = menuShow ? "auto" : "hidden";
+        }
     }, [menuShow])
     return (
         <header>

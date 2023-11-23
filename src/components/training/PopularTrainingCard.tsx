@@ -1,5 +1,6 @@
 'use client'
 import { TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
@@ -23,6 +24,9 @@ const PopularTrainingCard: React.FC<CardProps> = ({ toggleTrainingCanvas, active
                         onClick={toggleTrainingCanvas}
                         href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(requiredTrainingTranslateData.title.toLocaleLowerCase())}`}
                     >
+                        <div className="image">
+                            <Image src={trainingData.cardImage} width={400} height={250} alt=''/>
+                        </div>
                         <div className="title">{requiredTrainingTranslateData.title}</div>
                     </Link>
                 </React.Fragment>

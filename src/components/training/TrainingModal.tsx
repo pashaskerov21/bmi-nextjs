@@ -47,7 +47,7 @@ const TrainingModal: React.FC<ModalProps> = ({
         <React.Fragment>
             {showTrainingModal ? (
                 <React.Fragment>
-                    <TrainingModalBackdrop onClick={toggleTrainingModal} />
+                    <div className='black-backdrop' onClick={toggleTrainingModal} />
                     <TrainingModalWrapper>
                         <button className="close-button" onClick={toggleTrainingModal}>
                             <FaXmark />
