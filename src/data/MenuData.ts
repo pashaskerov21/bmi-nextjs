@@ -1,7 +1,7 @@
 export const menuData = [
     {
         id: 1,
-        path: '',
+        path: '/',
     },
     {
         id: 2,

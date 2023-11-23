@@ -14,7 +14,7 @@ type FooterProps = {
     activeLocale: string,
     settingData: SettingType;
     menuData: MenuType[],
-    requiredMenuTranslate: MenuTranslateType[],
+    menuTranslateData: MenuTranslateType[],
     requiredSettingTranslate: SettingTranslateType,
     footerDictionary: { [key: string]: string },
 }
@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({
     activeLocale,
     settingData, 
     menuData, 
-    requiredMenuTranslate, 
+    menuTranslateData, 
     requiredSettingTranslate, 
     footerDictionary }) => {
 
@@ -38,9 +38,9 @@ const Footer: React.FC<FooterProps> = ({
                         <div className="footer-links">
                             <h3 className="title">{footerDictionary.menus}</h3>
                             {
-                                menuData.map(link => (
-                                    <React.Fragment key={link.id}>
-                                        <MenuLink activeLocale={activeLocale} linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
+                                menuData.map((data) => (
+                                    <React.Fragment key={data.id}>
+                                        <MenuLink activeLocale={activeLocale} menuData={data} menuTranslateData={menuTranslateData} />
                                     </React.Fragment>
                                 ))
                             }

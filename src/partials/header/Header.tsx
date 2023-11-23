@@ -1,5 +1,5 @@
 'use client'
-import { MenuTranslateType, MenuType, SettingType } from '@/src/types';
+import { MenuTranslateType, MenuType, SettingType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
 import React from 'react'
 import { GeneralNavBar, ThemeButton } from './style';
 import { Container } from '@/src/styles/utils';
@@ -7,11 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // icon
-import { FaSun, FaPhone } from 'react-icons/fa6'
-import { FaSearch, FaEnvelope } from 'react-icons/fa'
+import { FaPhone } from 'react-icons/fa6'
+import { FaEnvelope } from 'react-icons/fa'
 import { BsFillSunFill, BsMoonStarsFill } from 'react-icons/bs'
-import { BiMenuAltRight } from 'react-icons/bi'
-import { BsSun, BsMoonFill } from 'react-icons/bs'
 import { FiMenu } from 'react-icons/fi';
 import { BiSearch } from 'react-icons/bi'
 import Search from './Search';
@@ -21,19 +19,26 @@ import Menu from './Menu';
 type HeaderProps = {
     settingData: SettingType;
     menuData: MenuType[],
-    requiredMenuTranslate: MenuTranslateType[],
+    menuTranslateData: MenuTranslateType[],
     theme: string,
     toggleTheme: () => void,
     activeLocale: string,
+    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
+    trainingData: TrainingType[],
+    trainingTranslateData: TrainingTranslateType[],
 }
 
 const Header: React.FC<HeaderProps> = ({
     settingData,
     menuData,
-    requiredMenuTranslate,
+    menuTranslateData,
     theme,
     toggleTheme,
-    activeLocale }) => {
+    activeLocale,
+    trainingCategoryTranslateData,
+    trainingData,
+    trainingTranslateData,
+}) => {
     const [fixed, setFixed] = React.useState<boolean>(false);
     React.useEffect(() => {
         window.addEventListener('scroll', function () {
@@ -57,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({
     const toggleMenu = React.useCallback(() => {
         setMenuShow(!menuShow)
         const body = document.querySelector('body')
-        if(body){
+        if (body) {
             body.style.overflow = menuShow ? "auto" : "hidden";
         }
     }, [menuShow])
@@ -93,7 +98,16 @@ const Header: React.FC<HeaderProps> = ({
                             </div>
                             <div className="bottom">
                                 <Languages activeLocale={activeLocale} />
-                                <Search searchShow={searchShow} toggleSearch={toggleSearch} />
+                                <Search
+                                    searchShow={searchShow}
+                                    toggleSearch={toggleSearch}
+                                    activeLocale={activeLocale}
+                                    menuData={menuData}
+                                    menuTranslateData={menuTranslateData}
+                                    trainingCategoryTranslateData={trainingCategoryTranslateData}
+                                    trainingData={trainingData}
+                                    trainingTranslateData={trainingTranslateData}
+                                />
                                 <div className="mobile d-lg-none">
                                     <button className='search-button' onClick={toggleSearch}>
                                         <BiSearch />
@@ -110,13 +124,13 @@ const Header: React.FC<HeaderProps> = ({
             <Menu
                 fixed={fixed}
                 menuData={menuData}
-                requiredMenuTranslate={requiredMenuTranslate}
+                menuTranslateData={menuTranslateData}
                 menuShow={menuShow}
                 setMenuShow={setMenuShow}
                 settingData={settingData}
                 theme={theme}
                 toggleMenu={toggleMenu}
-                toggleTheme={toggleTheme} 
+                toggleTheme={toggleTheme}
                 activeLocale={activeLocale} />
         </header>
     )

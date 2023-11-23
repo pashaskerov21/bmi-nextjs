@@ -449,6 +449,11 @@ input{
         background-color: ${props => props.theme.bg_color_v1};
         color: ${props => props.theme.text_color_v1};
         font-family: 'Montserrat', sans-serif;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 1em;
     }
     option{
         color: ${props => props.theme.text_color_v1};

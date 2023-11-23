@@ -15,7 +15,7 @@ import { BsFillSunFill, BsMoonStarsFill } from 'react-icons/bs';
 type MenuProps = {
     settingData: SettingType;
     menuData: MenuType[],
-    requiredMenuTranslate: MenuTranslateType[],
+    menuTranslateData: MenuTranslateType[],
     theme: string,
     menuShow: boolean,
     setMenuShow: React.Dispatch<React.SetStateAction<boolean>>,
@@ -28,7 +28,7 @@ type MenuProps = {
 const Menu: React.FC<MenuProps> = ({
     settingData,
     menuData,
-    requiredMenuTranslate,
+    menuTranslateData,
     theme,
     menuShow,
     setMenuShow,
@@ -63,9 +63,9 @@ const Menu: React.FC<MenuProps> = ({
                         <div className="right">
                             <div className={`page-links ${fixed ? 'fix-true' : ''}`}>
                                 {
-                                    menuData.map(link => (
-                                        <div key={link.id} onClick={() => setMenuShow(false)}>
-                                            <MenuLink activeLocale={activeLocale} linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
+                                    menuData.map((data) => (
+                                        <div key={data.id} onClick={() => setMenuShow(false)}>
+                                            <MenuLink activeLocale={activeLocale} menuData={data} menuTranslateData={menuTranslateData} />
                                         </div>
                                     ))
                                 }

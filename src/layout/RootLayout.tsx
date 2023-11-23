@@ -17,7 +17,7 @@ type RootLayoutProps = {
     children: React.ReactNode,
     settingData: SettingType;
     menuData: MenuType[],
-    requiredMenuTranslate: MenuTranslateType[],
+    menuTranslateData: MenuTranslateType[],
     activeLocale: string,
     requiredSettingTranslate: SettingTranslateType,
     footerDictionary: { [key: string]: string },
@@ -37,7 +37,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({
     children,
     settingData,
     menuData,
-    requiredMenuTranslate,
+    menuTranslateData,
     activeLocale,
     requiredSettingTranslate,
     footerDictionary,
@@ -80,17 +80,21 @@ const RootLayout: React.FC<RootLayoutProps> = ({
                     />
                     <Header
                         menuData={menuData}
-                        requiredMenuTranslate={requiredMenuTranslate}
+                        menuTranslateData={menuTranslateData}
                         settingData={settingData}
                         theme={theme}
                         toggleTheme={toggleTheme}
-                        activeLocale={activeLocale} />
+                        activeLocale={activeLocale}
+                        trainingCategoryTranslateData={trainingCategoryTranslateData}
+                        trainingData={trainingData}
+                        trainingTranslateData={trainingTranslateData}
+                        />
                     {loading && <div className='preloader'></div>}
                     <main>{children}</main>
                     <Footer
                         activeLocale={activeLocale}
                         menuData={menuData}
-                        requiredMenuTranslate={requiredMenuTranslate}
+                        menuTranslateData={menuTranslateData}
                         settingData={settingData}
                         requiredSettingTranslate={requiredSettingTranslate}
                         footerDictionary={footerDictionary} />

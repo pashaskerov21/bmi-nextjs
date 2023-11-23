@@ -72,8 +72,7 @@ export default async function Root({ children, params: { lang }, }: { children: 
 
   if (settingData && settingTranslateData && menuData && menuTranslateData && trainingCategoryTranslateData && trainingData && trainingTranslateData) {
     const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
-    const requiredMenuTranslate: MenuTranslateType[] | undefined = menuTranslateData.filter((data) => data.lang === lang)
-    if (requiredSettingTranslate && requiredMenuTranslate) {
+    if (requiredSettingTranslate) {
       return (
         <html lang={lang}>
           <head>
@@ -89,7 +88,7 @@ export default async function Root({ children, params: { lang }, }: { children: 
             <RootLayout
               settingData={settingData[0]}
               menuData={menuData}
-              requiredMenuTranslate={requiredMenuTranslate}
+              menuTranslateData={menuTranslateData}
               activeLocale={lang}
               requiredSettingTranslate={requiredSettingTranslate}
               footerDictionary={footerDictionary}
