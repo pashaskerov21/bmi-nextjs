@@ -112,6 +112,7 @@ const Header: React.FC<HeaderProps> = ({
                 menuData={menuData}
                 requiredMenuTranslate={requiredMenuTranslate}
                 menuShow={menuShow}
+                setMenuShow={setMenuShow}
                 settingData={settingData}
                 theme={theme}
                 toggleMenu={toggleMenu}

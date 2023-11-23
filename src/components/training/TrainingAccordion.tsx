@@ -30,13 +30,13 @@ const TrainingAccordion: React.FC<AccordionProps> = ({
     formDictionary,
 }) => {
     const [activeItem, setActiveItem] = React.useState<string>();
-    const handleAccordionButton = (key: string) => {
+    const handleAccordionButton = React.useCallback((key: string) => {
         if (key !== activeItem) {
             setActiveItem(key)
         } else {
             setActiveItem('');
         }
-    }
+    }, [activeItem])
     return (
         <TrainingAccordionWrapper>
             <div className={`accordion-item ${activeItem === 'generalinfo' && 'active'}`}>

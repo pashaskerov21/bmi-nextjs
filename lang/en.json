@@ -39,7 +39,8 @@
     "apply": "Application form",
     "popular_trainings": "Popular trainings",
     "contact_us": "Contact us",
-    "apply_form": "Application form"
+    "apply_form": "Application form",
+    "faq": "Frequently asked questions"
   },
   "error_404": {
     "page_404": "Page not found",

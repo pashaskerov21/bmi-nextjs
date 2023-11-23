@@ -1,31 +1,31 @@
 export const menuData = [
     {
         id: 1,
-        path: '/',
+        path: '',
     },
     {
         id: 2,
-        path: '/about',
+        path: 'about',
     },
     {
         id: 3,
-        path: '/trainings',
+        path: 'trainings',
     },
     {
         id: 4,
-        path: '/trainers',
+        path: 'trainers',
     },
     {
         id: 5,
-        path: '/events',
+        path: 'events',
     },
     {
         id: 6,
-        path: '/news',
+        path: 'news',
     },
     {
         id: 7,
-        path: '/contact',
+        path: 'contact',
     },
 ]
 

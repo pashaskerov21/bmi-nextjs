@@ -25,6 +25,7 @@ import CustomerSection from "./customer/CustomerSection";
 import PartnerSection from "./partner/PartnerSection";
 import ApplyFormSection from "./appyform/ApplyFormSection";
 import ContactSection from "./contact/ContactSection";
+import FaqSection from "./faq/FaqSection";
 
 export {
     Page404Section,
@@ -53,4 +54,5 @@ export {
     PartnerSection,
     ApplyFormSection,
     ContactSection,
+    FaqSection,
 }

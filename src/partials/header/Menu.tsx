@@ -18,6 +18,7 @@ type MenuProps = {
     requiredMenuTranslate: MenuTranslateType[],
     theme: string,
     menuShow: boolean,
+    setMenuShow: React.Dispatch<React.SetStateAction<boolean>>,
     toggleMenu: () => void,
     toggleTheme: () => void,
     fixed: boolean,
@@ -30,6 +31,7 @@ const Menu: React.FC<MenuProps> = ({
     requiredMenuTranslate,
     theme,
     menuShow,
+    setMenuShow,
     toggleMenu,
     toggleTheme,
     fixed,
@@ -40,7 +42,7 @@ const Menu: React.FC<MenuProps> = ({
             <LinkMenuWrapper $themeStatus={theme} $menuShow={menuShow} $fixed={fixed}>
                 <Container>
                     <div className="header d-lg-none">
-                        <Link href={`/${activeLocale}`}>
+                        <Link href={`/${activeLocale}`} onClick={() => setMenuShow(false)}>
                             <Image src={settingData.logo.shortWhite} width={100} height={50} alt='' />
                         </Link>
                         <div className="right">
@@ -62,7 +64,7 @@ const Menu: React.FC<MenuProps> = ({
                             <div className={`page-links ${fixed ? 'fix-true' : ''}`}>
                                 {
                                     menuData.map(link => (
-                                        <div key={link.id} onClick={toggleMenu}>
+                                        <div key={link.id} onClick={() => setMenuShow(false)}>
                                             <MenuLink activeLocale={activeLocale} linkData={link} requiredMenuTranslate={requiredMenuTranslate} />
                                         </div>
                                     ))
