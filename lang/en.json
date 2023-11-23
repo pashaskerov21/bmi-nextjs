@@ -13,7 +13,8 @@
     "next_training": "next training",
     "photos": "photos",
     "videos": "videos",
-    "apply": "Send an application"
+    "apply": "Send an application",
+    "send": "Send"
   },
   "title": {
     "home": "Home",
@@ -36,7 +37,9 @@
     "customers": "Our customers",
     "partners": "Our partners",
     "apply": "Application form",
-    "popular_trainings": "Popular trainings"
+    "popular_trainings": "Popular trainings",
+    "contact_us": "Contact us",
+    "apply_form": "Application form"
   },
   "error_404": {
     "page_404": "Page not found",
@@ -49,7 +52,8 @@
       "workplace": "Workplace *",
       "position": "Position *",
       "email": "E-mail *",
-      "phone": "Phone *"
+      "phone": "Phone *",
+      "message": "Message"
     },
     "placeholder": {
       "training": "Choose a training",
@@ -57,7 +61,8 @@
       "workplace": "Enter your workplace",
       "position": "Enter your position",
       "email": "Enter your personal email address",
-      "phone": "+994 55 555 55 55"
+      "phone": "+994 55 555 55 55",
+      "message": "Your message"
     },
     "error": {
       "training": "Training is required",
@@ -66,11 +71,13 @@
       "position": "Position required",
       "email": "E-mail required",
       "email_format": "Enter the correct email format",
-      "phone": "Phone required"
+      "phone": "Phone required",
+      "message": "Message required"
     },
     "success": {
       "congrulations": "Congrulations",
-      "apply_text": "Your application has been sent successfully"
+      "apply_text": "Your application has been sent successfully",
+      "contact_text": "Your message has been sent successfully"
     }
   }
 }

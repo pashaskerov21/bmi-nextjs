@@ -2,10 +2,12 @@
 import React from 'react'
 import Input, { InputProps } from './control/Input'
 import Select, { SelectProps } from './control/Select'
+import Textarea, { TextareaProps } from './control/Textarea'
 
 type FormControlProps =
     | InputProps
     | SelectProps
+    | TextareaProps
 
 const FormControl: React.FC<FormControlProps & { control: string }> = ({ control, ...rest }) => {
     switch (control) {
@@ -13,6 +15,8 @@ const FormControl: React.FC<FormControlProps & { control: string }> = ({ control
             return <Input {...rest} />
         case 'select':
             return <Select {...rest} />
+        case 'textarea':
+            return <Textarea {...rest} />
         default:
             return null
     }

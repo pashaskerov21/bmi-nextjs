@@ -56,6 +56,9 @@ header{
     ${column_center};
     @media (min-width: 992px){
         min-height: 150px;
+        .black-backdrop{
+            display: none;
+        }
     }
 }
 svg{
@@ -409,11 +412,13 @@ input{
         margin-bottom: 8px;
         margin-left: 6px;
     }
-    input{
+    input,
+    textarea{
         width: 100%;
         padding: 15px;
         border-radius: 5px;
         border: 1px solid #ced4da;
+        outline: none;
         background-color: ${props => props.theme.bg_color_v1};
         font-family: 'Montserrat', sans-serif;
         caret-color: ${props => props.theme.text_color_v1};
@@ -422,6 +427,10 @@ input{
             color: ${props => props.theme.text_color_v1};
             opacity: 0.5;
         }
+    }
+    textarea{
+        min-height: 150px;
+        resize: none
     }
     .error{
         position: absolute;

@@ -94,4 +94,4 @@ const SiteToolbar: React.FC<ToolbarProps> = ({
     )
 }
 
-export default SiteToolbar
+export default React.memo(SiteToolbar)

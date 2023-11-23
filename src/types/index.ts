@@ -9,6 +9,7 @@ export type SettingType = {
     linkedin: string | null,
     twitter: string | null,
     youtube: string | null,
+    map_url: string | null,
     logo: {
         icon: string,
         short: string,
@@ -26,6 +27,7 @@ export type SettingTranslateType = {
     lang: string,
     title: string,
     description: string,
+    address: string,
     copyright: string,
 }
 // menu

@@ -20,6 +20,7 @@ import Videos from "./gallery/Videos";
 
 import ApplyFormContainer from "./form/ApplyFormContainer";
 import AccordionFormContainer from "./form/AccordionFormContainer";
+import ContactFormContainer from "./form/ContactFormContainer";
 
 import SiteToolbar from "./toolbar/SiteToolbar";
 
@@ -46,5 +47,6 @@ export {
     Videos,
     ApplyFormContainer,
     AccordionFormContainer,
-    SiteToolbar
+    ContactFormContainer,
+    SiteToolbar,
 }

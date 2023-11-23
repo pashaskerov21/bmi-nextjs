@@ -13,7 +13,8 @@
         "next_training": "sonrakı təlim",
         "photos": "fotolar",
         "videos": "videolar",
-        "apply": "Müraciət göndər"
+        "apply": "Müraciət göndər",
+        "send": "Göndər"
     },
     "title": {
         "home": "Əsas səhifə",
@@ -36,7 +37,9 @@
         "customers": "Müştərilərimiz",
         "partners": "Tərəfdaşlarımız",
         "apply": "Müraciət formu",
-        "popular_trainings": "Populyar təlimlər"
+        "popular_trainings": "Populyar təlimlər",
+        "contact_us": "Bizimlə əlaqə",
+        "apply_form": "Müraciət formu"
     },
     "error_404": {
         "page_404": "Səhifə tapılmadı",
@@ -49,7 +52,8 @@
             "workplace": "İş yeri *",
             "position": "Vəzifə *",
             "email": "E-mail *",
-            "phone": "Telefon *"
+            "phone": "Telefon *",
+            "message": "Mesaj"
         },
         "placeholder": {
             "training": "Təlim seçin",
@@ -57,7 +61,8 @@
             "workplace": "İş yerinizi daxil edin",
             "position": "Vəzifənizi daxil edin",
             "email": "Şəxsi e-mail ünvanınızı daxil edin",
-            "phone": "+994 55 555 55 55"
+            "phone": "+994 55 555 55 55",
+            "message": "Mesajınız"
         },
         "error": {
             "training": "Təlim tələb olunur",
@@ -66,11 +71,13 @@
             "position": "Vəzifə tələb olunur",
             "email": "E-mail tələb olunur",
             "email_format": "Düzgün email formatı daxil edin",
-            "phone": "Telefon nömrəsi tələb olunur"
+            "phone": "Telefon nömrəsi tələb olunur",
+            "message": "Mesaj tələb olunur"
         },
         "success": {
             "congrulations": "Təbriklər",
-            "apply_text": "Müraciətiniz uğurla göndərildi"
+            "apply_text": "Müraciətiniz uğurla göndərildi",
+            "contact_text": "Mesajınız uğurla göndərildi"
         }
     }
 }
