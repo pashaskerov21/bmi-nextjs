@@ -1,5 +1,5 @@
 'use client'
-import { Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik, FormikHelpers, useFormik } from 'formik'
 import * as Yup from 'yup'
 import React from 'react'
 import FormControl from './FormControl'
@@ -73,6 +73,7 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
       text: formDictionary.success.apply_text,
     });
   }
+
   return (
     <ApplyFormikWrapper>
       <Formik
@@ -88,19 +89,22 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
                 label={formDictionary.label.training}
                 placeholder={formDictionary.placeholder.training}
                 options={trainingSelectOptions}
+                formik={formik}
               />
               <FormControl
                 control='input'
                 type="text"
                 name='fullname'
                 label={formDictionary.label.fullname + ' *'}
-                placeholder={formDictionary.placeholder.fullname} />
+                placeholder={formDictionary.placeholder.fullname}
+                formik={formik} />
               <FormControl
                 control='input'
                 type="text"
                 name='workplace'
                 label={formDictionary.label.workplace + ' *'}
                 placeholder={formDictionary.placeholder.workplace}
+                formik={formik}
               />
               <FormControl
                 control='input'
@@ -108,6 +112,7 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
                 name='position'
                 label={formDictionary.label.position + ' *'}
                 placeholder={formDictionary.placeholder.position}
+                formik={formik}
               />
               <FormControl
                 control='input'
@@ -115,6 +120,7 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
                 name='email'
                 label={formDictionary.label.email + ' *'}
                 placeholder={formDictionary.placeholder.email}
+                formik={formik}
               />
               <FormControl
                 control='input'
@@ -122,6 +128,7 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
                 name='phone'
                 label={formDictionary.label.phone + ' *'}
                 placeholder={formDictionary.placeholder.phone}
+                formik={formik}
               />
 
               <button type="submit">{buttonDictionary.send_application}</button>

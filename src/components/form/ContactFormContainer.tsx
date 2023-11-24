@@ -58,6 +58,7 @@ const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictio
                                 name='fullname'
                                 label={formDictionary.label.fullname + ' *'}
                                 placeholder={formDictionary.placeholder.fullname}
+                                formik={formik}
                             />
                             <FormControl
                                 control='input'
@@ -65,6 +66,7 @@ const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictio
                                 name='phone'
                                 label={formDictionary.label.phone + ' *'}
                                 placeholder={formDictionary.placeholder.phone}
+                                formik={formik}
                             />
                             <FormControl
                                 control='input'
@@ -72,12 +74,14 @@ const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictio
                                 name='email'
                                 label={formDictionary.label.email + ' *'}
                                 placeholder={formDictionary.placeholder.email}
+                                formik={formik}
                             />
                             <FormControl
                                 control='textarea'
                                 name='message'
                                 label={formDictionary.label.message + ' *'}
                                 placeholder={formDictionary.placeholder.message}
+                                formik={formik}
                             />
                             <button type="submit">{buttonDictionary.send}</button>
                         </Form>

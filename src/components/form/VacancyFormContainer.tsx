@@ -61,13 +61,15 @@ const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictio
                                 type="text"
                                 name='name'
                                 label={formDictionary.label.name + ' *'}
-                                placeholder={formDictionary.placeholder.name} />
+                                placeholder={formDictionary.placeholder.name}
+                                formik={formik} />
                             <FormControl
                                 control='input'
                                 type="text"
                                 name='surname'
                                 label={formDictionary.label.surname + ' *'}
                                 placeholder={formDictionary.placeholder.surname}
+                                formik={formik}
                             />
                             <FormControl
                                 control='input'
@@ -75,6 +77,7 @@ const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictio
                                 name='phone'
                                 label={formDictionary.label.phone + ' *'}
                                 placeholder={formDictionary.placeholder.phone}
+                                formik={formik}
                             />
                             <FormControl
                                 control='input'
@@ -82,6 +85,7 @@ const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictio
                                 name='email'
                                 label={formDictionary.label.email + ' *'}
                                 placeholder={formDictionary.placeholder.email}
+                                formik={formik}
                             />
                             <FormControl
                                 control='file'
@@ -89,6 +93,7 @@ const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictio
                                 name='cv'
                                 label={formDictionary.label.cv + ' *'}
                                 placeholder={formDictionary.placeholder.cv}
+                                formik={formik}
                             />
                             <button type="submit">{buttonDictionary.send}</button>
                         </Form>

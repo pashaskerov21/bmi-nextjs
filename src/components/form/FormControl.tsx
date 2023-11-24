@@ -11,7 +11,7 @@ type FormControlProps =
     | TextareaProps
     | FileProps
 
-const FormControl: React.FC<FormControlProps & { control: string }> = ({ control, ...rest }) => {
+const FormControl: React.FC<FormControlProps & { control: string}> = ({ control, ...rest }) => {
     switch (control) {
         case 'input':
             return <Input {...rest} />

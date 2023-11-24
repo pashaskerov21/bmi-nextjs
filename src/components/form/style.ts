@@ -6,9 +6,10 @@ export const ApplyFormikWrapper = styled.div`
         display: grid;
         grid-template-columns: 1fr;
         place-items: center;
-        gap: 20px;
+        gap: 10px;
         @media (min-width: 992px){
-            grid-template-columns: repeat(2,1fr)
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
         }
     }
     button[type="submit"]{
