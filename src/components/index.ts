@@ -8,6 +8,8 @@ import Counter from "./report/Counter";
 import PageTitle from "./PageTitle";
 import SectionTitle from "./SectionTitle";
 import TrainingCard from "./training/TrainingCard";
+import CategoryCardContent from "./training/CategoryCardContent";
+import TrainingCardContent from "./training/TrainingCardContent";
 import PopularTrainingCard from "./training/PopularTrainingCard";
 import TrainingModal from "./training/TrainingModal";
 import TrainingAccordion from "./training/TrainingAccordion";
@@ -37,6 +39,8 @@ export {
     PageTitle,
     SectionTitle,
     TrainingCard,
+    CategoryCardContent,
+    TrainingCardContent,
     PopularTrainingCard,
     TrainingModal,
     TrainingAccordion,

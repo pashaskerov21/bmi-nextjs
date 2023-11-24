@@ -65,7 +65,8 @@ const CategoryPage = async ({ params: { lang, categoryslug } }: { params: { lang
                             <CategoryPageSection
                                 activeLocale={lang} 
                                 categoryData={categoryData} 
-                                categoryTranslateData={requiredCategoryTranslate}
+                                individualCategoryTranslateData={requiredCategoryTranslate}
+                                categoryTranslateData={trainingCategoryTranslateData}
                                 trainingData={filteredTrainings}
                                 trainingTranslateData={trainingTranslateData}
                                 titleDictionary={titleDictionary} 

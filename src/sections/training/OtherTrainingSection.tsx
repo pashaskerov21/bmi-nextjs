@@ -1,5 +1,5 @@
 'use client'
-import { SectionTitle, TrainingCard } from '@/src/components'
+import { SectionTitle, TrainingCard, TrainingCardContent } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
 import { TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
 import { otherTrainingSliderSettings } from '@/src/utils'
@@ -8,7 +8,7 @@ import Slider from 'react-slick'
 
 type TrainingProps = {
   activeLocale: string,
-  categoryTranslateData: TrainingCategoryTranslateType,
+  categoryTranslateData: TrainingCategoryTranslateType[],
   trainingData: TrainingType[],
   trainingTranslateData: TrainingTranslateType[],
   titleDictionary: { [key: string]: string },
@@ -25,7 +25,7 @@ const OtherTrainingSection: React.FC<TrainingProps> = ({ activeLocale, categoryT
             trainingData.map((data) => (
               <React.Fragment key={data.id}>
                 <div className="slide-inner">
-                  <CardContent
+                  <TrainingCardContent
                     activeLocale={activeLocale}
                     categoryTranslateData={categoryTranslateData}
                     trainingData={data}
@@ -38,30 +38,6 @@ const OtherTrainingSection: React.FC<TrainingProps> = ({ activeLocale, categoryT
         </Slider>
       </Container>
     </Section>
-  )
-}
-
-type CardProps = {
-  activeLocale: string,
-  categoryTranslateData: TrainingCategoryTranslateType,
-  trainingData: TrainingType,
-  trainingTranslateData: TrainingTranslateType[],
-  buttonDictionary: { [key: string]: string },
-}
-
-const CardContent: React.FC<CardProps> = ({ activeLocale, categoryTranslateData, trainingData, trainingTranslateData, buttonDictionary }) => {
-  const requiredTrainingTranslate: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.training_id === trainingData.id && data.lang === activeLocale);
-  return (
-    <React.Fragment>
-      {requiredTrainingTranslate ? (
-        <TrainingCard
-          cardType='link'
-          title={requiredTrainingTranslate.title}
-          image={trainingData.cardImage}
-          slug={`/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${requiredTrainingTranslate.title.toLocaleLowerCase()}`}
-          buttonDictionary={buttonDictionary} />
-      ) : null}
-    </React.Fragment>
   )
 }
 

@@ -1,5 +1,5 @@
 'use client'
-import { EventTranslateType, MenuTranslateType, MenuType, NewsTranslateType, SettingType, TrainerTranslateType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
+import { EventTranslateType, EventType, MenuTranslateType, MenuType, NewsTranslateType, NewsType, SettingType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types';
 import React from 'react'
 import { GeneralNavBar, ThemeButton } from './style';
 import { Container } from '@/src/styles/utils';
@@ -23,11 +23,15 @@ type HeaderProps = {
     theme: string,
     toggleTheme: () => void,
     activeLocale: string,
+    trainingCategoryData: TrainingCategoryType[],
     trainingCategoryTranslateData: TrainingCategoryTranslateType[],
     trainingData: TrainingType[],
     trainingTranslateData: TrainingTranslateType[],
+    trainerData: TrainerType[],
     trainerTranslateData: TrainerTranslateType[],
+    eventData: EventType[],
     eventTranslateData: EventTranslateType[],
+    newsData: NewsType[],
     newsTranslateData: NewsTranslateType[],
     errorDictionary: { [key: string]: string },
 }
@@ -39,11 +43,15 @@ const Header: React.FC<HeaderProps> = ({
     theme,
     toggleTheme,
     activeLocale,
+    trainingCategoryData,
     trainingCategoryTranslateData,
     trainingData,
     trainingTranslateData,
+    trainerData,
     trainerTranslateData,
+    eventData,
     eventTranslateData,
+    newsData,
     newsTranslateData,
     errorDictionary
 }) => {
@@ -112,11 +120,15 @@ const Header: React.FC<HeaderProps> = ({
                                     activeLocale={activeLocale}
                                     menuData={menuData}
                                     menuTranslateData={menuTranslateData}
+                                    trainingCategoryData={trainingCategoryData}
                                     trainingCategoryTranslateData={trainingCategoryTranslateData}
                                     trainingData={trainingData}
                                     trainingTranslateData={trainingTranslateData}
+                                    trainerData={trainerData}
                                     trainerTranslateData={trainerTranslateData}
+                                    eventData={eventData}
                                     eventTranslateData={eventTranslateData}
+                                    newsData={newsData}
                                     newsTranslateData={newsTranslateData}
                                     errorDictionary={errorDictionary}
                                 />

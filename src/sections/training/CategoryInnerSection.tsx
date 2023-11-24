@@ -1,5 +1,5 @@
 'use client'
-import { PageTitle, TrainingCard } from '@/src/components'
+import { PageTitle, TrainingCardContent } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
 import { Breadcrumb, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
 import React from 'react'
@@ -7,7 +7,8 @@ import React from 'react'
 type CategoryProps = {
     activeLocale: string,
     categoryData: TrainingCategoryType,
-    categoryTranslateData: TrainingCategoryTranslateType,
+    individualCategoryTranslateData: TrainingCategoryTranslateType,
+    categoryTranslateData: TrainingCategoryTranslateType[],
     trainingData: TrainingType[],
     trainingTranslateData: TrainingTranslateType[],
     titleDictionary: { [key: string]: string },
@@ -16,7 +17,7 @@ type CategoryProps = {
 
 const CategoryPageSection: React.FC<CategoryProps> = ({
     activeLocale,
-    categoryData,
+    individualCategoryTranslateData,
     categoryTranslateData,
     trainingData,
     trainingTranslateData,
@@ -30,8 +31,8 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
         },
         {
             id: 2,
-            name: categoryTranslateData.title,
-            path: `/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}`
+            name: individualCategoryTranslateData.title,
+            path: `/${activeLocale}/trainings/${encodeURIComponent(individualCategoryTranslateData.title.toLocaleLowerCase())}`
         }
     ]
     return (
@@ -39,14 +40,14 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
             <Container>
                 <PageTitle
                     activeLocale={activeLocale}
-                    title={categoryTranslateData.title}
+                    title={individualCategoryTranslateData.title}
                     breadcrumbs={breadcrumbs}
                     titleDictionary={titleDictionary} />
                 <Grid $col={5}>
                     {
                         trainingData.map((data) => (
                             <React.Fragment key={data.id}>
-                                <CardContent
+                                <TrainingCardContent
                                     activeLocale={activeLocale}
                                     categoryTranslateData={categoryTranslateData}
                                     trainingData={data}
@@ -58,31 +59,6 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
                 </Grid>
             </Container>
         </Section>
-    )
-}
-
-
-type CardProps = {
-    activeLocale: string,
-    categoryTranslateData: TrainingCategoryTranslateType,
-    trainingData: TrainingType,
-    trainingTranslateData: TrainingTranslateType[],
-    buttonDictionary: { [key: string]: string },
-}
-
-const CardContent: React.FC<CardProps> = ({ activeLocale, categoryTranslateData, trainingData, trainingTranslateData, buttonDictionary }) => {
-    const requiredTrainingTranslate: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.training_id === trainingData.id && data.lang === activeLocale);
-    return (
-        <React.Fragment>
-            {requiredTrainingTranslate ? (
-                <TrainingCard
-                    cardType='link'
-                    title={requiredTrainingTranslate.title}
-                    image={trainingData.cardImage}
-                    slug={`/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${requiredTrainingTranslate.title.toLocaleLowerCase()}`}
-                    buttonDictionary={buttonDictionary} />
-            ) : null}
-        </React.Fragment>
     )
 }
 

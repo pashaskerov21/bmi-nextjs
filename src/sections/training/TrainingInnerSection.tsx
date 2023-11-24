@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 type TrainingProps = {
     activeLocale: string,
-    categoryTranslateData: TrainingCategoryTranslateType,
+    individualCategoryTranslateData: TrainingCategoryTranslateType,
     trainingData: TrainingType,
     trainingTranslateData: TrainingTranslateType,
     trainerData: TrainerType[],
@@ -24,7 +24,7 @@ type TrainingProps = {
 
 const TrainingInnerSection: React.FC<TrainingProps> = ({
     activeLocale,
-    categoryTranslateData,
+    individualCategoryTranslateData,
     trainingData,
     trainingTranslateData,
     trainerData,
@@ -40,13 +40,13 @@ const TrainingInnerSection: React.FC<TrainingProps> = ({
         },
         {
             id: 2,
-            name: categoryTranslateData.title,
-            path: `/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}`
+            name: individualCategoryTranslateData.title,
+            path: `/${activeLocale}/trainings/${encodeURIComponent(individualCategoryTranslateData.title.toLocaleLowerCase())}`
         },
         {
             id: 3,
             name: trainingTranslateData.title,
-            path: `/${activeLocale}/trainings/${encodeURIComponent(categoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(trainingTranslateData.title.toLocaleLowerCase())}`
+            path: `/${activeLocale}/trainings/${encodeURIComponent(individualCategoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(trainingTranslateData.title.toLocaleLowerCase())}`
         },
     ]
     return (

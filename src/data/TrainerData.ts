@@ -47,6 +47,22 @@ export const trainerData = [
         linkedin: "",
         twitter: "",
     },
+    {
+        id: 7,
+        image: '/trainer/img-3.webp',
+        facebook: "",
+        instagram: "",
+        linkedin: "",
+        twitter: "",
+    },
+    {
+        id: 8,
+        image: '/trainer/img-4.webp',
+        facebook: "",
+        instagram: "",
+        linkedin: "",
+        twitter: "",
+    },
 ]
 
 export const trainerTranslateData = [
@@ -70,9 +86,9 @@ export const trainerTranslateData = [
         id: 3,
         trainer_id: 2,
         lang: 'az',
-        name: "Aysel Aliyeva",
+        name: "Aysel Əliyeva",
         position: "Təlimçi 2",
-        text: "Aysel Aliyeva Text AZ - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
+        text: "Aysel Əliyeva Text AZ - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
     },
     {
         id: 4,
@@ -145,5 +161,37 @@ export const trainerTranslateData = [
         name: "Aygun Jabbarli",
         position: "Trainer 6",
         text: "Aygun Jabbarli Text EN - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
+    },
+    {
+        id: 13,
+        trainer_id: 7,
+        lang: 'az',
+        name: "Kənan Əliyev",
+        position: "Təlimçi 6",
+        text: "Kənan Əliyev Text AZ - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
+    },
+    {
+        id: 14,
+        trainer_id: 7,
+        lang: 'en',
+        name: "Kanan Aliyev",
+        position: "Trainer 6",
+        text: "Kanan Aliyev Text EN - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
+    },
+    {
+        id: 15,
+        trainer_id: 8,
+        lang: 'az',
+        name: "Aysel Quliyeva",
+        position: "Təlimçi 6",
+        text: "Aysel Quliyeva Text AZ - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
+    },
+    {
+        id: 16,
+        trainer_id: 8,
+        lang: 'en',
+        name: "Aysel Guliyeva",
+        position: "Trainer 6",
+        text: "Aysel Guliyeva Text EN - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto, inventore delectus! Dolores facilis omnis aliquid odit praesentium, fugit optio. Iure quasi accusantium accusamus tempora, voluptates ducimus pariatur reiciendis at rem ab expedita ea eligendi maiores quas saepe consectetur veniam veritatis minus ipsa a amet adipisci? Quaerat perspiciatis molestiae sit repellat. Animi natus recusandae vero. Nihil totam consectetur ipsum architecto, alias nisi consequuntur recusandae animi doloremque et exercitationem cum magni qui inventore aspernatur sequi numquam doloribus praesentium perspiciatis pariatur! Facere, veritatis aliquam pariatur ipsa inventore non aspernatur repellat corrupti, dicta deserunt natus magnam, ut quaerat. Voluptas sapiente neque quasi nostrum corporis!",
     },
 ]

@@ -70,7 +70,7 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
                         <Suspense fallback={<div className='preloader'></div>}>
                             <TrainingInnerSection
                                 activeLocale={lang}
-                                categoryTranslateData={requiredCategoryTranslateData}
+                                individualCategoryTranslateData={requiredCategoryTranslateData}
                                 trainingData={requiredTrainingData}
                                 trainingTranslateData={requiredTrainingTranslateData}
                                 trainerData={filteredTrainers}
@@ -80,7 +80,7 @@ const TrainingPage = async ({ params: { lang, categoryslug, trainerslug } }: { p
                                 formDictionary={formDictionary} />
                             <OtherTrainingSection
                                 activeLocale={lang}
-                                categoryTranslateData={requiredCategoryTranslateData}
+                                categoryTranslateData={trainingCategoryTranslateData}
                                 trainingData={otherTrainingData}
                                 trainingTranslateData={trainingTranslateData}
                                 titleDictionary={titleDictionary}

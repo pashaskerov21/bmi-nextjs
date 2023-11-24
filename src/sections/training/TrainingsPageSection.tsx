@@ -1,5 +1,5 @@
 'use client'
-import { PageTitle, TrainingCard } from '@/src/components'
+import { CategoryCardContent, PageTitle, TrainingCard } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
 import { Breadcrumb, TrainingCategoryTranslateType, TrainingCategoryType } from '@/src/types'
 import React from 'react'
@@ -37,7 +37,7 @@ const TrainingPageSection: React.FC<TrainingProps> = ({
                     {
                         trainingCategoryData.map((data) => (
                             <React.Fragment key={data.id}>
-                                <CardContent
+                                <CategoryCardContent
                                     activeLocale={activeLocale}
                                     categoryData={data}
                                     categoryTranslateData={trainingCategoryTranslateData}
@@ -51,27 +51,6 @@ const TrainingPageSection: React.FC<TrainingProps> = ({
     )
 }
 
-type CardProps = {
-    activeLocale: string,
-    categoryData: TrainingCategoryType,
-    categoryTranslateData: TrainingCategoryTranslateType[],
-    buttonDictionary: { [key: string]: string },
-}
 
-const CardContent: React.FC<CardProps> = ({ activeLocale, categoryData, categoryTranslateData, buttonDictionary }) => {
-    const requiredTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
-    return (
-        <React.Fragment>
-            {requiredTranslate ? (
-                <TrainingCard
-                    cardType='link'
-                    title={requiredTranslate.title}
-                    image={categoryData.image}
-                    slug={`/${activeLocale}/trainings/${encodeURIComponent(requiredTranslate.title.toLocaleLowerCase())}`}
-                    buttonDictionary={buttonDictionary} />
-            ) : null}
-        </React.Fragment>
-    )
-}
 
 export default React.memo(TrainingPageSection)

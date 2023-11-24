@@ -47,7 +47,6 @@ import {
 } from './sliderSetting'
 
 
-
 export {
     fetchSetting,
     fetchSettingTranslate,

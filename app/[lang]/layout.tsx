@@ -1,6 +1,6 @@
-import { EventTranslateType, MenuTranslateType, MenuType, NewsTranslateType, SettingTranslateType, SettingType, TrainerTranslateType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
+import { EventTranslateType, EventType, MenuTranslateType, MenuType, NewsTranslateType, NewsType, SettingTranslateType, SettingType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types';
 import { Locale, i18n } from '../../i18n-config'
-import { fetchEventTranslate, fetchMenu, fetchMenuTranslate, fetchNewsTranslate, fetchSetting, fetchSettingTranslate, fetchTrainerTranslate, fetchTraining, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
+import { fetchEvent, fetchEventTranslate, fetchMenu, fetchMenuTranslate, fetchNews, fetchNewsTranslate, fetchSetting, fetchSettingTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
 import { RootLayout, StyledComponentsRegistry } from '@/src/layout';
 import { getTranslate } from '@/get-translate';
 import { Metadata } from 'next';
@@ -45,32 +45,44 @@ export default async function Root({ children, params: { lang }, }: { children: 
     settingTranslateData,
     menuData,
     menuTranslateData,
+    trainingCategoryData,
     trainingCategoryTranslateData,
     trainingData,
     trainingTranslateData,
+    trainerData,
     trainerTranslateData,
+    eventData,
     eventTranslateData,
+    newsData,
     newsTranslateData]:
     [
       SettingType[] | undefined,
       SettingTranslateType[] | undefined,
       MenuType[] | undefined,
       MenuTranslateType[] | undefined,
+      TrainingCategoryType[] | undefined,
       TrainingCategoryTranslateType[] | undefined,
       TrainingType[] | undefined,
       TrainingTranslateType[] | undefined,
+      TrainerType[] | undefined,
       TrainerTranslateType[] | undefined,
+      EventType[] | undefined,
       EventTranslateType[] | undefined,
+      NewsType[] | undefined,
       NewsTranslateType[] | undefined] = await Promise.all([
         fetchSetting(),
         fetchSettingTranslate(),
         fetchMenu(),
         fetchMenuTranslate(),
+        fetchTrainingCategory(),
         fetchTrainingCategoryTranslate(),
         fetchTraining(),
         fetchTrainingTranslate(),
+        fetchTrainer(),
         fetchTrainerTranslate(),
+        fetchEvent(),
         fetchEventTranslate(),
+        fetchNews(),
         fetchNewsTranslate()]);
 
   const t = await getTranslate(lang)
@@ -85,11 +97,15 @@ export default async function Root({ children, params: { lang }, }: { children: 
     && settingTranslateData
     && menuData
     && menuTranslateData
+    && trainingCategoryData
     && trainingCategoryTranslateData
     && trainingData
     && trainingTranslateData
+    && trainerData
     && trainerTranslateData
+    && eventData
     && eventTranslateData
+    && newsData
     && newsTranslateData
   ) {
     const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
@@ -116,11 +132,15 @@ export default async function Root({ children, params: { lang }, }: { children: 
               titleDictionary={titleDictionary}
               buttonDictionary={buttonDictionary}
               formDictionary={formDictionary}
+              trainingCategoryData={trainingCategoryData}
               trainingCategoryTranslateData={trainingCategoryTranslateData}
               trainingData={trainingData}
               trainingTranslateData={trainingTranslateData}
+              trainerData={trainerData}
               trainerTranslateData={trainerTranslateData}
+              eventData={eventData}
               eventTranslateData={eventTranslateData}
+              newsData={newsData}
               newsTranslateData={newsTranslateData}
               errorDictionary={errorDictionary}
             >
