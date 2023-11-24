@@ -1,6 +1,6 @@
-import { MenuTranslateType, MenuType, SettingTranslateType, SettingType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
+import { EventTranslateType, MenuTranslateType, MenuType, NewsTranslateType, SettingTranslateType, SettingType, TrainerTranslateType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
 import { Locale, i18n } from '../../i18n-config'
-import { fetchMenu, fetchMenuTranslate, fetchSetting, fetchSettingTranslate, fetchTraining, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
+import { fetchEventTranslate, fetchMenu, fetchMenuTranslate, fetchNewsTranslate, fetchSetting, fetchSettingTranslate, fetchTrainerTranslate, fetchTraining, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
 import { RootLayout, StyledComponentsRegistry } from '@/src/layout';
 import { getTranslate } from '@/get-translate';
 import { Metadata } from 'next';
@@ -47,7 +47,10 @@ export default async function Root({ children, params: { lang }, }: { children: 
     menuTranslateData,
     trainingCategoryTranslateData,
     trainingData,
-    trainingTranslateData,]:
+    trainingTranslateData,
+    trainerTranslateData,
+    eventTranslateData,
+    newsTranslateData]:
     [
       SettingType[] | undefined,
       SettingTranslateType[] | undefined,
@@ -55,22 +58,40 @@ export default async function Root({ children, params: { lang }, }: { children: 
       MenuTranslateType[] | undefined,
       TrainingCategoryTranslateType[] | undefined,
       TrainingType[] | undefined,
-      TrainingTranslateType[] | undefined] = await Promise.all([
+      TrainingTranslateType[] | undefined,
+      TrainerTranslateType[] | undefined,
+      EventTranslateType[] | undefined,
+      NewsTranslateType[] | undefined] = await Promise.all([
         fetchSetting(),
         fetchSettingTranslate(),
         fetchMenu(),
         fetchMenuTranslate(),
         fetchTrainingCategoryTranslate(),
         fetchTraining(),
-        fetchTrainingTranslate()]);
+        fetchTrainingTranslate(),
+        fetchTrainerTranslate(),
+        fetchEventTranslate(),
+        fetchNewsTranslate()]);
 
   const t = await getTranslate(lang)
   const footerDictionary: { [key: string]: string } = t.footer;
   const titleDictionary = t.title;
   const buttonDictionary = t.button;
   const formDictionary = t.form;
+  const errorDictionary = t.error;
 
-  if (settingData && settingTranslateData && menuData && menuTranslateData && trainingCategoryTranslateData && trainingData && trainingTranslateData) {
+  if (
+    settingData
+    && settingTranslateData
+    && menuData
+    && menuTranslateData
+    && trainingCategoryTranslateData
+    && trainingData
+    && trainingTranslateData
+    && trainerTranslateData
+    && eventTranslateData
+    && newsTranslateData
+  ) {
     const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
     if (requiredSettingTranslate) {
       return (
@@ -98,6 +119,10 @@ export default async function Root({ children, params: { lang }, }: { children: 
               trainingCategoryTranslateData={trainingCategoryTranslateData}
               trainingData={trainingData}
               trainingTranslateData={trainingTranslateData}
+              trainerTranslateData={trainerTranslateData}
+              eventTranslateData={eventTranslateData}
+              newsTranslateData={newsTranslateData}
+              errorDictionary={errorDictionary}
             >
               {children}
             </RootLayout>

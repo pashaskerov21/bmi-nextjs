@@ -28,6 +28,7 @@ import ContactSection from "./contact/ContactSection";
 import FaqSection from "./faq/FaqSection";
 import CareerSection from "./career/CareerSection";
 import VacancySection from "./career/VacancySection";
+import SearchSection from "./search/SearchSection";
 
 export {
     Page404Section,
@@ -59,4 +60,5 @@ export {
     FaqSection,
     CareerSection,
     VacancySection,
+    SearchSection,
 }

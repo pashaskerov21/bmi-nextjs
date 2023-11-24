@@ -1,5 +1,5 @@
 'use client'
-import { MenuTranslateType, MenuType, SettingType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
+import { EventTranslateType, MenuTranslateType, MenuType, NewsTranslateType, SettingType, TrainerTranslateType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types';
 import React from 'react'
 import { GeneralNavBar, ThemeButton } from './style';
 import { Container } from '@/src/styles/utils';
@@ -26,6 +26,10 @@ type HeaderProps = {
     trainingCategoryTranslateData: TrainingCategoryTranslateType[],
     trainingData: TrainingType[],
     trainingTranslateData: TrainingTranslateType[],
+    trainerTranslateData: TrainerTranslateType[],
+    eventTranslateData: EventTranslateType[],
+    newsTranslateData: NewsTranslateType[],
+    errorDictionary: { [key: string]: string },
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -38,6 +42,10 @@ const Header: React.FC<HeaderProps> = ({
     trainingCategoryTranslateData,
     trainingData,
     trainingTranslateData,
+    trainerTranslateData,
+    eventTranslateData,
+    newsTranslateData,
+    errorDictionary
 }) => {
     const [fixed, setFixed] = React.useState<boolean>(false);
     React.useEffect(() => {
@@ -107,6 +115,10 @@ const Header: React.FC<HeaderProps> = ({
                                     trainingCategoryTranslateData={trainingCategoryTranslateData}
                                     trainingData={trainingData}
                                     trainingTranslateData={trainingTranslateData}
+                                    trainerTranslateData={trainerTranslateData}
+                                    eventTranslateData={eventTranslateData}
+                                    newsTranslateData={newsTranslateData}
+                                    errorDictionary={errorDictionary}
                                 />
                                 <div className="mobile d-lg-none">
                                     <button className='search-button' onClick={toggleSearch}>

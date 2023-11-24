@@ -42,11 +42,13 @@
     "contact_us": "Contact us",
     "apply_form": "Application form",
     "faq": "Frequently asked questions",
-    "career": "Career"
+    "career": "Career",
+    "search": "Search"
   },
-  "error_404": {
-    "page_404": "Page not found",
-    "category_404": ""
+  "error": {
+    "error": "Error",
+    "search_error": "No search results were found",
+    "page_404": "Page not found"
   },
   "form": {
     "label": {

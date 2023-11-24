@@ -42,11 +42,13 @@
         "contact_us": "Bizimlə əlaqə",
         "apply_form": "Müraciət formu",
         "faq": "Tez-tez soruşulanlar",
-        "career": "Karyera"
+        "career": "Karyera",
+        "search": "Axtarış"
     },
-    "error_404": {
-        "page_404": "Səhifə tapılmadı",
-        "category_404": ""
+    "error": {
+        "error": "Xəta",
+        "search_error": "Axtarışa uyğun heç bir nəticə tapılmadı",
+        "page_404": "Səhifə tapılmadı"
     },
     "form": {
         "label": {

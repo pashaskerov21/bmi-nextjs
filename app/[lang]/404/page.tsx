@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const NotFoundPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
     const t = await getTranslate(lang);
-    const errorDictionary = t.error_404;
+    const errorDictionary = t.error;
     const titleDictionary = t.title;
     return (
         <React.Fragment>

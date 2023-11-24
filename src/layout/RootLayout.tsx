@@ -3,7 +3,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../styles/theme/light'
 import { darkTheme } from '../styles/theme/dark'
-import { MenuTranslateType, MenuType, SettingTranslateType, SettingType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '../types'
+import { EventTranslateType, MenuTranslateType, MenuType, NewsTranslateType, SettingTranslateType, SettingType, TrainerTranslateType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '../types'
 import { GlobalStyles } from '../styles/global'
 import { Footer, Header } from '../partials'
 import { ScrollButton, SiteToolbar } from '../components'
@@ -23,6 +23,7 @@ type RootLayoutProps = {
     footerDictionary: { [key: string]: string },
     titleDictionary: { [key: string]: string },
     buttonDictionary: { [key: string]: string },
+    errorDictionary: { [key: string]: string },
     formDictionary: {
         [key: string]: {
             [key: string]: string
@@ -31,6 +32,9 @@ type RootLayoutProps = {
     trainingCategoryTranslateData: TrainingCategoryTranslateType[],
     trainingData: TrainingType[],
     trainingTranslateData: TrainingTranslateType[],
+    trainerTranslateData: TrainerTranslateType[],
+    eventTranslateData: EventTranslateType[],
+    newsTranslateData: NewsTranslateType[],
 }
 
 const RootLayout: React.FC<RootLayoutProps> = ({
@@ -44,9 +48,13 @@ const RootLayout: React.FC<RootLayoutProps> = ({
     titleDictionary,
     buttonDictionary,
     formDictionary,
+    errorDictionary,
     trainingCategoryTranslateData,
     trainingData,
-    trainingTranslateData }) => {
+    trainingTranslateData,
+    trainerTranslateData,
+    eventTranslateData,
+    newsTranslateData }) => {
     const [theme, setTheme] = React.useState<string>(`${settingData.theme}`);
     const toggleTheme = React.useCallback(() => {
         if (theme === 'dark') {
@@ -88,7 +96,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({
                         trainingCategoryTranslateData={trainingCategoryTranslateData}
                         trainingData={trainingData}
                         trainingTranslateData={trainingTranslateData}
-                        />
+                        trainerTranslateData={trainerTranslateData}
+                        eventTranslateData={eventTranslateData}
+                        newsTranslateData={newsTranslateData}
+                        errorDictionary={errorDictionary}
+                    />
                     {loading && <div className='preloader'></div>}
                     <main>{children}</main>
                     <Footer
