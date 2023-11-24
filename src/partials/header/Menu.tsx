@@ -64,7 +64,7 @@ const Menu: React.FC<MenuProps> = ({
                             <div className={`page-links ${fixed ? 'fix-true' : ''}`}>
                                 {
                                     menuData.map((data) => (
-                                        <div key={data.id} onClick={() => setMenuShow(false)}>
+                                        <div key={data.id} onClick={toggleMenu}>
                                             <MenuLink activeLocale={activeLocale} menuData={data} menuTranslateData={menuTranslateData} />
                                         </div>
                                     ))
