@@ -13,7 +13,7 @@ type CardProps = {
 
 const TrainingCardContent: React.FC<CardProps> = ({ activeLocale, categoryTranslateData, trainingData, trainingTranslateData, buttonDictionary }) => {
     const requiredTrainingTranslate: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.training_id === trainingData.id && data.lang === activeLocale);
-    const requiredCategoryTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === trainingData.categoryID);
+    const requiredCategoryTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.lang === activeLocale && data.category_id === trainingData.categoryID);
     return (
         <React.Fragment>
             {(requiredTrainingTranslate && requiredCategoryTranslate) ? (
