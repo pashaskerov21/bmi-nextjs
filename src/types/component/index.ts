@@ -155,6 +155,7 @@ export type TrainingModelContentContentProps = {
     categoryTranslateData: TrainingCategoryTranslateDataType[],
     trainingTranslateData: TrainingTranslateDataType[],
     buttonDictionary: { [key: string]: string },
+    toggleTrainingModal: () => void,
 }
 export type LanguageProps = {
     activeLocale: string,

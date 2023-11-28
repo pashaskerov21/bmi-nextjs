@@ -64,7 +64,14 @@ const TrainingModal: React.FC<TrainingModalProps> = ({
                                                             <Image src={data.status ? '/icon/online-icon.png' : '/icon/offline-icon.png'} width={20} height={20} alt='' />
                                                             <span>{data.status ? 'online' : 'offline'}</span>
                                                         </div>
-                                                        <SlideContent activeLocale={activeLocale} category_id={data.categoryID} training_id={data.id} categoryTranslateData={categoryTranslateData} trainingTranslateData={trainingTranslateData} buttonDictionary={buttonDictionary} />
+                                                        <SlideContent
+                                                            activeLocale={activeLocale}
+                                                            category_id={data.categoryID}
+                                                            training_id={data.id}
+                                                            categoryTranslateData={categoryTranslateData}
+                                                            trainingTranslateData={trainingTranslateData}
+                                                            buttonDictionary={buttonDictionary}
+                                                            toggleTrainingModal={toggleTrainingModal} />
                                                     </div>
                                                 </TrainingSlide>
                                             </div>
@@ -80,7 +87,14 @@ const TrainingModal: React.FC<TrainingModalProps> = ({
     )
 }
 
-const SlideContent: React.FC<TrainingModelContentContentProps> = ({ category_id, training_id, activeLocale, categoryTranslateData, trainingTranslateData, buttonDictionary }) => {
+const SlideContent: React.FC<TrainingModelContentContentProps> = ({
+    category_id,
+    training_id,
+    activeLocale,
+    categoryTranslateData,
+    trainingTranslateData,
+    buttonDictionary,
+    toggleTrainingModal }) => {
     const requiredCategoryTranslate: TrainingCategoryTranslateDataType | undefined = categoryTranslateData.find((data) => data.category_id === category_id && data.lang === activeLocale);
     const requiredTrainingTranslate: TrainingTranslateDataType | undefined = trainingTranslateData.find((data) => data.training_id === training_id && data.lang === activeLocale)
     return (
@@ -91,11 +105,27 @@ const SlideContent: React.FC<TrainingModelContentContentProps> = ({ category_id,
                         <h3 className="title">{requiredTrainingTranslate.title}</h3>
                         <h4 className="category">{requiredCategoryTranslate.title}</h4>
                         <div className="text">
-                            {requiredTrainingTranslate.generalInformation.length > 200 ? requiredTrainingTranslate.generalInformation.slice(0, 200) + ' .....' : requiredTrainingTranslate.generalInformation}
+                            {requiredTrainingTranslate.generalInformation.length > 200 ? (
+                                <React.Fragment>
+                                    {requiredTrainingTranslate.generalInformation.slice(0, 200) + ' .....'}
+                                </React.Fragment>
+                            ) : (
+                                <React.Fragment>
+                                    {requiredTrainingTranslate.generalInformation}
+                                </React.Fragment>
+                            )}
                         </div>
                         <div className="buttons">
-                            <Link href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>{buttonDictionary.details}</Link>
-                            <Link href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>{buttonDictionary.registration}</Link>
+                            <Link
+                                onClick={toggleTrainingModal}
+                                href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>
+                                {buttonDictionary.details}
+                            </Link>
+                            <Link
+                                onClick={toggleTrainingModal}
+                                href={`/${activeLocale}/trainings/${encodeURIComponent(requiredCategoryTranslate.title)}/${encodeURIComponent(requiredTrainingTranslate.title)}`}>
+                                {buttonDictionary.registration}
+                            </Link>
                         </div>
                     </React.Fragment>
                 ) : null
