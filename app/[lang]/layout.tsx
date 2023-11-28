@@ -1,4 +1,4 @@
-import { EventTranslateType, EventType, MenuTranslateType, MenuType, NewsTranslateType, NewsType, SettingTranslateType, SettingType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types';
+import { EventTranslateDataType, EventDataType, MenuTranslateDataType, MenuDataType, NewsTranslateDataType, NewsDataType, SettingTranslateDataType, SettingDataType, TrainerTranslateDataType, TrainerDataType, TrainingCategoryTranslateDataType, TrainingCategoryDataType, TrainingTranslateDataType, TrainingDataType } from '@/src/types';
 import { Locale, i18n } from '../../i18n-config'
 import { fetchEvent, fetchEventTranslate, fetchMenu, fetchMenuTranslate, fetchNews, fetchNewsTranslate, fetchSetting, fetchSettingTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
 import { RootLayout, StyledComponentsRegistry } from '@/src/layout';
@@ -12,10 +12,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
   const [settingData, settingTranslateData,]: [
-    SettingType[] | undefined, SettingTranslateType[] | undefined,] = await Promise.all([
+    SettingDataType[] | undefined, SettingTranslateDataType[] | undefined,] = await Promise.all([
       fetchSetting(), fetchSettingTranslate(),]);
   if (settingData && settingTranslateData) {
-    const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
+    const requiredSettingTranslate: SettingTranslateDataType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
     if (requiredSettingTranslate) {
       return {
         title: requiredSettingTranslate.title,
@@ -56,20 +56,20 @@ export default async function Root({ children, params: { lang }, }: { children: 
     newsData,
     newsTranslateData]:
     [
-      SettingType[] | undefined,
-      SettingTranslateType[] | undefined,
-      MenuType[] | undefined,
-      MenuTranslateType[] | undefined,
-      TrainingCategoryType[] | undefined,
-      TrainingCategoryTranslateType[] | undefined,
-      TrainingType[] | undefined,
-      TrainingTranslateType[] | undefined,
-      TrainerType[] | undefined,
-      TrainerTranslateType[] | undefined,
-      EventType[] | undefined,
-      EventTranslateType[] | undefined,
-      NewsType[] | undefined,
-      NewsTranslateType[] | undefined] = await Promise.all([
+      SettingDataType[] | undefined,
+      SettingTranslateDataType[] | undefined,
+      MenuDataType[] | undefined,
+      MenuTranslateDataType[] | undefined,
+      TrainingCategoryDataType[] | undefined,
+      TrainingCategoryTranslateDataType[] | undefined,
+      TrainingDataType[] | undefined,
+      TrainingTranslateDataType[] | undefined,
+      TrainerDataType[] | undefined,
+      TrainerTranslateDataType[] | undefined,
+      EventDataType[] | undefined,
+      EventTranslateDataType[] | undefined,
+      NewsDataType[] | undefined,
+      NewsTranslateDataType[] | undefined] = await Promise.all([
         fetchSetting(),
         fetchSettingTranslate(),
         fetchMenu(),
@@ -108,7 +108,7 @@ export default async function Root({ children, params: { lang }, }: { children: 
     && newsData
     && newsTranslateData
   ) {
-    const requiredSettingTranslate: SettingTranslateType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
+    const requiredSettingTranslate: SettingTranslateDataType | undefined = settingTranslateData.find((data) => data.lang === lang && data.setting_id === settingData[0].id);
     if (requiredSettingTranslate) {
       return (
         <html lang={lang}>

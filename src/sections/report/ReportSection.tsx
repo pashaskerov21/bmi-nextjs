@@ -1,18 +1,12 @@
 'use client'
-import { Container, Section } from '@/src/styles/utils'
-import { ReportTranslateType, ReportType } from '@/src/types'
 import React from 'react'
+import { Container, Section } from '@/src/styles/utils'
 import { ReportWrapper } from './style'
 import { ReportItem } from '@/src/components'
-
-type ReportProps = {
-    activeLocale: string,
-    reportData: ReportType[],
-    reportTranslateData: ReportTranslateType[],
-}
+import { ReportSectionProps } from '@/src/types'
 
 
-const ReportSection: React.FC<ReportProps> = ({activeLocale, reportData, reportTranslateData}) => {
+const ReportSection: React.FC<ReportSectionProps> = ({activeLocale, reportData, reportTranslateData}) => {
     return (
         <Section $py={20} $py_xl={40}>
             <Container>

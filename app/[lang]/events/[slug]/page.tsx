@@ -1,7 +1,8 @@
 import { getTranslate } from '@/get-translate';
-import { Locale } from '@/i18n-config';
+import { Locale, i18n } from '@/i18n-config';
+import { EventInnerPageLayout } from '@/src/layout';
 import { EventInnerSection, OtherEventSection } from '@/src/sections';
-import { EventGalleryType, EventTranslateType, EventType } from '@/src/types';
+import { EventDataType, EventGalleryDataType, EventTranslateDataType } from '@/src/types';
 import { fetchEvent, fetchEventGallery, fetchEventTranslate } from '@/src/utils';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
@@ -11,9 +12,9 @@ export const generateMetadata = async ({ params: { lang, slug } }: { params: { l
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
     const eventSlug = decodeURIComponent(slug);
-    const eventTranslateData: EventTranslateType[] | undefined = await fetchEventTranslate();
+    const eventTranslateData: EventTranslateDataType[] | undefined = await fetchEventTranslate();
     if (eventTranslateData) {
-        const requiredTranslate: EventTranslateType | undefined = eventTranslateData.find((data) => data.lang === lang && data.title.toLocaleLowerCase() === eventSlug);
+        const requiredTranslate: EventTranslateDataType | undefined = eventTranslateData.find((data) => data.lang === lang && data.title.toLocaleLowerCase() === eventSlug);
         if (requiredTranslate) {
             let firstLetter = requiredTranslate.title.charAt(0).toLocaleUpperCase();
             let result = firstLetter + requiredTranslate.title.slice(1);
@@ -38,40 +39,37 @@ const EventInnerPage = async ({ params: { lang, slug } }: { params: { lang: Loca
         eventData,
         eventTranslateData,
         eventGalleryData]: [
-            EventType[] | undefined,
-            EventTranslateType[] | undefined,
-            EventGalleryType[] | undefined] = await Promise.all([
+            EventDataType[] | undefined,
+            EventTranslateDataType[] | undefined,
+            EventGalleryDataType[] | undefined] = await Promise.all([
                 fetchEvent(),
                 fetchEventTranslate(),
                 fetchEventGallery(),
             ]);
     if (eventData && eventTranslateData && eventGalleryData) {
-        const requiredTranslateData: EventTranslateType | undefined = eventTranslateData.find((data) => data.lang === lang && data.title.toLocaleLowerCase() === eventSlug);
-        if (requiredTranslateData) {
-            const requiredData: EventType | undefined = eventData.find((data) => data.id === requiredTranslateData.event_id);
-            const filteredGalleryData: EventGalleryType[] = eventGalleryData.filter((data) => data.event_id === requiredTranslateData.event_id);
-            const otherEventData: EventType[] | undefined = eventData.filter((data) => data.id !== requiredTranslateData.event_id);
-            const otherEventTranslateData: EventTranslateType[] | undefined = eventTranslateData.filter((data) => data.event_id !== requiredTranslateData.event_id)
-            if (requiredData) {
+        const activeTranslateData: EventTranslateDataType | undefined = eventTranslateData.find((data) => data.lang === lang && data.title.toLocaleLowerCase() === eventSlug);
+        if (activeTranslateData) {
+            const activeData: EventDataType | undefined = eventData.find((data) => data.id === activeTranslateData.event_id);
+            const allTranslateData: EventTranslateDataType[] | [] = eventTranslateData.filter((data) => data.event_id === activeTranslateData.event_id);
+            const filteredGalleryData: EventGalleryDataType[] | [] = eventGalleryData.filter((data) => data.event_id === activeTranslateData.event_id);
+            const otherEventData: EventDataType[] | [] = eventData.filter((data) => data.id !== activeTranslateData.event_id);
+            const otherEventTranslateData: EventTranslateDataType[] | [] = eventTranslateData.filter((data) => data.event_id !== activeTranslateData.event_id)
+            if (activeData && allTranslateData.length === i18n.locales.length) {
                 return (
                     <React.Fragment>
                         <Suspense fallback={<div className='preloader'></div>}>
-                            <EventInnerSection
+                            <EventInnerPageLayout
+                                activeData={activeData}
                                 activeLocale={lang}
-                                eventData={requiredData}
-                                eventTranslateData={requiredTranslateData}
+                                activeTranslateData={activeTranslateData}
+                                allTranslateData={allTranslateData}
+                                buttonDictionary={buttonDictionary}
+                                filteredGalleryData={filteredGalleryData}
+                                otherEventData={otherEventData}
+                                otherEventTranslateData={otherEventTranslateData}
                                 titleDictionary={titleDictionary}
-                                filteredGalleryData={filteredGalleryData} />
-                            {
-                                (otherEventData && otherEventTranslateData) ? (
-                                    <OtherEventSection
-                                        activeLocale={lang}
-                                        eventData={otherEventData}
-                                        eventTranslateData={otherEventTranslateData}
-                                        titleDictionary={titleDictionary}
-                                        buttonDictionary={buttonDictionary} />
-                                ) : null
-                            }
+
+                            />
                         </Suspense>
                     </React.Fragment>
                 )

@@ -1,26 +1,11 @@
 'use client'
+import React from 'react'
 import { PageTitle, VacancyFormContainer } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { Breadcrumb, CareerTranslateType, CareerType } from '@/src/types'
-import React from 'react'
 import { VacancyContentWrapper } from './style'
-import { FaLocationDot } from 'react-icons/fa6'
-import { FaCalendarAlt } from 'react-icons/fa'
+import { Breadcrumb, VacanySectionProps } from '@/src/types'
 
-type VacanyProps = {
-    activeLocale: string,
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-    careerData: CareerType,
-    careerTranslateData: CareerTranslateType,
-}
-
-const VacancySection: React.FC<VacanyProps> = ({ activeLocale, titleDictionary, buttonDictionary, formDictionary, careerData, careerTranslateData }) => {
+const VacancySection: React.FC<VacanySectionProps> = ({ activeLocale, titleDictionary, buttonDictionary, formDictionary, careerData, careerTranslateData }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,

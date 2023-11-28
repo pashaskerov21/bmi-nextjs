@@ -1,16 +1,10 @@
 'use client'
-import { ErrorMessage, Field, FormikProps } from 'formik'
 import React from 'react'
+import { ErrorMessage, Field } from 'formik'
+import { InputControlProps } from '@/src/types';
 
-export type InputProps = {
-    label: string,
-    name: string,
-    type?: string,
-    placeholder?: string,
-    formik?: FormikProps<any>,
-}
 
-const Input: React.FC<InputProps> = ({ label, name, ...rest }) => {
+const Input: React.FC<InputControlProps> = ({ label, name, ...rest }) => {
     const [invalidStatus, setInvalidStatus] = React.useState(false);
     React.useEffect(() => {
         if(rest.formik?.errors[name] && rest.formik.touched[name]){

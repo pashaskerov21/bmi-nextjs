@@ -1,23 +1,14 @@
 'use client'
-import { Container, Row, RowCol, Section } from '@/src/styles/utils'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, Breadcrumb } from '@/src/types'
 import React from 'react'
-import { AboutContentWrapper, AboutImageWrapper, AboutReportWrapper } from './style'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Container, Row, RowCol, Section } from '@/src/styles/utils'
+import { AboutContentWrapper, AboutImageWrapper, AboutReportWrapper } from './style'
 import { FaPlay } from 'react-icons/fa6'
 import { PageTitle } from '@/src/components'
+import { AboutReportTranslateDataType, AboutSectionProps, AboutTranslateDataType, Breadcrumb } from '@/src/types'
 
-type AboutProps = {
-    activeLocale: string,
-    aboutData: AboutType,
-    aboutTranslateData: AboutTranslateType[],
-    aboutReportData: AboutReportType[],
-    aboutReportTranslateData: AboutReportTranslateType[],
-    titleDictionary: { [key: string]: string },
-}
-
-const AboutPageSection: React.FC<AboutProps> = ({
+const AboutPageSection: React.FC<AboutSectionProps> = ({
     activeLocale,
     aboutData,
     aboutTranslateData,
@@ -84,7 +75,7 @@ const AboutPageSection: React.FC<AboutProps> = ({
 type TextProps = {
     activeLocale: string,
     about_id: number,
-    aboutTranslateData: AboutTranslateType[],
+    aboutTranslateData: AboutTranslateDataType[],
 }
 const AboutText: React.FC<TextProps> = ({ activeLocale, about_id, aboutTranslateData }) => {
     const requiredTranslate = aboutTranslateData.find((data) => data.about_id === about_id && data.lang === activeLocale);
@@ -101,7 +92,7 @@ const AboutText: React.FC<TextProps> = ({ activeLocale, about_id, aboutTranslate
 type TitleProps = {
     activeLocale: string,
     report_id: number,
-    aboutReportTranslateData: AboutReportTranslateType[],
+    aboutReportTranslateData: AboutReportTranslateDataType[],
 }
 const ReportTitle: React.FC<TitleProps> = ({ activeLocale, report_id, aboutReportTranslateData }) => {
     const requiredTranslate = aboutReportTranslateData.find((data) => data.report_id === report_id && data.lang === activeLocale)

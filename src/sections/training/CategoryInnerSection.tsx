@@ -1,26 +1,15 @@
 'use client'
+import React from 'react'
 import { PageTitle, TrainingCardContent } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
-import { Breadcrumb, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
-import React from 'react'
+import { Breadcrumb, CategoryInnerSectionProps } from '@/src/types'
 
-type CategoryProps = {
-    activeLocale: string,
-    categoryData: TrainingCategoryType,
-    individualCategoryTranslateData: TrainingCategoryTranslateType,
-    categoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-}
-
-const CategoryPageSection: React.FC<CategoryProps> = ({
+const CategoryPageSection: React.FC<CategoryInnerSectionProps> = ({
     activeLocale,
-    individualCategoryTranslateData,
-    categoryTranslateData,
+    activecategoryTranslateData,
     trainingData,
     trainingTranslateData,
+    trainingCategoryTranslateData,
     titleDictionary,
     buttonDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
@@ -31,8 +20,8 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
         },
         {
             id: 2,
-            name: individualCategoryTranslateData.title,
-            path: `/${activeLocale}/trainings/${encodeURIComponent(individualCategoryTranslateData.title.toLocaleLowerCase())}`
+            name: activecategoryTranslateData.title,
+            path: `/${activeLocale}/trainings/${encodeURIComponent(activecategoryTranslateData.title.toLocaleLowerCase())}`
         }
     ]
     return (
@@ -40,7 +29,7 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
             <Container>
                 <PageTitle
                     activeLocale={activeLocale}
-                    title={individualCategoryTranslateData.title}
+                    title={activecategoryTranslateData.title}
                     breadcrumbs={breadcrumbs}
                     titleDictionary={titleDictionary} />
                 <Grid $col={5}>
@@ -49,7 +38,7 @@ const CategoryPageSection: React.FC<CategoryProps> = ({
                             <React.Fragment key={data.id}>
                                 <TrainingCardContent
                                     activeLocale={activeLocale}
-                                    categoryTranslateData={categoryTranslateData}
+                                    categoryTranslateData={trainingCategoryTranslateData}
                                     trainingData={data}
                                     trainingTranslateData={trainingTranslateData}
                                     buttonDictionary={buttonDictionary} />

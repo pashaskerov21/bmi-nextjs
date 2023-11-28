@@ -1,17 +1,10 @@
 'use client'
+import React from 'react'
 import { PageTitle, TrainerCard } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
-import { Breadcrumb, TrainerTranslateType, TrainerType } from '@/src/types'
-import React from 'react'
+import { Breadcrumb, TrainerSectionProps } from '@/src/types'
 
-type TrainerProps = {
-    activeLocale: string,
-    trainerData: TrainerType[],
-    trainerTranslateData: TrainerTranslateType[],
-    titleDictionary: { [key: string]: string },
-}
-
-const TrainersPageSection: React.FC<TrainerProps> = ({ activeLocale, trainerData, trainerTranslateData, titleDictionary }) => {
+const TrainersPageSection: React.FC<TrainerSectionProps> = ({ activeLocale, trainerData, trainerTranslateData, titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -42,4 +35,4 @@ const TrainersPageSection: React.FC<TrainerProps> = ({ activeLocale, trainerData
     )
 }
 
-export default TrainersPageSection
+export default React.memo(TrainersPageSection)

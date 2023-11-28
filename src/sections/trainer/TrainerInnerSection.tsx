@@ -1,22 +1,15 @@
 'use client'
-import { PageTitle } from '@/src/components'
-import { Container, Row, RowCol, Section } from '@/src/styles/utils'
-import { Breadcrumb, TrainerTranslateType, TrainerType } from '@/src/types'
 import React from 'react'
-import { TrainerDetailWrapper } from './style'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PageTitle } from '@/src/components'
+import { Container, Row, RowCol, Section } from '@/src/styles/utils'
+import { TrainerDetailWrapper } from './style'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa6';
+import { Breadcrumb, TrainerInnerSectionProps } from '@/src/types'
 
 
-type TrainerProps = {
-    activeLocale: string,
-    trainerData: TrainerType,
-    translateData: TrainerTranslateType,
-    titleDictionary: { [key: string]: string },
-}
-
-const TrainerInnerSection: React.FC<TrainerProps> = ({ activeLocale, trainerData, translateData, titleDictionary }) => {
+const TrainerInnerSection: React.FC<TrainerInnerSectionProps> = ({ activeLocale, trainerData, translateData, titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -65,4 +58,4 @@ const TrainerInnerSection: React.FC<TrainerProps> = ({ activeLocale, trainerData
     )
 }
 
-export default TrainerInnerSection
+export default React.memo(TrainerInnerSection)

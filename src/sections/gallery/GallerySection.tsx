@@ -1,21 +1,15 @@
 'use client'
 import { Photos, SectionTitle, Videos } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { GalleryType } from '@/src/types'
+import { GalleryDataType, GallerySectionProps } from '@/src/types'
 import React from 'react'
 import { GalleryButtons } from './style'
 
-type GalleryProps = {
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    galleryData: GalleryType[],
-}
-
-const GallerySection: React.FC<GalleryProps> = ({ titleDictionary, buttonDictionary, galleryData }) => {
+const GallerySection: React.FC<GallerySectionProps> = ({ titleDictionary, buttonDictionary, galleryData }) => {
     const [galleryType, setGalleryType] = React.useState<string>('photo');
 
-    const photos: GalleryType[] = galleryData.filter((data) => data.type === 'photo');
-    const videos: GalleryType[] = galleryData.filter((data) => data.type === 'video');
+    const photos: GalleryDataType[] = galleryData.filter((data) => data.type === 'photo');
+    const videos: GalleryDataType[] = galleryData.filter((data) => data.type === 'video');
 
     return (
         <Section $py={20}>

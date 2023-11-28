@@ -1,11 +1,12 @@
+import React, { Suspense } from 'react'
 import { getTranslate } from '@/get-translate';
 import { Locale } from '@/i18n-config';
 import { CareerSection } from '@/src/sections';
-import { CareerTranslateType, CareerType } from '@/src/types';
 import { fetchCareer, fetchCareerTranslate } from '@/src/utils';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import React, { Suspense } from 'react'
+import { CareerDataType, CareerTranslateDataType } from '@/src/types';
+import { CareerPageLayout } from '@/src/layout';
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
     const t = await getTranslate(lang);
@@ -21,18 +22,19 @@ const CareerPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
     const buttonDictionary = t.button;
-    const [careerData, careerTranslateData]: [CareerType[] | undefined, CareerTranslateType[] | undefined] = await Promise.all([fetchCareer(), fetchCareerTranslate()]);
+    const [careerData, careerTranslateData]: [CareerDataType[] | undefined, CareerTranslateDataType[] | undefined] = await Promise.all([fetchCareer(), fetchCareerTranslate()]);
     return (
         <React.Fragment>
             <Suspense fallback={<div className='preloader'></div>}>
                 {
                     (careerData && careerTranslateData) ? (
-                        <CareerSection
+                        <CareerPageLayout
                             activeLocale={lang}
-                            titleDictionary={titleDictionary}
                             buttonDictionary={buttonDictionary}
                             careerData={careerData}
-                            careerTranslateData={careerTranslateData} />
+                            careerTranslateData={careerTranslateData}
+                            titleDictionary={titleDictionary}
+                        />
                     ) : redirect(`/${lang}/404`)
                 }
             </Suspense>

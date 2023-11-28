@@ -1,13 +1,10 @@
-// RootReducer.ts
 import {combineReducers} from '@reduxjs/toolkit';
-import SearchReducer, { SearchStateType } from './reducer/SearchReducer';
-
-export type RootStateType = {
-    searchState: SearchStateType
-}
+import SearchReducer from './reducer/SearchReducer';
+import LocaleReducer from './reducer/LocaleReducer';
 
 const RootReducer = combineReducers({
     searchState: SearchReducer,
+    localeState: LocaleReducer,
 });
 
 export default RootReducer;

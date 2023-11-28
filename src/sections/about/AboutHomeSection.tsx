@@ -1,23 +1,13 @@
 'use client'
-import { Container, Row, RowCol, Section } from '@/src/styles/utils'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType } from '@/src/types'
 import React from 'react'
-import { AboutContentWrapper, AboutImageWrapper, AboutReportWrapper } from './style'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Container, Row, RowCol, Section } from '@/src/styles/utils'
+import { AboutContentWrapper, AboutImageWrapper, AboutReportWrapper } from './style'
 import { FaPlay } from 'react-icons/fa6'
+import { AboutReportTranslateDataType, AboutSectionProps, AboutTranslateDataType } from '@/src/types'
 
-type AboutProps = {
-    activeLocale: string,
-    aboutData: AboutType,
-    aboutTranslateData: AboutTranslateType[],
-    aboutReportData: AboutReportType[],
-    aboutReportTranslateData: AboutReportTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-}
-
-const AboutHomeSection: React.FC<AboutProps> = ({
+const AboutHomeSection: React.FC<AboutSectionProps> = ({
     activeLocale,
     aboutData,
     aboutTranslateData,
@@ -81,7 +71,7 @@ const AboutHomeSection: React.FC<AboutProps> = ({
 type TextProps = {
     activeLocale: string,
     about_id: number,
-    aboutTranslateData: AboutTranslateType[],
+    aboutTranslateData: AboutTranslateDataType[],
     buttonDictionary: { [key: string]: string },
 }
 const AboutText: React.FC<TextProps> = ({ activeLocale, about_id, aboutTranslateData, buttonDictionary }) => {
@@ -99,7 +89,7 @@ const AboutText: React.FC<TextProps> = ({ activeLocale, about_id, aboutTranslate
 type TitleProps = {
     activeLocale: string,
     report_id: number,
-    aboutReportTranslateData: AboutReportTranslateType[],
+    aboutReportTranslateData: AboutReportTranslateDataType[],
 }
 const ReportTitle: React.FC<TitleProps> = ({ activeLocale, report_id, aboutReportTranslateData }) => {
     const requiredTranslate = aboutReportTranslateData.find((data) => data.report_id === report_id && data.lang === activeLocale)

@@ -1,4 +1,3 @@
-// SearchAction.ts
 import { SEARCH_DATA } from "../ActionTypes"
 
 export const pushSearchData = (data: any) => {

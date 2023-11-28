@@ -1,20 +1,27 @@
 'use client'
-import { CategoryCardContent, EventCard, NewsCard, PageTitle, TrainerCard, TrainingCardContent } from '@/src/components'
-import { RootStateType } from '@/src/redux/RootReducer'
-import { SearchStateType } from '@/src/redux/reducer/SearchReducer'
-import { Container, Grid, Section } from '@/src/styles/utils'
-import { Breadcrumb, EventTranslateType, EventType, NewsTranslateType, NewsType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
-import { redirect } from 'next/navigation'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { CategoryCardContent, EventCard, NewsCard, PageTitle, TrainerCard, TrainingCardContent } from '@/src/components'
+import { Container, Grid, Section } from '@/src/styles/utils'
+import { redirect } from 'next/navigation'
+import {  useSelector } from 'react-redux'
+import {
+    Breadcrumb,
+    EventDataType,
+    EventTranslateDataType,
+    NewsDataType,
+    NewsTranslateDataType,
+    RootStateType,
+    SearchSectionProps,
+    SearchStateType,
+    TrainerDataType,
+    TrainerTranslateDataType,
+    TrainingCategoryDataType,
+    TrainingCategoryTranslateDataType,
+    TrainingDataType, 
+    TrainingTranslateDataType
+} from '@/src/types'
 
-type SearchProps = {
-    activeLocale: string,
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-}
-
-const SearchSection: React.FC<SearchProps> = ({ activeLocale, titleDictionary, buttonDictionary }) => {
+const SearchSection: React.FC<SearchSectionProps> = ({ activeLocale, titleDictionary, buttonDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -23,18 +30,17 @@ const SearchSection: React.FC<SearchProps> = ({ activeLocale, titleDictionary, b
         }
     ]
     const searchData: SearchStateType = useSelector((state: RootStateType) => state.searchState);
-    console.log(searchData)
 
-    const trainingCategoryData: TrainingCategoryType[] | [] = searchData.traininCategoryDataState;
-    const trainingCategoryTranslateData: TrainingCategoryTranslateType[] | [] = searchData.traininCategoryTranslateDataState;
-    const trainingData: TrainingType[] | [] = searchData.trainingDataState;
-    const trainingTranslateData: TrainingTranslateType[] | [] = searchData.trainingTranslateDataState;
-    const trainerData: TrainerType[] | [] = searchData.trainerDataState;
-    const trainerTranslateData: TrainerTranslateType[] | [] = searchData.trainerTranslateDataState;
-    const eventData: EventType[] | [] = searchData.eventDataState;
-    const eventTranslateData: EventTranslateType[] | [] = searchData.eventTranslateDataState;
-    const newsData: NewsType[] | [] = searchData.newsDataState;
-    const newsTranslateData: NewsTranslateType[] | [] = searchData.newsTranslateDataState;
+    const trainingCategoryData: TrainingCategoryDataType[] | [] = searchData.traininCategoryDataState;
+    const trainingCategoryTranslateData: TrainingCategoryTranslateDataType[] | [] = searchData.traininCategoryTranslateDataState;
+    const trainingData: TrainingDataType[] | [] = searchData.trainingDataState;
+    const trainingTranslateData: TrainingTranslateDataType[] | [] = searchData.trainingTranslateDataState;
+    const trainerData: TrainerDataType[] | [] = searchData.trainerDataState;
+    const trainerTranslateData: TrainerTranslateDataType[] | [] = searchData.trainerTranslateDataState;
+    const eventData: EventDataType[] | [] = searchData.eventDataState;
+    const eventTranslateData: EventTranslateDataType[] | [] = searchData.eventTranslateDataState;
+    const newsData: NewsDataType[] | [] = searchData.newsDataState;
+    const newsTranslateData: NewsTranslateDataType[] | [] = searchData.newsTranslateDataState;
     if (
         (trainingCategoryData.length > 0 && trainingCategoryTranslateData.length > 0)
         || (trainingCategoryTranslateData.length > 0 && trainingData.length > 0 && trainingTranslateData.length > 0)

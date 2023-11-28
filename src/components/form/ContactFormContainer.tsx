@@ -1,26 +1,13 @@
-import { Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
-import Swal from 'sweetalert2'
 import * as Yup from 'yup'
+import { Form, Formik, FormikHelpers } from 'formik'
+import Swal from 'sweetalert2'
 import FormControl from './FormControl'
+import { ContactFormProps, ContactFormValues } from '@/src/types'
 
 
-type ContactFormrProps = {
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-}
-
-const ContactForm: React.FC<ContactFormrProps> = ({ buttonDictionary, formDictionary }) => {
-    type ContactFormValues = {
-        fullname: string,
-        phone: number | string,
-        email: string,
-        message: string,
-    }
+const ContactForm: React.FC<ContactFormProps> = ({ buttonDictionary, formDictionary }) => {
+    
     const initialValues: ContactFormValues = {
         fullname: "",
         phone: "",

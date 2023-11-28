@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react'
-import { Locale } from '../../../i18n-config'
-import { getTranslate } from '../../../get-translate'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, CustomerType, GalleryType, PartnerType, ReportTranslateType, ReportType } from '@/src/types'
-import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchCustomer, fetchGallery, fetchPartner, fetchReport, fetchReportTranslate } from '@/src/utils'
-import { AboutPageSection, CustomerSection, GallerySection, PartnerSection, ReportSection } from '@/src/sections'
 import { Metadata } from 'next'
+import { Locale } from '../../../i18n-config'
+import { AboutPageLayout } from '@/src/layout'
+import { getTranslate } from '../../../get-translate'
+import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchCustomer, fetchGallery, fetchPartner, fetchReport, fetchReportTranslate } from '@/src/utils'
+import { AboutDataType, AboutReportDataType, AboutReportTranslateDataType, AboutTranslateDataType, CustomerDataType, GalleryDataType, PartnerDataType, ReportDataType, ReportTranslateDataType } from '@/src/types'
 import { redirect } from 'next/navigation'
 
 
@@ -30,15 +30,15 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
         customerData,
         partnerData]:
         [
-            ReportType[] | undefined,
-            ReportTranslateType[] | undefined,
-            AboutType[] | undefined,
-            AboutTranslateType[] | undefined,
-            AboutReportType[] | undefined,
-            AboutReportTranslateType[] | undefined,
-            GalleryType[] | undefined,
-            CustomerType[] | undefined,
-            PartnerType[] | undefined] = await Promise.all(
+            ReportDataType[] | undefined,
+            ReportTranslateDataType[] | undefined,
+            AboutDataType[] | undefined,
+            AboutTranslateDataType[] | undefined,
+            AboutReportDataType[] | undefined,
+            AboutReportTranslateDataType[] | undefined,
+            GalleryDataType[] | undefined,
+            CustomerDataType[] | undefined,
+            PartnerDataType[] | undefined] = await Promise.all(
                 [
                     fetchReport(),
                     fetchReportTranslate(),
@@ -56,40 +56,33 @@ const AboutPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
     return (
         <React.Fragment>
             <Suspense fallback={<div className='preloader'></div>}>
-                {(aboutData && aboutTranslateData && aboutReportData && aboutReportTranslateData) ? (
-                    <AboutPageSection
-                        activeLocale={lang}
-                        aboutData={aboutData[0]}
-                        aboutTranslateData={aboutTranslateData}
-                        aboutReportData={aboutReportData}
-                        aboutReportTranslateData={aboutReportTranslateData}
-                        titleDictionary={titleDictionary} />
-                ) : redirect(`/${lang}/404`)}
-                {(reportData && reportTranslateData) ? (
-                    <ReportSection
-                        activeLocale={lang}
-                        reportData={reportData}
-                        reportTranslateData={reportTranslateData} />
-                ) : null}
-                {galleryData ? (
-                    <GallerySection
-                        titleDictionary={titleDictionary}
-                        buttonDictionary={buttonDictionary}
-                        galleryData={galleryData} />
-                ) : null}
                 {
-                    customerData ? (
-                        <CustomerSection
+                    (
+                        aboutData
+                        && aboutReportData
+                        && aboutReportTranslateData
+                        && aboutTranslateData
+                        && customerData
+                        && galleryData
+                        && partnerData
+                        && reportData
+                        && reportTranslateData
+                    ) ? (
+                        <AboutPageLayout
+                            aboutData={aboutData[0]}
+                            aboutReportData={aboutReportData}
+                            aboutReportTranslateData={aboutReportTranslateData}
+                            aboutTranslateData={aboutTranslateData}
+                            activeLocale={lang}
+                            buttonDictionary={buttonDictionary}
+                            customerData={customerData}
+                            galleryData={galleryData}
+                            partnerData={partnerData}
+                            reportData={reportData}
+                            reportTranslateData={reportTranslateData}
                             titleDictionary={titleDictionary}
-                            customerData={customerData} />
-                    ) : null
-                }
-                {
-                    partnerData ? (
-                        <PartnerSection
-                            titleDictionary={titleDictionary}
-                            partnerData={partnerData} />
-                    ) : null
+                        />
+                    ) : redirect(`/${lang}/404`)
                 }
             </Suspense>
         </React.Fragment>

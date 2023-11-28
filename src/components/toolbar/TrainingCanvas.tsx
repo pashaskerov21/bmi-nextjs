@@ -1,20 +1,11 @@
+'use client'
 import React from 'react'
 import { CanvasWrapper } from './style'
 import { FaXmark } from 'react-icons/fa6'
-import { TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
 import PopularTrainingCard from '../training/PopularTrainingCard'
+import { TrainingCanvasProps } from '@/src/types'
 
-type ApplyCanvasProps = {
-    activeLocale: string,
-    showTrainingCanvas: boolean,
-    toggleTrainingCanvas: () => void,
-    titleDictionary: { [key: string]: string },
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-}
-
-const TrainingCanvas: React.FC<ApplyCanvasProps> = ({
+const TrainingCanvas: React.FC<TrainingCanvasProps> = ({
     activeLocale,
     showTrainingCanvas,
     toggleTrainingCanvas,

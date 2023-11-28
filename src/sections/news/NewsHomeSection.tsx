@@ -1,20 +1,12 @@
 'use client'
-import { NewsCard, SectionTitle } from '@/src/components'
-import { Container, Section } from '@/src/styles/utils'
-import { NewsTranslateType, NewsType } from '@/src/types'
-import { newsSliderSettings } from '@/src/utils'
 import React from 'react'
 import Slider from 'react-slick'
+import { NewsCard, SectionTitle } from '@/src/components'
+import { Container, Section } from '@/src/styles/utils'
+import { newsSliderSettings } from '@/src/utils'
+import { NewsSectionProps } from '@/src/types'
 
-type NewsProps = {
-  activeLocale: string,
-  newsData: NewsType[],
-  newsTranslateData: NewsTranslateType[],
-  titleDictionary: { [key: string]: string },
-  buttonDictionary: { [key: string]: string },
-}
-
-const NewsHomeSection: React.FC<NewsProps> = ({ activeLocale, newsData, newsTranslateData, titleDictionary, buttonDictionary }) => {
+const NewsHomeSection: React.FC<NewsSectionProps> = ({ activeLocale, newsData, newsTranslateData, titleDictionary, buttonDictionary }) => {
   return (
     <Section $py={20}>
       <Container>

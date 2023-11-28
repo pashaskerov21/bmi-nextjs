@@ -1,19 +1,12 @@
 'use client'
-import { SectionTitle, TrainerCard } from '@/src/components'
-import { Container, Section } from '@/src/styles/utils'
-import { TrainerTranslateType, TrainerType } from '@/src/types'
-import { trainerSliderettings } from '@/src/utils'
 import React from 'react'
 import Slider from 'react-slick'
+import { SectionTitle, TrainerCard } from '@/src/components'
+import { Container, Section } from '@/src/styles/utils'
+import { TrainerSectionProps } from '@/src/types'
+import { trainerSliderettings } from '@/src/utils'
 
-type TrainerProps = {
-  activeLocale: string,
-  trainerData: TrainerType[],
-  trainerTranslateData: TrainerTranslateType[],
-  titleDictionary: { [key: string]: string },
-}
-
-const TrainerHomeSection: React.FC<TrainerProps> = ({ activeLocale, trainerData, trainerTranslateData, titleDictionary }) => {
+const TrainerHomeSection: React.FC<TrainerSectionProps> = ({ activeLocale, trainerData, trainerTranslateData, titleDictionary }) => {
   return (
     <Section $py={20} $py_xl={40}>
       <Container>

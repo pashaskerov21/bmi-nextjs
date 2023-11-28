@@ -1,25 +1,15 @@
 'use client'
-import { TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
 import React from 'react'
-import { TrainingModalBackdrop, TrainingModalWrapper, TrainingSlide } from './style'
-import { FaArrowLeftLong, FaArrowRightLong, FaChevronLeft, FaChevronRight, FaXmark } from 'react-icons/fa6'
 import Slider from 'react-slick'
 import Image from 'next/image'
 import Link from 'next/link'
+import { TrainingModalWrapper, TrainingSlide } from './style'
+import { FaArrowLeftLong, FaArrowRightLong, FaChevronLeft, FaChevronRight, FaXmark } from 'react-icons/fa6'
 import { trainingModalSliderSettings } from '@/src/utils'
+import { TrainingCategoryTranslateDataType, TrainingDataType, TrainingModalProps, TrainingModelContentContentProps, TrainingTranslateDataType } from '@/src/types'
 
-type ModalProps = {
-    activeLocale: string,
-    category: TrainingCategoryType,
-    categoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-    buttonDictionary: { [key: string]: string },
-    showTrainingModal: boolean,
-    toggleTrainingModal: () => void,
-}
 
-const TrainingModal: React.FC<ModalProps> = ({
+const TrainingModal: React.FC<TrainingModalProps> = ({
     activeLocale,
     category,
     categoryTranslateData,
@@ -28,7 +18,7 @@ const TrainingModal: React.FC<ModalProps> = ({
     buttonDictionary,
     showTrainingModal,
     toggleTrainingModal }) => {
-    const filteredTrainings: TrainingType[] = trainingData.filter((data) => data.categoryID === category.id);
+    const filteredTrainings: TrainingDataType[] = trainingData.filter((data) => data.categoryID === category.id);
 
     type SliderRefType = React.RefObject<Slider>;
     const slideRef: SliderRefType = React.useRef<Slider>(null);
@@ -90,18 +80,9 @@ const TrainingModal: React.FC<ModalProps> = ({
     )
 }
 
-type ContentProps = {
-    category_id: number,
-    training_id: number,
-    activeLocale: string,
-    categoryTranslateData: TrainingCategoryTranslateType[],
-    trainingTranslateData: TrainingTranslateType[],
-    buttonDictionary: { [key: string]: string },
-}
-
-const SlideContent: React.FC<ContentProps> = ({ category_id, training_id, activeLocale, categoryTranslateData, trainingTranslateData, buttonDictionary }) => {
-    const requiredCategoryTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === category_id && data.lang === activeLocale);
-    const requiredTrainingTranslate: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.training_id === training_id && data.lang === activeLocale)
+const SlideContent: React.FC<TrainingModelContentContentProps> = ({ category_id, training_id, activeLocale, categoryTranslateData, trainingTranslateData, buttonDictionary }) => {
+    const requiredCategoryTranslate: TrainingCategoryTranslateDataType | undefined = categoryTranslateData.find((data) => data.category_id === category_id && data.lang === activeLocale);
+    const requiredTrainingTranslate: TrainingTranslateDataType | undefined = trainingTranslateData.find((data) => data.training_id === training_id && data.lang === activeLocale)
     return (
         <React.Fragment>
             {

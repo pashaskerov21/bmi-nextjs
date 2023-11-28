@@ -1,20 +1,14 @@
 'use client'
+import React from 'react'
 import { PageTitle } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { Breadcrumb, FaqTranslateType, FaqType } from '@/src/types'
-import React from 'react'
 import { FaqAccordion } from './style'
 import { faqData, faqTranslateData } from '@/src/data'
 import { FaChevronDown } from 'react-icons/fa6'
+import { Breadcrumb, FaqDataType, FaqSectionProps, FaqTranslateDataType } from '@/src/types'
 
-type FaqProps = {
-    activeLocale: string,
-    titleDictionary: { [key: string]: string },
-    faqData: FaqType[],
-    faqTranslateData: FaqTranslateType[],
-}
 
-const FaqSection: React.FC<FaqProps> = ({ activeLocale, titleDictionary }) => {
+const FaqSection: React.FC<FaqSectionProps> = ({ activeLocale, titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -57,16 +51,16 @@ const FaqSection: React.FC<FaqProps> = ({ activeLocale, titleDictionary }) => {
     )
 }
 
-type ItemProps = {
+type FaqAccordionItemProps = {
     activeItem: number | null,
     activeLocale: string,
-    faqData: FaqType,
-    faqTranslateData: FaqTranslateType[],
+    faqData: FaqDataType,
+    faqTranslateData: FaqTranslateDataType[],
     handleAccordionButton: (key: number) => void,
 }
 
-const AccordionItem: React.FC<ItemProps> = ({ activeLocale, faqData, faqTranslateData, activeItem, handleAccordionButton }) => {
-    const requiredTranslateData: FaqTranslateType | undefined = faqTranslateData.find((data) => data.lang === activeLocale && data.faq_id === faqData.id);
+const AccordionItem: React.FC<FaqAccordionItemProps> = ({ activeLocale, faqData, faqTranslateData, activeItem, handleAccordionButton }) => {
+    const requiredTranslateData: FaqTranslateDataType | undefined = faqTranslateData.find((data) => data.lang === activeLocale && data.faq_id === faqData.id);
     return (
         <React.Fragment>
             {

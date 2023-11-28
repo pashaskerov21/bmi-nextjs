@@ -1,18 +1,11 @@
-import { NewsTranslateType, NewsType } from '@/src/types'
 import React from 'react'
 import { NewsCardWrapper } from './style'
 import Image from 'next/image'
 import Link from 'next/link'
-
-type NewsCardProps = {
-  activeLocale: string,
-  newsData: NewsType,
-  newsTranslateData: NewsTranslateType[],
-  buttonDictionary: { [key: string]: string },
-}
+import { NewsCardProps, NewsTranslateDataType } from '@/src/types'
 
 const NewsCard: React.FC<NewsCardProps> = ({ activeLocale, newsData, newsTranslateData, buttonDictionary }) => {
-  const requiredTranslate: NewsTranslateType | undefined = newsTranslateData.find((data) => data.news_id === newsData.id && data.lang === activeLocale)
+  const requiredTranslate: NewsTranslateDataType | undefined = newsTranslateData.find((data) => data.news_id === newsData.id && data.lang === activeLocale)
   return (
     <React.Fragment>
       {

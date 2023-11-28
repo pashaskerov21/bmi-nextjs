@@ -3,16 +3,12 @@ import React from 'react'
 import { EventCardWrapper } from './style'
 import Image from 'next/image'
 import Link from 'next/link'
-import { EventTranslateType, EventType } from '@/src/types'
+import { EventCardProps, EventTranslateDataType } from '@/src/types'
 
-type EventCardProps = {
-    activeLocale: string,
-    eventData: EventType,
-    eventTranslateData: EventTranslateType[],
-}
+
 
 const EventCard: React.FC<EventCardProps> = ({ activeLocale, eventData, eventTranslateData }) => {
-    const requiredTranslate: EventTranslateType | undefined = eventTranslateData.find((data) => data.event_id === eventData.id && data.lang === activeLocale)
+    const requiredTranslate: EventTranslateDataType | undefined = eventTranslateData.find((data) => data.event_id === eventData.id && data.lang === activeLocale)
     return (
         <React.Fragment>
             {

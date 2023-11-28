@@ -2,22 +2,12 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MenuTranslateType, MenuType, SettingTranslateType, SettingType } from '@/src/types';
 import { FaEnvelope } from 'react-icons/fa'
 import { FaPhone } from 'react-icons/fa6'
 import { FooterBottom, FooterTop } from './style';
 import { Container } from '@/src/styles/utils';
 import { MenuLink, SocialMedia } from '@/src/components';
-
-
-type FooterProps = {
-    activeLocale: string,
-    settingData: SettingType;
-    menuData: MenuType[],
-    menuTranslateData: MenuTranslateType[],
-    requiredSettingTranslate: SettingTranslateType,
-    footerDictionary: { [key: string]: string },
-}
+import { FooterProps } from '@/src/types'
 
 const Footer: React.FC<FooterProps> = ({
     activeLocale,

@@ -1,16 +1,12 @@
+'use client'
 import React from 'react'
-import { TrainingCardWrapper } from './style'
 import Link from 'next/link'
+import { TrainingCardWrapper } from './style'
+import { TrainingCardProps } from '@/src/types'
 
-type CardProps = {
-    cardType: string,
-    title: string,
-    image: string,
-    slug?: string,
-    buttonDictionary: { [key: string]: string },
-}
 
-const TrainingCard: React.FC<CardProps> = ({
+
+const TrainingCard: React.FC<TrainingCardProps> = ({
     cardType,
     title,
     image,

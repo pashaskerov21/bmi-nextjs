@@ -1,29 +1,14 @@
 'use client'
-import { Form, Formik, FormikHelpers } from 'formik'
-import * as Yup from 'yup'
 import React from 'react'
-import FormControl from './FormControl'
+import * as Yup from 'yup'
 import Swal from 'sweetalert2'
+import FormControl from './FormControl'
+import { Form, Formik, FormikHelpers } from 'formik'
+import { VacancyFormValues, VacanyFormContainerProps } from '@/src/types'
 
-
-
-type VacanyFormContainerProps = {
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-}
 const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictionary, formDictionary }) => {
-    type ApplyFormValues = {
-        name: string,
-        surname: string,
-        phone: number | string,
-        email: string,
-        cv: string,
-    }
-    const initialValues: ApplyFormValues = {
+    
+    const initialValues: VacancyFormValues = {
         name: "",
         surname: "",
         phone: "",
@@ -37,7 +22,7 @@ const VacancyFormContainer: React.FC<VacanyFormContainerProps> = ({ buttonDictio
         email: Yup.string().email(`${formDictionary.error.email_format}`).required(`${formDictionary.error.email}`),
         cv: Yup.string().required(`${formDictionary.error.cv}`),
     })
-    const onSubmit = (values: ApplyFormValues, actions: FormikHelpers<ApplyFormValues>) => {
+    const onSubmit = (values: VacancyFormValues, actions: FormikHelpers<VacancyFormValues>) => {
         console.log(values);
         actions.resetForm();
 

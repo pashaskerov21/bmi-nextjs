@@ -1,20 +1,8 @@
-// SearchReducer.ts
-import { EventTranslateType, EventType, NewsTranslateType, NewsType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from "@/src/types"
+import { SearchStateType } from "@/src/types"
 import { SEARCH_DATA } from "../ActionTypes"
 import { Reducer } from "react"
 
-export type SearchStateType = {
-    traininCategoryDataState: TrainingCategoryType[] | [],
-    traininCategoryTranslateDataState: TrainingCategoryTranslateType[] | [],
-    trainingDataState: TrainingType[] | [],
-    trainingTranslateDataState: TrainingTranslateType[] | [],
-    trainerDataState: TrainerType[] | [],
-    trainerTranslateDataState: TrainerTranslateType[] | [],
-    eventDataState: EventType[] | [],
-    eventTranslateDataState: EventTranslateType[] | [],
-    newsDataState: NewsType[] | [],
-    newsTranslateDataState: NewsTranslateType[] | [],
-}
+
 const initialState: SearchStateType = {
     traininCategoryDataState: [],
     traininCategoryTranslateDataState: [],

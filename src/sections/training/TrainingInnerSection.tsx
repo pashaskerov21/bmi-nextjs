@@ -1,30 +1,14 @@
 'use client'
+import React from 'react'
+import Image from 'next/image'
 import { PageTitle, TrainingAccordion } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { Breadcrumb, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
-import React from 'react'
 import { TrainingContentWrapper } from './style'
-import Image from 'next/image'
+import { Breadcrumb, TrainingInnerSectionProps } from '@/src/types'
 
-type TrainingProps = {
-    activeLocale: string,
-    individualCategoryTranslateData: TrainingCategoryTranslateType,
-    trainingData: TrainingType,
-    trainingTranslateData: TrainingTranslateType,
-    trainerData: TrainerType[],
-    trainerTranslateData: TrainerTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-}
-
-const TrainingInnerSection: React.FC<TrainingProps> = ({
+const TrainingInnerSection: React.FC<TrainingInnerSectionProps> = ({
     activeLocale,
-    individualCategoryTranslateData,
+    activeCategoryTranslateData,
     trainingData,
     trainingTranslateData,
     trainerData,
@@ -40,13 +24,13 @@ const TrainingInnerSection: React.FC<TrainingProps> = ({
         },
         {
             id: 2,
-            name: individualCategoryTranslateData.title,
-            path: `/${activeLocale}/trainings/${encodeURIComponent(individualCategoryTranslateData.title.toLocaleLowerCase())}`
+            name: activeCategoryTranslateData.title,
+            path: `/${activeLocale}/trainings/${encodeURIComponent(activeCategoryTranslateData.title.toLocaleLowerCase())}`
         },
         {
             id: 3,
             name: trainingTranslateData.title,
-            path: `/${activeLocale}/trainings/${encodeURIComponent(individualCategoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(trainingTranslateData.title.toLocaleLowerCase())}`
+            path: `/${activeLocale}/trainings/${encodeURIComponent(activeCategoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(trainingTranslateData.title.toLocaleLowerCase())}`
         },
     ]
     return (

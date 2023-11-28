@@ -1,21 +1,12 @@
 'use client'
 import { SectionTitle, TrainingCard, TrainingCardContent } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { OtherTrainingSectionProps } from '@/src/types'
 import { otherTrainingSliderSettings } from '@/src/utils'
 import React from 'react'
 import Slider from 'react-slick'
 
-type TrainingProps = {
-  activeLocale: string,
-  categoryTranslateData: TrainingCategoryTranslateType[],
-  trainingData: TrainingType[],
-  trainingTranslateData: TrainingTranslateType[],
-  titleDictionary: { [key: string]: string },
-  buttonDictionary: { [key: string]: string },
-}
-
-const OtherTrainingSection: React.FC<TrainingProps> = ({ activeLocale, categoryTranslateData, trainingData, trainingTranslateData, titleDictionary, buttonDictionary }) => {
+const OtherTrainingSection: React.FC<OtherTrainingSectionProps> = ({ activeLocale, trainingCategoryTranslateData, trainingData, trainingTranslateData, titleDictionary, buttonDictionary }) => {
   return (
     <Section $py={20}>
       <Container>
@@ -27,7 +18,7 @@ const OtherTrainingSection: React.FC<TrainingProps> = ({ activeLocale, categoryT
                 <div className="slide-inner">
                   <TrainingCardContent
                     activeLocale={activeLocale}
-                    categoryTranslateData={categoryTranslateData}
+                    categoryTranslateData={trainingCategoryTranslateData}
                     trainingData={data}
                     trainingTranslateData={trainingTranslateData}
                     buttonDictionary={buttonDictionary} />
@@ -41,4 +32,4 @@ const OtherTrainingSection: React.FC<TrainingProps> = ({ activeLocale, categoryT
   )
 }
 
-export default OtherTrainingSection
+export default React.memo(OtherTrainingSection)

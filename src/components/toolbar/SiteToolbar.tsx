@@ -4,23 +4,9 @@ import { ToolbarButtonWrapper } from './style'
 import Image from 'next/image'
 import ApplyCanvas from './ApplyCanvas'
 import TrainingCanvas from './TrainingCanvas'
-import { TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { SiteToolbarProps, TrainingDataType } from '@/src/types'
 
-type ToolbarProps = {
-    activeLocale: string,
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-}
-
-const SiteToolbar: React.FC<ToolbarProps> = ({
+const SiteToolbar: React.FC<SiteToolbarProps> = ({
     activeLocale,
     titleDictionary,
     buttonDictionary,
@@ -50,7 +36,7 @@ const SiteToolbar: React.FC<ToolbarProps> = ({
         }
     }, [showTrainingCanvas])
 
-    const popularTrainings: TrainingType[] | undefined = trainingData.filter((data) => data.isPopular);
+    const popularTrainings: TrainingDataType[] | undefined = trainingData.filter((data) => data.isPopular);
     return (
         <React.Fragment>
             <ToolbarButtonWrapper>

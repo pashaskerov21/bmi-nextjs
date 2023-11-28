@@ -1,25 +1,19 @@
 'use client'
+import React from 'react'
+import Image from 'next/image'
+import Slider from 'react-slick'
+import Link from 'next/link'
 import { PageTitle } from '@/src/components'
 import { Container, Row, RowCol, Section } from '@/src/styles/utils'
-import { Breadcrumb, EventGalleryType, EventTranslateType, EventType } from '@/src/types'
-import React from 'react'
 import { EventContentWrapper } from './style'
-import Image from 'next/image'
 import { FaLocationDot } from 'react-icons/fa6'
 import { FaCalendarAlt } from 'react-icons/fa'
-import Slider from 'react-slick'
 import { eventGallerySliderSettings } from '@/src/utils'
-import Link from 'next/link'
+import { Breadcrumb, EventInnerSectionProps } from '@/src/types'
 
-type EventProps = {
-    activeLocale: string,
-    eventData: EventType,
-    eventTranslateData: EventTranslateType,
-    filteredGalleryData: EventGalleryType[],
-    titleDictionary: { [key: string]: string },
-}
 
-const EventInnerSection: React.FC<EventProps> = ({ activeLocale, eventData, eventTranslateData,filteredGalleryData, titleDictionary }) => {
+
+const EventInnerSection: React.FC<EventInnerSectionProps> = ({ activeLocale, eventData, eventTranslateData,filteredGalleryData, titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,

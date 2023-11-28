@@ -1,17 +1,15 @@
 'use client'
 import { Container } from '@/src/styles/utils'
-import { GalleryType } from '@/src/types'
 import React from 'react'
 import { VideoWrapper } from './style'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaPlay } from "react-icons/fa";
+import { VideoGalleryProps } from '@/src/types'
 
-type VideoProps = {
-  videos: GalleryType[],
-}
 
-const Videos: React.FC<VideoProps> = ({ videos }) => {
+
+const Videos: React.FC<VideoGalleryProps> = ({ videos }) => {
   return (
     <React.Fragment>
       <Container>
@@ -36,4 +34,4 @@ const Videos: React.FC<VideoProps> = ({ videos }) => {
   )
 }
 
-export default Videos
+export default React.memo(Videos)

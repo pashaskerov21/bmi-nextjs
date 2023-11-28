@@ -2,10 +2,10 @@ import React, { Suspense } from 'react'
 import { Locale } from '@/i18n-config'
 import { Metadata } from 'next'
 import { getTranslate } from '@/get-translate';
-import { TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types';
 import { fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils';
-import { ApplyFormSection, TrainingPageSection } from '@/src/sections';
-import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
+import { TrainingCategoryDataType, TrainingCategoryTranslateDataType, TrainingDataType, TrainingTranslateDataType } from '@/src/types';
+import { TrainingPageLayout } from '@/src/layout';
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
   const t = await getTranslate(lang);
@@ -22,10 +22,10 @@ const Trainings = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
     trainingCategoryTranslateData,
     trainingData,
     trainingTranslateData]: [
-      TrainingCategoryType[] | undefined,
-      TrainingCategoryTranslateType[] | undefined,
-      TrainingType[] | undefined,
-      TrainingTranslateType[] | undefined,
+      TrainingCategoryDataType[] | undefined,
+      TrainingCategoryTranslateDataType[] | undefined,
+      TrainingDataType[] | undefined,
+      TrainingTranslateDataType[] | undefined,
     ] = await Promise.all([
       fetchTrainingCategory(),
       fetchTrainingCategoryTranslate(),
@@ -40,19 +40,16 @@ const Trainings = async ({ params: { lang }, }: { params: { lang: Locale } }) =>
       <Suspense fallback={<div className='preloader'></div>}>
         {(trainingCategoryData && trainingCategoryTranslateData && trainingData && trainingTranslateData) ? (
           <React.Fragment>
-            <TrainingPageSection
+            <TrainingPageLayout
               activeLocale={lang}
+              buttonDictionary={buttonDictionary}
+              formDictionary={formDictionary}
+              titleDictionary={titleDictionary}
               trainingCategoryData={trainingCategoryData}
               trainingCategoryTranslateData={trainingCategoryTranslateData}
-              titleDictionary={titleDictionary}
-              buttonDictionary={buttonDictionary} />
-            <ApplyFormSection
-              activeLocale={lang}
               trainingData={trainingData}
               trainingTranslateData={trainingTranslateData}
-              titleDictionary={titleDictionary}
-              formDictionary={formDictionary}
-              buttonDictionary={buttonDictionary} />
+            />
           </React.Fragment>
         ) : redirect('/404')}
       </Suspense>

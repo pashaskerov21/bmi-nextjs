@@ -1,14 +1,9 @@
 'use client'
 import React from 'react'
-import { SettingType } from '../types'
 import Link from 'next/link'
-// icons
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa6'
+import { SocialMediaProps } from '../types'
 
-
-type SocialMediaProps = {
-  settingData: SettingType,
-}
 
 const SocialMedia: React.FC<SocialMediaProps> = ({ settingData }) => {
   return (

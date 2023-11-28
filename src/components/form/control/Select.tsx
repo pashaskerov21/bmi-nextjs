@@ -1,20 +1,10 @@
 'use client'
-import { ErrorMessage, Field, FormikProps } from 'formik'
 import React from 'react'
+import { ErrorMessage, Field } from 'formik'
+import { SelectControlProps } from '@/src/types';
 
-export type SelectProps = {
-    label: string,
-    name: string,
-    type?: string,
-    placeholder?: string,
-    options?: {
-        value: number | string,
-        name: string,
-    }[],
-    formik?: FormikProps<any>,
-}
 
-const Select: React.FC<SelectProps> = ({ label, name, placeholder, options, ...rest }) => {
+const Select: React.FC<SelectControlProps> = ({ label, name, placeholder, options, ...rest }) => {
     const [invalidStatus, setInvalidStatus] = React.useState(false);
     React.useEffect(() => {
         if (rest.formik?.errors[name] && rest.formik.touched[name]) {

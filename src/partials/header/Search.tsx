@@ -4,44 +4,26 @@ import { SearchForm } from './style'
 import { BiSearch } from 'react-icons/bi'
 import { FaXmark } from 'react-icons/fa6';
 import { Container } from '@/src/styles/utils';
-import {
-    EventTranslateType,
-    EventType,
-    MenuTranslateType, 
-    MenuType, 
-    NewsTranslateType, 
-    NewsType, 
-    TrainerTranslateType, 
-    TrainerType, 
-    TrainingCategoryTranslateType, 
-    TrainingCategoryType, 
-    TrainingTranslateType, 
-    TrainingType
-} from '@/src/types';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
-import { SearchStateType } from '@/src/redux/reducer/SearchReducer';
 import { pushSearchData } from '@/src/redux/actions/SearchAction';
-
-type SearchProps = {
-    searchShow: boolean,
-    toggleSearch: () => void,
-    activeLocale: string,
-    menuData: MenuType[],
-    menuTranslateData: MenuTranslateType[],
-    trainingCategoryData: TrainingCategoryType[],
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-    trainerData: TrainerType[],
-    trainerTranslateData: TrainerTranslateType[],
-    eventData: EventType[],
-    eventTranslateData: EventTranslateType[],
-    newsData: NewsType[],
-    newsTranslateData: NewsTranslateType[],
-    errorDictionary: { [key: string]: string },
-}
+import {
+    EventDataType,
+    EventTranslateDataType,
+    MenuDataType,
+    MenuTranslateDataType,
+    NewsDataType,
+    NewsTranslateDataType,
+    SearchProps,
+    SearchStateType,
+    TrainerDataType,
+    TrainerTranslateDataType,
+    TrainingCategoryDataType,
+    TrainingCategoryTranslateDataType,
+    TrainingDataType,
+    TrainingTranslateDataType
+} from '@/src/types';
 
 const Search: React.FC<SearchProps> = ({
     searchShow,
@@ -82,22 +64,22 @@ const Search: React.FC<SearchProps> = ({
         e.preventDefault();
         toggleSearch();
 
-        const foundMenuTranslateData: MenuTranslateType | undefined = menuTranslateData.find(
+        const foundMenuTranslateData: MenuTranslateDataType | undefined = menuTranslateData.find(
             (data) => data.name.trim().toLocaleLowerCase().includes(searchValue.trim().toLocaleLowerCase()));
-        const foundTraininCategoryTranslateData: TrainingCategoryTranslateType[] | undefined = trainingCategoryTranslateData.filter(
+        const foundTraininCategoryTranslateData: TrainingCategoryTranslateDataType[] | undefined = trainingCategoryTranslateData.filter(
             (data) => data.title.trim().toLocaleLowerCase().includes(searchValue.trim().toLocaleLowerCase()));
-        const foundTrainingTranslateData: TrainingTranslateType[] | undefined = trainingTranslateData.filter(
+        const foundTrainingTranslateData: TrainingTranslateDataType[] | undefined = trainingTranslateData.filter(
             (data) => data.title.trim().toLocaleLowerCase().includes(searchValue.trim().toLocaleLowerCase()));
-        const foundTrainerTranslateData: TrainerTranslateType[] | undefined = trainerTranslateData.filter(
+        const foundTrainerTranslateData: TrainerTranslateDataType[] | undefined = trainerTranslateData.filter(
             (data) => data.name.trim().toLocaleLowerCase().includes(searchValue.trim().toLocaleLowerCase()));
-        const foundEventTranslateData: EventTranslateType[] | undefined = eventTranslateData.filter(
+        const foundEventTranslateData: EventTranslateDataType[] | undefined = eventTranslateData.filter(
             (data) => data.title.trim().toLocaleLowerCase().includes(searchValue.trim().toLocaleLowerCase()));
-        const foundNewsTranslateData: NewsTranslateType[] | undefined = newsTranslateData.filter(
+        const foundNewsTranslateData: NewsTranslateDataType[] | undefined = newsTranslateData.filter(
             (data) => data.title.trim().toLocaleLowerCase().includes(searchValue.trim().toLocaleLowerCase()));
 
         if (foundMenuTranslateData) {
             // menu search
-            const foundMenuData: MenuType | undefined = menuData.find((data) => data.id === foundMenuTranslateData.menu_id);
+            const foundMenuData: MenuDataType | undefined = menuData.find((data) => data.id === foundMenuTranslateData.menu_id);
             if (foundMenuData) {
                 router.push(`/${foundMenuTranslateData.lang}/${foundMenuData.path}`)
             }
@@ -111,9 +93,9 @@ const Search: React.FC<SearchProps> = ({
                     if (filterCategoryTranslateForLang.length === 1) {
                         router.push(`/${filterCategoryTranslateForLang[0].lang}/trainings/${encodeURIComponent(filterCategoryTranslateForLang[0].title.toLocaleLowerCase())}`)
                     } else {
-                        const foundTrainingCategoryData: TrainingCategoryType[] = filterCategoryTranslateForLang.map((tdata) => {
+                        const foundTrainingCategoryData: TrainingCategoryDataType[] = filterCategoryTranslateForLang.map((tdata) => {
                             return trainingCategoryData.find((data) => data.id === tdata.category_id);
-                        }).filter((d): d is TrainingCategoryType => d !== undefined);
+                        }).filter((d): d is TrainingCategoryDataType => d !== undefined);
 
                         let updateState = {
                             ...defaultSearchState,
@@ -128,28 +110,28 @@ const Search: React.FC<SearchProps> = ({
         } else if (foundTrainingTranslateData && foundTrainingTranslateData.length > 0) {
             // training search
             if (foundTrainingTranslateData.length === 1) {
-                const foundTrainingData: TrainingType | undefined = trainingData.find((data) => data.id === foundTrainingTranslateData[0].training_id)
+                const foundTrainingData: TrainingDataType | undefined = trainingData.find((data) => data.id === foundTrainingTranslateData[0].training_id)
                 if (foundTrainingData) {
-                    const foundCategoryTranslateData: TrainingCategoryTranslateType | undefined = trainingCategoryTranslateData.find((data) => data.lang === foundTrainingTranslateData[0].lang && data.category_id === foundTrainingData.categoryID);
+                    const foundCategoryTranslateData: TrainingCategoryTranslateDataType | undefined = trainingCategoryTranslateData.find((data) => data.lang === foundTrainingTranslateData[0].lang && data.category_id === foundTrainingData.categoryID);
                     if (foundCategoryTranslateData) {
                         router.push(`/${foundTrainingTranslateData[0].lang}/trainings/${encodeURIComponent(foundCategoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(foundTrainingTranslateData[0].title.toLocaleLowerCase())}`)
                     }
                 }
             } else {
-                const filterTrainingTranslateDataForLang: TrainingTranslateType[] = foundTrainingTranslateData.filter((data) => data.lang === activeLocale);
+                const filterTrainingTranslateDataForLang: TrainingTranslateDataType[] = foundTrainingTranslateData.filter((data) => data.lang === activeLocale);
                 if (filterTrainingTranslateDataForLang && filterTrainingTranslateDataForLang.length > 0) {
                     if (filterTrainingTranslateDataForLang.length === 1) {
-                        const foundTrainingData: TrainingType | undefined = trainingData.find((data) => data.id === filterTrainingTranslateDataForLang[0].training_id)
+                        const foundTrainingData: TrainingDataType | undefined = trainingData.find((data) => data.id === filterTrainingTranslateDataForLang[0].training_id)
                         if (foundTrainingData) {
-                            const foundCategoryTranslateData: TrainingCategoryTranslateType | undefined = trainingCategoryTranslateData.find((data) => data.lang === filterTrainingTranslateDataForLang[0].lang && data.category_id === foundTrainingData.categoryID);
+                            const foundCategoryTranslateData: TrainingCategoryTranslateDataType | undefined = trainingCategoryTranslateData.find((data) => data.lang === filterTrainingTranslateDataForLang[0].lang && data.category_id === foundTrainingData.categoryID);
                             if (foundCategoryTranslateData) {
                                 router.push(`/${foundTrainingTranslateData[0].lang}/trainings/${encodeURIComponent(foundCategoryTranslateData.title.toLocaleLowerCase())}/${encodeURIComponent(filterTrainingTranslateDataForLang[0].title.toLocaleLowerCase())}`)
                             }
                         }
                     } else {
-                        const foundTrainingData: TrainingType[] = filterTrainingTranslateDataForLang.map((tdata) => {
+                        const foundTrainingData: TrainingDataType[] = filterTrainingTranslateDataForLang.map((tdata) => {
                             return trainingData.find((data) => data.id === tdata.training_id);
-                        }).filter((d): d is TrainingType => d !== undefined);
+                        }).filter((d): d is TrainingDataType => d !== undefined);
 
                         let updateState = {
                             ...defaultSearchState,
@@ -167,14 +149,14 @@ const Search: React.FC<SearchProps> = ({
             if (foundTrainerTranslateData.length === 1) {
                 router.push(`/${foundTrainerTranslateData[0].lang}/trainers/${encodeURIComponent(foundTrainerTranslateData[0].name.toLocaleLowerCase())}`);
             } else {
-                const filterTrainerTranslateDataForLang: TrainerTranslateType[] = foundTrainerTranslateData.filter((data) => data.lang === activeLocale)
+                const filterTrainerTranslateDataForLang: TrainerTranslateDataType[] = foundTrainerTranslateData.filter((data) => data.lang === activeLocale)
                 if (filterTrainerTranslateDataForLang && filterTrainerTranslateDataForLang.length > 0) {
                     if (filterTrainerTranslateDataForLang.length === 1) {
                         router.push(`/${filterTrainerTranslateDataForLang[0].lang}/trainers/${encodeURIComponent(filterTrainerTranslateDataForLang[0].name.toLocaleLowerCase())}`);
                     } else {
-                        const foundTrainerData: TrainerType[] = filterTrainerTranslateDataForLang.map((tdata) => {
+                        const foundTrainerData: TrainerDataType[] = filterTrainerTranslateDataForLang.map((tdata) => {
                             return trainerData.find((data) => data.id === tdata.trainer_id);
-                        }).filter((d): d is TrainerType => d !== undefined);
+                        }).filter((d): d is TrainerDataType => d !== undefined);
 
                         let updateState = {
                             ...defaultSearchState,
@@ -191,14 +173,14 @@ const Search: React.FC<SearchProps> = ({
             if (foundEventTranslateData.length === 1) {
                 router.push(`/${foundEventTranslateData[0].lang}/events/${encodeURIComponent(foundEventTranslateData[0].title.toLocaleLowerCase())}`)
             } else {
-                const filterEventTranslateDataForLang: EventTranslateType[] = foundEventTranslateData.filter((data) => data.lang === activeLocale);
+                const filterEventTranslateDataForLang: EventTranslateDataType[] = foundEventTranslateData.filter((data) => data.lang === activeLocale);
                 if (filterEventTranslateDataForLang && filterEventTranslateDataForLang.length > 0) {
                     if (filterEventTranslateDataForLang.length === 1) {
                         router.push(`/${filterEventTranslateDataForLang[0].lang}/events/${encodeURIComponent(filterEventTranslateDataForLang[0].title.toLocaleLowerCase())}`)
                     } else {
-                        const foundEventData: EventType[] = filterEventTranslateDataForLang.map((tdata) => {
+                        const foundEventData: EventDataType[] = filterEventTranslateDataForLang.map((tdata) => {
                             return eventData.find((data) => data.id === tdata.event_id);
-                        }).filter((d): d is EventType => d !== undefined);
+                        }).filter((d): d is EventDataType => d !== undefined);
 
                         let updateState = {
                             ...defaultSearchState,
@@ -216,14 +198,14 @@ const Search: React.FC<SearchProps> = ({
             if (foundNewsTranslateData.length === 1) {
                 router.push(`/${foundNewsTranslateData[0].lang}/news/${encodeURIComponent(foundNewsTranslateData[0].title.toLocaleLowerCase())}`);
             } else {
-                const filterNewsTranslateDataForLang: NewsTranslateType[] = foundNewsTranslateData.filter((data) => data.lang === activeLocale);
+                const filterNewsTranslateDataForLang: NewsTranslateDataType[] = foundNewsTranslateData.filter((data) => data.lang === activeLocale);
                 if (filterNewsTranslateDataForLang && filterNewsTranslateDataForLang.length > 0) {
                     if (filterNewsTranslateDataForLang.length === 1) {
                         router.push(`/${filterNewsTranslateDataForLang[0].lang}/news/${encodeURIComponent(filterNewsTranslateDataForLang[0].title.toLocaleLowerCase())}`);
                     } else {
-                        const foundNewsData: NewsType[] = filterNewsTranslateDataForLang.map((tdata) => {
+                        const foundNewsData: NewsDataType[] = filterNewsTranslateDataForLang.map((tdata) => {
                             return newsData.find((data) => data.id === tdata.news_id);
-                        }).filter((d): d is NewsType => d !== undefined)
+                        }).filter((d): d is NewsDataType => d !== undefined)
                         let updateState = {
                             ...defaultSearchState,
                             newsDataState: foundNewsData,

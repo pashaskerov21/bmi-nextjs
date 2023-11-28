@@ -1,17 +1,10 @@
 'use client'
+import React from 'react'
 import { EventCard, PageTitle } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
-import { Breadcrumb, EventTranslateType, EventType } from '@/src/types'
-import React from 'react'
+import { Breadcrumb, EventSectionProps } from '@/src/types'
 
-type EventProps = {
-    activeLocale: string,
-    eventData: EventType[],
-    eventTranslateData: EventTranslateType[],
-    titleDictionary: { [key: string]: string },
-}
-
-const EventsPageSection: React.FC<EventProps> = ({ activeLocale, eventData, eventTranslateData, titleDictionary }) => {
+const EventsPageSection: React.FC<EventSectionProps> = ({ activeLocale, eventData, eventTranslateData, titleDictionary }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,

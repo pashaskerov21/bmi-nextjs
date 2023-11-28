@@ -2,22 +2,9 @@ import React from 'react'
 import { CanvasWrapper } from './style'
 import { FaXmark } from 'react-icons/fa6'
 import ApplyFormContainer from '../form/ApplyFormContainer'
-import { TrainingTranslateType, TrainingType } from '@/src/types'
+import { ApplyCanvasProps } from '@/src/types'
 
-type ApplyCanvasProps = {
-    activeLocale: string,
-    showApplyCanvas: boolean,
-    toggleApplyCanvas: () => void,
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-}
+
 
 const ApplyCanvas: React.FC<ApplyCanvasProps> = ({
     activeLocale,

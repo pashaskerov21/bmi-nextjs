@@ -1,20 +1,17 @@
-import { TrainerTranslateType, TrainerType } from '@/src/types'
+'use client'
 import React from 'react'
-import { TrainerCardWrapper } from './style';
 import Image from 'next/image';
 import Link from 'next/link';
+import { TrainerCardWrapper } from './style';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa6';
 import { FaShareAlt } from "react-icons/fa";
+import { TrainerCardProps, TrainerTranslateDataType } from '@/src/types';
 
-type CardProps = {
-    activeLocale: string,
-    trainerData: TrainerType,
-    trainerTranslateData: TrainerTranslateType[],
-}
 
-const TrainerCard: React.FC<CardProps> = ({ activeLocale, trainerData, trainerTranslateData }) => {
+
+const TrainerCard: React.FC<TrainerCardProps> = ({ activeLocale, trainerData, trainerTranslateData }) => {
     const [iconShow, setIconShow] = React.useState<boolean>(false);
-    const requiredTranslate: TrainerTranslateType | undefined = trainerTranslateData.find((data) => data.trainer_id === trainerData.id && data.lang === activeLocale);
+    const requiredTranslate: TrainerTranslateDataType | undefined = trainerTranslateData.find((data) => data.trainer_id === trainerData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
             {

@@ -1,15 +1,10 @@
 'use client'
 import React from 'react'
-import Input, { InputProps } from './control/Input'
-import Select, { SelectProps } from './control/Select'
-import Textarea, { TextareaProps } from './control/Textarea'
-import File, { FileProps } from './control/File'
-
-type FormControlProps =
-    | InputProps
-    | SelectProps
-    | TextareaProps
-    | FileProps
+import Input from './control/Input'
+import Select from './control/Select'
+import Textarea from './control/Textarea'
+import File from './control/File'
+import { FormControlProps } from '@/src/types'
 
 const FormControl: React.FC<FormControlProps & { control: string}> = ({ control, ...rest }) => {
     switch (control) {

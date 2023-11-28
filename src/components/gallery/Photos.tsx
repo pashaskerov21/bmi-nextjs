@@ -1,16 +1,14 @@
 'use client'
-import { GalleryType } from '@/src/types'
+import { PhotoGalleryProps } from '@/src/types'
 import React from 'react'
 import { PhotoWrapper } from './style'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaSearch } from "react-icons/fa";
 
-type PhotoProps = {
-  photos: GalleryType[],
-}
 
-const Photos: React.FC<PhotoProps> = ({ photos }) => {
+
+const Photos: React.FC<PhotoGalleryProps> = ({ photos }) => {
   return (
     <PhotoWrapper>
       {
@@ -31,4 +29,4 @@ const Photos: React.FC<PhotoProps> = ({ photos }) => {
   )
 }
 
-export default Photos
+export default React.memo(Photos)

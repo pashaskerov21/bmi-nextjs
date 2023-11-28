@@ -1,20 +1,13 @@
 'use client'
-import { EventCardSecond, SectionTitle } from '@/src/components'
-import { Container, Section } from '@/src/styles/utils'
-import { EventTranslateType, EventType } from '@/src/types'
-import { otherEventsSliderSettings } from '@/src/utils'
 import React from 'react'
 import Slider from 'react-slick'
+import { EventCardSecond, SectionTitle } from '@/src/components'
+import { Container, Section } from '@/src/styles/utils'
+import { EventSectionProps } from '@/src/types'
+import { otherEventsSliderSettings } from '@/src/utils'
 
-type EventProps = {
-  activeLocale: string,
-  eventData: EventType[],
-  eventTranslateData: EventTranslateType[],
-  titleDictionary: { [key: string]: string },
-  buttonDictionary: { [key: string]: string },
-}
 
-const OtherEventSection: React.FC<EventProps> = ({ activeLocale, eventData, eventTranslateData, titleDictionary, buttonDictionary }) => {
+const OtherEventSection: React.FC<EventSectionProps> = ({ activeLocale, eventData, eventTranslateData, titleDictionary, buttonDictionary }) => {
   return (
     <Section $py={20}>
       <Container>

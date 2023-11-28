@@ -1,15 +1,11 @@
 'use client'
-import { Container, Section } from '@/src/styles/utils'
 import React from 'react'
-import { ErrorWrapper } from './style'
 import Link from 'next/link'
+import { Container, Section } from '@/src/styles/utils'
+import { ErrorWrapper } from './style'
+import { Section404Props } from '@/src/types'
 
-type ErrorProps = {
-  errorDictionary: { [key: string]: string },
-  titleDictionary: { [key: string]: string }
-}
-
-const Page404Section: React.FC<ErrorProps> = ({ errorDictionary, titleDictionary }) => {
+const Page404Section: React.FC<Section404Props> = ({ errorDictionary, titleDictionary }) => {
   return (
     <Section $py={20}>
       <Container>

@@ -1,26 +1,13 @@
-import { TrainerTranslateType, TrainerType, TrainingTranslateType } from '@/src/types'
 import React from 'react'
+import { TrainingAccordionProps } from '@/src/types'
 import { TrainingAccordionWrapper } from './style'
 import { FaChevronDown } from 'react-icons/fa6'
 import { Grid } from '@/src/styles/utils'
 import TrainerCard from '../trainer/TrainerCard'
 import AccordionFormContainer from '../form/AccordionFormContainer'
 
-type AccordionProps = {
-    activeLocale: string,
-    trainingTranslateData: TrainingTranslateType,
-    trainerData: TrainerType[],
-    trainerTranslateData: TrainerTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-}
 
-const TrainingAccordion: React.FC<AccordionProps> = ({
+const TrainingAccordion: React.FC<TrainingAccordionProps> = ({
     activeLocale,
     trainingTranslateData,
     trainerData,

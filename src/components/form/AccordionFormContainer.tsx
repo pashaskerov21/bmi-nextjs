@@ -5,29 +5,13 @@ import React from 'react'
 import FormControl from './FormControl'
 import { ApplyFormikWrapper } from './style'
 import Swal from 'sweetalert2'
+import { AccordionFormContainerProps, ApplyFormValues } from '@/src/types'
 
-
-
-type AccordionFormContainerProps = {
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-}
 
 const AccordionFormContainer: React.FC<AccordionFormContainerProps> = ({
     formDictionary,
     buttonDictionary }) => {
 
-    type ApplyFormValues = {
-        fullname: string,
-        workplace: string,
-        position: string,
-        email: string,
-        phone: number | string,
-    }
     const initialValues: ApplyFormValues = {
         fullname: "",
         workplace: "",

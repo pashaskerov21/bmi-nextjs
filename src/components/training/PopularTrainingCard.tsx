@@ -1,20 +1,12 @@
 'use client'
-import { TrainingCategoryTranslateType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { PopularTrainingCardProps, TrainingCategoryTranslateDataType, TrainingTranslateDataType} from '@/src/types'
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-type CardProps = {
-    toggleTrainingCanvas: () => void,
-    activeLocale: string,
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType,
-    trainingTranslateData: TrainingTranslateType[],
-}
-
-const PopularTrainingCard: React.FC<CardProps> = ({ toggleTrainingCanvas, activeLocale, trainingCategoryTranslateData, trainingData, trainingTranslateData }) => {
-    const requiredTrainingTranslateData: TrainingTranslateType | undefined = trainingTranslateData.find((data) => data.lang === activeLocale && data.training_id === trainingData.id);
-    const requiredCategoryTranslateData: TrainingCategoryTranslateType | undefined = trainingCategoryTranslateData.find((data) => data.lang === activeLocale && data.category_id === trainingData.categoryID);
+const PopularTrainingCard: React.FC<PopularTrainingCardProps> = ({ toggleTrainingCanvas, activeLocale, trainingCategoryTranslateData, trainingData, trainingTranslateData }) => {
+    const requiredTrainingTranslateData: TrainingTranslateDataType | undefined = trainingTranslateData.find((data) => data.lang === activeLocale && data.training_id === trainingData.id);
+    const requiredCategoryTranslateData: TrainingCategoryTranslateDataType | undefined = trainingCategoryTranslateData.find((data) => data.lang === activeLocale && data.category_id === trainingData.categoryID);
     return (
         <React.Fragment>
             {(requiredTrainingTranslateData && requiredCategoryTranslateData) ? (

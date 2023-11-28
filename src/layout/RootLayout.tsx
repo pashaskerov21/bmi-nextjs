@@ -3,47 +3,18 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../styles/theme/light'
 import { darkTheme } from '../styles/theme/dark'
-import { EventTranslateType, EventType, MenuTranslateType, MenuType, NewsTranslateType, NewsType, SettingTranslateType, SettingType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '../types'
 import { GlobalStyles } from '../styles/global'
 import { Footer, Header } from '../partials'
 import { ScrollButton, SiteToolbar } from '../components'
+import { RootLayoutType } from '../types'
 import { Fancybox } from "@fancyapps/ui";
+import { Provider } from 'react-redux'
+import store from '../redux/store'
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
-import { Provider } from 'react-redux'
-import store from '../redux/store'
 
-
-type RootLayoutProps = {
-    children: React.ReactNode,
-    settingData: SettingType;
-    menuData: MenuType[],
-    menuTranslateData: MenuTranslateType[],
-    activeLocale: string,
-    requiredSettingTranslate: SettingTranslateType,
-    footerDictionary: { [key: string]: string },
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    errorDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-    trainingCategoryData: TrainingCategoryType[],
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-    trainerData: TrainerType[],
-    trainerTranslateData: TrainerTranslateType[],
-    eventData: EventType[],
-    eventTranslateData: EventTranslateType[],
-    newsData: NewsType[],
-    newsTranslateData: NewsTranslateType[],
-}
-
-const RootLayout: React.FC<RootLayoutProps> = ({
+const RootLayout: React.FC<RootLayoutType> = ({
     children,
     settingData,
     menuData,

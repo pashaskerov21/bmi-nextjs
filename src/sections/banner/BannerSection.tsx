@@ -1,18 +1,10 @@
 'use client'
 import React from 'react'
-import { Section } from '@/src/styles/utils'
-import { BannerTranslateType, BannerType } from '@/src/types'
 import Slider from 'react-slick'
+import { Section } from '@/src/styles/utils'
 import { BannerSlide } from '@/src/components'
 import { bannerSettings } from '@/src/utils'
-
-
-type BannerSectionProps = {
-  activeLocale: string,
-  bannerData: BannerType[],
-  bannerTranslateData: BannerTranslateType[],
-  buttonDictionary: { [key: string]: string }
-}
+import { BannerSectionProps } from '@/src/types'
 
 const BannerSection: React.FC<BannerSectionProps> = ({ activeLocale, bannerData, bannerTranslateData, buttonDictionary }) => {
 

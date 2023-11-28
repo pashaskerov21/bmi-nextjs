@@ -1,17 +1,10 @@
 'use client'
 import React from 'react'
-import { TrainingCategoryTranslateType, TrainingCategoryType } from "@/src/types";
 import TrainingCard from "./TrainingCard";
+import { CategoryCardContentProps, TrainingCategoryTranslateDataType } from '@/src/types';
 
-type CardProps = {
-    activeLocale: string,
-    categoryData: TrainingCategoryType,
-    categoryTranslateData: TrainingCategoryTranslateType[],
-    buttonDictionary: { [key: string]: string },
-}
-
-const CategoryCardContent: React.FC<CardProps> = ({ activeLocale, categoryData, categoryTranslateData, buttonDictionary }) => {
-    const requiredTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
+const CategoryCardContent: React.FC<CategoryCardContentProps> = ({ activeLocale, categoryData, categoryTranslateData, buttonDictionary }) => {
+    const requiredTranslate: TrainingCategoryTranslateDataType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
             {requiredTranslate ? (

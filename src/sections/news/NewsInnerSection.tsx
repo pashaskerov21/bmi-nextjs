@@ -1,21 +1,15 @@
 'use client'
+import React from 'react'
+import Image from 'next/image'
 import { PageTitle } from '@/src/components'
 import { Container, Row, RowCol, Section } from '@/src/styles/utils'
-import { Breadcrumb, NewsTranslateType, NewsType } from '@/src/types'
-import React from 'react'
 import { NewsContentWrapper } from './style'
-import Image from 'next/image'
 import { FaCalendarAlt } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
+import { Breadcrumb, NewsInnerSectionProps } from '@/src/types'
 
-type NewsProps = {
-  activeLocale: string,
-  newsData: NewsType,
-  newsTranslateData: NewsTranslateType,
-  titleDictionary: { [key: string]: string },
-}
 
-const NewsInnerSection: React.FC<NewsProps> = ({ activeLocale, newsData, newsTranslateData, titleDictionary }) => {
+const NewsInnerSection: React.FC<NewsInnerSectionProps> = ({ activeLocale, newsData, newsTranslateData, titleDictionary }) => {
   const breadcrumbs: Breadcrumb[] = [
     {
       id: 1,

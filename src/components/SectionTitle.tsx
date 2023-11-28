@@ -1,7 +1,8 @@
 'use client'
-import { row_center } from '@/src/styles/mixin';
 import React from 'react'
 import styled from 'styled-components'
+import { row_center } from '@/src/styles/mixin';
+import { SectionTitleProps } from '../types';
 
 const SectionTitleWrapper = styled.div`
     width: 100%;
@@ -44,9 +45,7 @@ const SectionTitleWrapper = styled.div`
     }
 `;
 
-type SectionTitleProps = {
-    title: string,
-}
+
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
     return (

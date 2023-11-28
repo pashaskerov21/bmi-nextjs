@@ -1,10 +1,10 @@
 'use client'
 import React from 'react'
+import Link from 'next/link';
 import styled from 'styled-components'
 import { BsChevronRight } from 'react-icons/bs'
-import Link from 'next/link';
 import { column_align_start, column_center, row_center, row_justify_start } from '@/src/styles/mixin';
-import { Breadcrumb } from '../types';
+import { PageTitleProps } from '../types';
 
 const PageTitleWrapper = styled.div`
     width: 100%;
@@ -55,15 +55,6 @@ const PageTitleWrapper = styled.div`
         }
     }
 `;
-
-
-
-type PageTitleProps = {
-    activeLocale: string,
-    title?: string;
-    breadcrumbs: Breadcrumb[];
-    titleDictionary: { [key: string]: string },
-};
 
 const PageTitle: React.FC<PageTitleProps> = ({ activeLocale,title, breadcrumbs, titleDictionary, }) => {
     return (

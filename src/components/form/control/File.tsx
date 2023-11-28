@@ -1,17 +1,12 @@
 'use client'
-import { ErrorMessage, Field, FormikProps } from 'formik'
 import React from 'react'
+import { ErrorMessage, Field } from 'formik'
 import { FaCloudArrowUp } from "react-icons/fa6";
+import { FileControlProps } from '@/src/types';
 
-export type FileProps = {
-    label: string,
-    name: string,
-    type?: string,
-    placeholder?: string,
-    formik?: FormikProps<any>,
-}
 
-const File: React.FC<FileProps> = ({ label, name, placeholder, ...rest }) => {
+
+const File: React.FC<FileControlProps> = ({ label, name, placeholder, ...rest }) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [invalidStatus, setInvalidStatus] = React.useState(false);
     React.useEffect(() => {

@@ -1,18 +1,12 @@
 'use client'
+import React from 'react'
 import { CategoryCardContent, PageTitle, TrainingCard } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
-import { Breadcrumb, TrainingCategoryTranslateType, TrainingCategoryType } from '@/src/types'
-import React from 'react'
+import { Breadcrumb, TrainingPageSectionProps } from '@/src/types'
 
-type TrainingProps = {
-    activeLocale: string,
-    trainingCategoryData: TrainingCategoryType[],
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-}
 
-const TrainingPageSection: React.FC<TrainingProps> = ({
+
+const TrainingPageSection: React.FC<TrainingPageSectionProps> = ({
     activeLocale,
     trainingCategoryData,
     trainingCategoryTranslateData,

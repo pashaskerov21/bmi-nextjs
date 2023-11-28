@@ -1,18 +1,10 @@
 'use client'
 import { NewsCard, PageTitle } from '@/src/components'
 import { Container, Grid, Section } from '@/src/styles/utils'
-import { Breadcrumb, NewsTranslateType, NewsType } from '@/src/types'
+import { Breadcrumb, NewsSectionProps } from '@/src/types'
 import React from 'react'
 
-type NewsProps = {
-    activeLocale: string,
-    newsData: NewsType[],
-    newsTranslateData: NewsTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-}
-
-const NewsPageSection: React.FC<NewsProps> = ({
+const NewsPageSection: React.FC<NewsSectionProps> = ({
     activeLocale,
     newsData,
     newsTranslateData,

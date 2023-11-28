@@ -1,25 +1,12 @@
 'use client'
-import { Form, Formik, FormikHelpers, useFormik } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import React from 'react'
 import FormControl from './FormControl'
 import { ApplyFormikWrapper } from './style'
 import Swal from 'sweetalert2'
-import { TrainingTranslateType, TrainingType } from '@/src/types'
+import { ApplyContainerProps, ApplyFormValues } from '@/src/types'
 
-
-
-type ApplyContainerProps = {
-  activeLocale: string,
-  trainingData: TrainingType[],
-  trainingTranslateData: TrainingTranslateType[],
-  buttonDictionary: { [key: string]: string },
-  formDictionary: {
-    [key: string]: {
-      [key: string]: string
-    }
-  },
-}
 
 const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
   activeLocale,
@@ -28,14 +15,6 @@ const ApplyFormContainer: React.FC<ApplyContainerProps> = ({
   formDictionary,
   buttonDictionary }) => {
 
-  type ApplyFormValues = {
-    training_id: number | string,
-    fullname: string,
-    workplace: string,
-    position: string,
-    email: string,
-    phone: number | string,
-  }
   const initialValues: ApplyFormValues = {
     training_id: "",
     fullname: "",

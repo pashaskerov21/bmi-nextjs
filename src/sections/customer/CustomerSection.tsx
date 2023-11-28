@@ -1,19 +1,16 @@
 'use client'
-import { SectionTitle } from '@/src/components'
-import { Container, Section } from '@/src/styles/utils'
-import { CustomerType } from '@/src/types'
-import { customerSliderSettings } from '@/src/utils'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import Slider from 'react-slick'
+import { SectionTitle } from '@/src/components'
+import { Container, Section } from '@/src/styles/utils'
+import { customerSliderSettings } from '@/src/utils'
+import { CustomerSectionProps } from '@/src/types'
 
-type CustomerProps = {
-    titleDictionary: { [key: string]: string },
-    customerData: CustomerType[],
-}
 
-const CustomerSection: React.FC<CustomerProps> = ({ titleDictionary, customerData }) => {
+
+const CustomerSection: React.FC<CustomerSectionProps> = ({ titleDictionary, customerData }) => {
     return (
         <Section $py={20}>
             <Container>

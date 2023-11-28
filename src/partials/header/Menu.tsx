@@ -1,29 +1,16 @@
 'use client'
-import { MenuTranslateType, MenuType, SettingType } from '@/src/types';
 import React from 'react'
-import { LinkMenuWrapper, MenuBackdrop, ThemeButton } from './style';
-import { Container } from '@/src/styles/utils';
 import Link from 'next/link';
 import Image from 'next/image';
+import { LinkMenuWrapper, ThemeButton } from './style';
+import { Container } from '@/src/styles/utils';
 // icons
 import { FaXmark } from 'react-icons/fa6'
 import { FaEnvelope } from 'react-icons/fa'
 import { FaPhone } from 'react-icons/fa6'
 import { Languages, MenuLink, SocialMedia } from '@/src/components';
 import { BsFillSunFill, BsMoonStarsFill } from 'react-icons/bs';
-
-type MenuProps = {
-    settingData: SettingType;
-    menuData: MenuType[],
-    menuTranslateData: MenuTranslateType[],
-    theme: string,
-    menuShow: boolean,
-    setMenuShow: React.Dispatch<React.SetStateAction<boolean>>,
-    toggleMenu: () => void,
-    toggleTheme: () => void,
-    fixed: boolean,
-    activeLocale: string,
-}
+import { MenuProps } from '@/src/types';
 
 const Menu: React.FC<MenuProps> = ({
     settingData,

@@ -1,11 +1,12 @@
+import React, { Suspense } from 'react'
 import { getTranslate } from '@/get-translate';
 import { Locale } from '@/i18n-config';
-import { NewsTranslateType, NewsType } from '@/src/types';
 import { fetchNews, fetchNewsTranslate } from '@/src/utils';
 import { Metadata } from 'next';
-import React, { Suspense } from 'react'
 import { redirect } from 'next/navigation';
 import { NewsPageSection } from '@/src/sections';
+import { NewsDataType, NewsTranslateDataType } from '@/src/types';
+import { NewsPagaLayout } from '@/src/layout';
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
     const t = await getTranslate(lang);
@@ -23,8 +24,8 @@ const NewsPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
     const [
         newsData,
         newsTranslateData]: [
-            NewsType[] | undefined,
-            NewsTranslateType[] | undefined] = await Promise.all([
+            NewsDataType[] | undefined,
+            NewsTranslateDataType[] | undefined] = await Promise.all([
                 fetchNews(),
                 fetchNewsTranslate()]);
     return (
@@ -32,7 +33,7 @@ const NewsPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
             <Suspense fallback={<div className='preloader'></div>}>
                 {(newsData && newsTranslateData) ? (
                     <React.Fragment>
-                        <NewsPageSection
+                        <NewsPagaLayout
                             activeLocale={lang}
                             newsData={newsData}
                             newsTranslateData={newsTranslateData}

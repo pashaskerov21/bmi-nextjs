@@ -1,10 +1,9 @@
 'use client'
-import { EventTranslateType, EventType, MenuTranslateType, MenuType, NewsTranslateType, NewsType, SettingType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types';
 import React from 'react'
-import { GeneralNavBar, ThemeButton } from './style';
-import { Container } from '@/src/styles/utils';
 import Link from 'next/link';
 import Image from 'next/image';
+import { GeneralNavBar, ThemeButton } from './style';
+import { Container } from '@/src/styles/utils';
 
 // icon
 import { FaPhone } from 'react-icons/fa6'
@@ -15,26 +14,7 @@ import { BiSearch } from 'react-icons/bi'
 import Search from './Search';
 import { Languages, SocialMedia } from '@/src/components';
 import Menu from './Menu';
-
-type HeaderProps = {
-    settingData: SettingType;
-    menuData: MenuType[],
-    menuTranslateData: MenuTranslateType[],
-    theme: string,
-    toggleTheme: () => void,
-    activeLocale: string,
-    trainingCategoryData: TrainingCategoryType[],
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-    trainerData: TrainerType[],
-    trainerTranslateData: TrainerTranslateType[],
-    eventData: EventType[],
-    eventTranslateData: EventTranslateType[],
-    newsData: NewsType[],
-    newsTranslateData: NewsTranslateType[],
-    errorDictionary: { [key: string]: string },
-}
+import { HeaderProps } from '@/src/types';
 
 const Header: React.FC<HeaderProps> = ({
     settingData,

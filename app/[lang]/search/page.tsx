@@ -1,8 +1,8 @@
+import React, { Suspense } from 'react'
 import { getTranslate } from '@/get-translate';
 import { Locale } from '@/i18n-config';
-import { SearchSection } from '@/src/sections';
 import { Metadata } from 'next';
-import React, { Suspense } from 'react'
+import { SearchPageLayout } from '@/src/layout';
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
   const t = await getTranslate(lang);
@@ -20,7 +20,7 @@ const SearchPage = async ({ params: { lang }, }: { params: { lang: Locale } }) =
   return (
     <React.Fragment>
       <Suspense fallback={<div className='preloader'></div>}>
-        <SearchSection
+        <SearchPageLayout
           activeLocale={lang}
           titleDictionary={titleDictionary}
           buttonDictionary={buttonDictionary} />

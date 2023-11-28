@@ -1,25 +1,12 @@
 'use client'
+import React from 'react'
 import { ContactFormContainer, PageTitle } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { Breadcrumb, SettingTranslateType, SettingType } from '@/src/types'
-import React from 'react'
 import { ContactWrapper } from './style'
 import { FaPhone, FaEnvelope, FaLocationDot } from "react-icons/fa6";
+import { Breadcrumb, ContactSectionProps } from '@/src/types'
 
-type ContactProps = {
-    activeLocale: string,
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    formDictionary: {
-        [key: string]: {
-            [key: string]: string
-        }
-    },
-    settingData: SettingType,
-    settingTranslateData: SettingTranslateType,
-}
-
-const ContactSection: React.FC<ContactProps> = ({ activeLocale, titleDictionary, buttonDictionary, formDictionary, settingData, settingTranslateData }) => {
+const ContactSection: React.FC<ContactSectionProps> = ({ activeLocale, titleDictionary, buttonDictionary, formDictionary, settingData, settingTranslateData }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,

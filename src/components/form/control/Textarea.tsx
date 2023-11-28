@@ -1,15 +1,9 @@
 'use client'
-import { ErrorMessage, Field, FormikProps } from 'formik'
 import React from 'react'
+import { ErrorMessage, Field } from 'formik'
+import { TextareaControlProps } from '@/src/types';
 
-export type TextareaProps = {
-    label: string,
-    name: string,
-    placeholder?: string,
-    formik?: FormikProps<any>,
-}
-
-const Textarea: React.FC<TextareaProps> = ({ label, name, ...rest }) => {
+const Textarea: React.FC<TextareaControlProps> = ({ label, name, ...rest }) => {
     const [invalidStatus, setInvalidStatus] = React.useState(false);
     React.useEffect(() => {
         if (rest.formik?.errors[name] && rest.formik.touched[name]) {

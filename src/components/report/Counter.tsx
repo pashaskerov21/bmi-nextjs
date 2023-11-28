@@ -1,9 +1,6 @@
 'use client'
+import { CounterProps } from '@/src/types';
 import React from 'react'
-
-type CounterProps = {
-    value: number,
-}
 
 const Counter: React.FC<CounterProps> = ({ value }) => {
 

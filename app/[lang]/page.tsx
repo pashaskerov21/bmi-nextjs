@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react'
 import { getTranslate } from '../../get-translate'
 import { Locale, i18n } from '../../i18n-config'
-import { AboutReportTranslateType, AboutReportType, AboutTranslateType, AboutType, BannerTranslateType, BannerType, CustomerType, EventTranslateType, EventType, GalleryType, NewsTranslateType, NewsType, PartnerType, ReportTranslateType, ReportType, TrainerTranslateType, TrainerType, TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { AboutReportTranslateDataType, AboutReportDataType, AboutTranslateDataType, AboutDataType, BannerTranslateDataType, BannerDataType, CustomerDataType, EventTranslateDataType, EventDataType, GalleryDataType, NewsTranslateDataType, NewsDataType, PartnerDataType, ReportTranslateDataType, ReportDataType, TrainerTranslateDataType, TrainerDataType, TrainingCategoryTranslateDataType, TrainingCategoryDataType, TrainingTranslateDataType, TrainingDataType } from '@/src/types'
 import { fetchAbout, fetchAboutReport, fetchAboutReportTranslate, fetchAboutTranslate, fetchBanner, fetchBannerTranslate, fetchCustomer, fetchEvent, fetchEventTranslate, fetchGallery, fetchNews, fetchNewsTranslate, fetchPartner, fetchReport, fetchReportTranslate, fetchTrainer, fetchTrainerTranslate, fetchTraining, fetchTrainingCategory, fetchTrainingCategoryTranslate, fetchTrainingTranslate } from '@/src/utils'
-import { AboutHomeSection, ApplyFormSection, BannerSection, CustomerSection, EventHomeSection, GallerySection, NewsHomeSection, PartnerSection, ReportSection, TrainerHomeSection, TrainingHomeSection } from '@/src/sections'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
+import { HomePageLayout } from '@/src/layout'
 
 const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
   const [
@@ -30,27 +30,27 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
     customerData,
     partnerData]:
     [
-      BannerType[] | undefined,
-      BannerTranslateType[] | undefined,
-      ReportType[] | undefined,
-      ReportTranslateType[] | undefined,
-      AboutType[] | undefined,
-      AboutTranslateType[] | undefined,
-      AboutReportType[] | undefined,
-      AboutReportTranslateType[] | undefined,
-      TrainingCategoryType[] | undefined,
-      TrainingCategoryTranslateType[] | undefined,
-      TrainingType[] | undefined,
-      TrainingTranslateType[] | undefined,
-      TrainerType[] | undefined,
-      TrainerTranslateType[] | undefined,
-      EventType[] | undefined,
-      EventTranslateType[] | undefined,
-      NewsType[] | undefined,
-      NewsTranslateType[] | undefined,
-      GalleryType[] | undefined,
-      CustomerType[] | undefined,
-      PartnerType[] | undefined] = await Promise.all(
+      BannerDataType[] | undefined,
+      BannerTranslateDataType[] | undefined,
+      ReportDataType[] | undefined,
+      ReportTranslateDataType[] | undefined,
+      AboutDataType[] | undefined,
+      AboutTranslateDataType[] | undefined,
+      AboutReportDataType[] | undefined,
+      AboutReportTranslateDataType[] | undefined,
+      TrainingCategoryDataType[] | undefined,
+      TrainingCategoryTranslateDataType[] | undefined,
+      TrainingDataType[] | undefined,
+      TrainingTranslateDataType[] | undefined,
+      TrainerDataType[] | undefined,
+      TrainerTranslateDataType[] | undefined,
+      EventDataType[] | undefined,
+      EventTranslateDataType[] | undefined,
+      NewsDataType[] | undefined,
+      NewsTranslateDataType[] | undefined,
+      GalleryDataType[] | undefined,
+      CustomerDataType[] | undefined,
+      PartnerDataType[] | undefined] = await Promise.all(
         [
           fetchBanner(),
           fetchBannerTranslate(),
@@ -85,92 +85,58 @@ const HomePage = async ({ params: { lang }, }: { params: { lang: Locale } }) => 
   return (
     <React.Fragment>
       <Suspense fallback={<div className='preloader'></div>}>
-        {(bannerData && bannerTranslateData) ? (
-          <BannerSection
-            activeLocale={lang}
-            bannerData={bannerData}
-            bannerTranslateData={bannerTranslateData}
-            buttonDictionary={buttonDictionary} />
-        ) : null}
-        {(reportData && reportTranslateData) ? (
-          <ReportSection
-            activeLocale={lang}
-            reportData={reportData}
-            reportTranslateData={reportTranslateData} />
-        ) : null}
-        {(aboutData && aboutTranslateData && aboutReportData && aboutReportTranslateData) ? (
-          <AboutHomeSection
-            activeLocale={lang}
-            aboutData={aboutData[0]}
-            aboutTranslateData={aboutTranslateData}
-            aboutReportData={aboutReportData}
-            aboutReportTranslateData={aboutReportTranslateData}
-            titleDictionary={titleDictionary}
-            buttonDictionary={buttonDictionary} />
-        ) : null}
-        {(trainingCategoryData && trainingCategoryTranslateData && trainingData && trainingTranslateData) ? (
-          <TrainingHomeSection
-            activeLocale={lang}
-            trainingCategoryData={trainingCategoryData}
-            trainingCategoryTranslateData={trainingCategoryTranslateData}
-            trainingData={trainingData}
-            trainingTranslateData={trainingTranslateData}
-            titleDictionary={titleDictionary}
-            buttonDictionary={buttonDictionary} />
-        ) : null}
-        {(trainerData && trainerTranslateData) ? (
-          <TrainerHomeSection
-            activeLocale={lang}
-            trainerData={trainerData}
-            trainerTranslateData={trainerTranslateData}
-            titleDictionary={titleDictionary} />
-        ) : null}
-        {(eventData && eventTranslateData) ? (
-          <EventHomeSection
-            activeLocale={lang}
-            eventData={eventData}
-            eventTranslateData={eventTranslateData}
-            titleDictionary={titleDictionary} />
-        ) : null}
-        {(newsData && newsTranslateData) ? (
-          <NewsHomeSection
-            activeLocale={lang}
-            newsData={newsData}
-            newsTranslateData={newsTranslateData}
-            titleDictionary={titleDictionary}
-            buttonDictionary={buttonDictionary}
-          />
-        ) : null}
-        {galleryData ? (
-          <GallerySection
-            titleDictionary={titleDictionary}
-            buttonDictionary={buttonDictionary}
-            galleryData={galleryData} />
-        ) : null}
         {
-          customerData ? (
-            <CustomerSection
-              titleDictionary={titleDictionary}
-              customerData={customerData} />
-          ) : null
-        }
-        {
-          partnerData ? (
-            <PartnerSection
-              titleDictionary={titleDictionary}
-              partnerData={partnerData} />
-          ) : null
-        }
-        {
-          (trainingData && trainingTranslateData) ? (
-            <ApplyFormSection
+          (
+            aboutData
+            && aboutReportData
+            && aboutReportTranslateData
+            && aboutTranslateData
+            && bannerData
+            && bannerTranslateData
+            && customerData
+            && eventData
+            && eventTranslateData
+            && galleryData
+            && newsData
+            && newsTranslateData
+            && partnerData
+            && reportData
+            && reportTranslateData
+            && trainerData
+            && trainerTranslateData
+            && trainingCategoryData
+            && trainingCategoryTranslateData
+            && trainingData
+            && trainingTranslateData
+          ) ? (
+            <HomePageLayout
+              aboutData={aboutData[0]}
+              aboutReportData={aboutReportData}
+              aboutReportTranslateData={aboutReportTranslateData}
+              aboutTranslateData={aboutTranslateData}
               activeLocale={lang}
+              bannerData={bannerData}
+              bannerTranslateData={bannerTranslateData}
+              buttonDictionary={buttonDictionary}
+              customerData={customerData}
+              eventData={eventData}
+              eventTranslateData={eventTranslateData}
+              formDictionary={formDictionary}
+              galleryData={galleryData}
+              newsData={newsData}
+              newsTranslateData={newsTranslateData}
+              partnerData={partnerData}
+              reportData={reportData}
+              reportTranslateData={reportTranslateData}
+              titleDictionary={titleDictionary}
+              trainerData={trainerData}
+              trainerTranslateData={trainerTranslateData}
+              trainingCategoryData={trainingCategoryData}
+              trainingCategoryTranslateData={trainingCategoryTranslateData}
               trainingData={trainingData}
               trainingTranslateData={trainingTranslateData}
-              titleDictionary={titleDictionary}
-              formDictionary={formDictionary}
-              buttonDictionary={buttonDictionary} />
-          ) : null
+            />
+          ) : redirect(`/${lang}/404`)
         }
       </Suspense>
     </React.Fragment>

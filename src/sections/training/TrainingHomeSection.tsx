@@ -1,22 +1,12 @@
 'use client'
 import { SectionTitle, TrainingCard, TrainingModal } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { TrainingCategoryTranslateType, TrainingCategoryType, TrainingTranslateType, TrainingType } from '@/src/types'
+import { TrainingCategoryTranslateDataType, TrainingCategoryDataType, TrainingTranslateDataType, TrainingDataType, TrainingHomeSectionProps } from '@/src/types'
 import { trainingCategorySettings } from '@/src/utils'
 import React from 'react'
 import Slider from 'react-slick'
 
-type TrainingProps = {
-    activeLocale: string,
-    trainingCategoryData: TrainingCategoryType[],
-    trainingCategoryTranslateData: TrainingCategoryTranslateType[],
-    trainingData: TrainingType[],
-    trainingTranslateData: TrainingTranslateType[],
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-}
-
-const TrainingHomeSection: React.FC<TrainingProps> = ({
+const TrainingHomeSection: React.FC<TrainingHomeSectionProps> = ({
     activeLocale,
     trainingCategoryData,
     trainingCategoryTranslateData,
@@ -24,9 +14,9 @@ const TrainingHomeSection: React.FC<TrainingProps> = ({
     trainingTranslateData,
     titleDictionary,
     buttonDictionary, }) => {
-    const [activeCategory, setActiveCategory] = React.useState<TrainingCategoryType | undefined>();
+    const [activeCategory, setActiveCategory] = React.useState<TrainingCategoryDataType | undefined>();
     const [showTrainingModal, setShowTrainingModal] = React.useState<boolean>(false);
-    const handleCategoryCard = React.useCallback((category: TrainingCategoryType) => {
+    const handleCategoryCard = React.useCallback((category: TrainingCategoryDataType) => {
         setActiveCategory(category);
         setShowTrainingModal(!showTrainingModal);
         const body = document.querySelector('body');
@@ -82,13 +72,13 @@ const TrainingHomeSection: React.FC<TrainingProps> = ({
 
 type CardProps = {
     activeLocale: string,
-    categoryData: TrainingCategoryType,
-    categoryTranslateData: TrainingCategoryTranslateType[],
+    categoryData: TrainingCategoryDataType,
+    categoryTranslateData: TrainingCategoryTranslateDataType[],
     buttonDictionary: { [key: string]: string },
 }
 
 const CardContent: React.FC<CardProps> = ({ activeLocale, categoryData, categoryTranslateData, buttonDictionary }) => {
-    const requiredTranslate: TrainingCategoryTranslateType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
+    const requiredTranslate: TrainingCategoryTranslateDataType | undefined = categoryTranslateData.find((data) => data.category_id === categoryData.id && data.lang === activeLocale);
     return (
         <React.Fragment>
             {requiredTranslate ? (

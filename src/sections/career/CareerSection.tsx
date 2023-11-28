@@ -1,22 +1,14 @@
 'use client'
+import React from 'react'
+import Link from 'next/link'
 import { PageTitle } from '@/src/components'
 import { Container, Section } from '@/src/styles/utils'
-import { Breadcrumb, CareerTranslateType, CareerType } from '@/src/types'
-import React from 'react'
 import { FaChevronDown, FaLocationDot } from 'react-icons/fa6'
 import { FaCalendarAlt } from 'react-icons/fa'
 import { CareerAccordion } from './style'
-import Link from 'next/link'
+import { Breadcrumb, CareerDataType, CareerSectionProps, CareerTranslateDataType } from '@/src/types'
 
-type CareerProps = {
-    activeLocale: string,
-    titleDictionary: { [key: string]: string },
-    buttonDictionary: { [key: string]: string },
-    careerData: CareerType[],
-    careerTranslateData: CareerTranslateType[],
-}
-
-const CareerSection: React.FC<CareerProps> = ({ activeLocale, titleDictionary, buttonDictionary, careerData, careerTranslateData }) => {
+const CareerSection: React.FC<CareerSectionProps> = ({ activeLocale, titleDictionary, buttonDictionary, careerData, careerTranslateData }) => {
     const breadcrumbs: Breadcrumb[] = [
         {
             id: 1,
@@ -60,17 +52,17 @@ const CareerSection: React.FC<CareerProps> = ({ activeLocale, titleDictionary, b
     )
 }
 
-type ItemProps = {
+type CareerAccordionItemProps = {
     activeItem: number | null,
     activeLocale: string,
-    careerData: CareerType,
-    careerTranslateData: CareerTranslateType[],
+    careerData: CareerDataType,
+    careerTranslateData: CareerTranslateDataType[],
     handleAccordionButton: (key: number) => void,
     buttonDictionary: { [key: string]: string },
 }
 
-const AccordionItem: React.FC<ItemProps> = ({ activeLocale, careerData, careerTranslateData, activeItem, handleAccordionButton, buttonDictionary }) => {
-    const requiredTranslateData: CareerTranslateType | undefined = careerTranslateData.find((data) => data.lang === activeLocale && data.career_id === careerData.id);
+const AccordionItem: React.FC<CareerAccordionItemProps> = ({ activeLocale, careerData, careerTranslateData, activeItem, handleAccordionButton, buttonDictionary }) => {
+    const requiredTranslateData: CareerTranslateDataType | undefined = careerTranslateData.find((data) => data.lang === activeLocale && data.career_id === careerData.id);
     return (
         <React.Fragment>
             {

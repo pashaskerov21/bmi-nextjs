@@ -1,1 +1,2 @@
 export const SEARCH_DATA = "SEARCH_DATA";
+export const UPDATE_LOCALE_SLUG = "UPDATE_LOCALE_SLUG";

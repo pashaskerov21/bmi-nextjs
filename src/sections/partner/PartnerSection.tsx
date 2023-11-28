@@ -1,19 +1,15 @@
 'use client'
-import { SectionTitle } from '@/src/components'
-import { Container, Section } from '@/src/styles/utils'
-import { PartnerType } from '@/src/types'
-import { partnerSliderSettings } from '@/src/utils'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import Slider from 'react-slick'
+import { SectionTitle } from '@/src/components'
+import { Container, Section } from '@/src/styles/utils'
+import { PartnerSectionProps } from '@/src/types'
+import { partnerSliderSettings } from '@/src/utils'
 
-type PartnerProps = {
-  titleDictionary: { [key: string]: string },
-  partnerData: PartnerType[],
-}
 
-const PartnerSection: React.FC<PartnerProps> = ({ titleDictionary, partnerData }) => {
+const PartnerSection: React.FC<PartnerSectionProps> = ({ titleDictionary, partnerData }) => {
   return (
     <Section $py={20}>
       <Container>

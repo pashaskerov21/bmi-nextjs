@@ -1,10 +1,10 @@
+import React, { Suspense } from 'react'
 import { getTranslate } from '@/get-translate';
 import { Locale } from '@/i18n-config';
-import { FaqSection } from '@/src/sections';
-import { FaqTranslateType, FaqType } from '@/src/types';
+import { FaqPageLayout } from '@/src/layout';
+import { FaqDataType, FaqTranslateDataType } from '@/src/types';
 import { fetchFaq, fetchFaqTranslate } from '@/src/utils';
 import { Metadata } from 'next';
-import React, { Suspense } from 'react'
 
 export async function generateMetadata({ params: { lang }, }: { params: { lang: Locale } }): Promise<Metadata> {
     const t = await getTranslate(lang);
@@ -16,7 +16,7 @@ export async function generateMetadata({ params: { lang }, }: { params: { lang: 
 }
 
 const FaqPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
-    const [faqData, faqTranslateData]: [FaqType[] | undefined, FaqTranslateType[] | undefined] = await Promise.all([fetchFaq(), fetchFaqTranslate()]);
+    const [faqData, faqTranslateData]: [FaqDataType[] | undefined, FaqTranslateDataType[] | undefined] = await Promise.all([fetchFaq(), fetchFaqTranslate()]);
     const t = await getTranslate(lang);
     const titleDictionary = t.title;
     return (
@@ -24,7 +24,7 @@ const FaqPage = async ({ params: { lang }, }: { params: { lang: Locale } }) => {
             <Suspense fallback={<div className='preloader'></div>}>
                 {
                     (faqData && faqTranslateData) ? (
-                        <FaqSection
+                        <FaqPageLayout
                             activeLocale={lang}
                             titleDictionary={titleDictionary}
                             faqData={faqData}
