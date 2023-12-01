@@ -7,7 +7,7 @@ export const ToolbarButtonWrapper = styled.div`
     top: 50%;
     right: -250px;
     transform: translateY(-50%);
-    z-index: 9900;
+    z-index: 900;
     width: 300px;
     ${column_center};
     gap: 10px;
@@ -65,7 +65,7 @@ export const CanvasWrapper = styled.div<CanvasProps>`
     width: 100%;
     max-width: 400px;
     background-color: ${props => props.theme.bg_color_v1};
-    z-index: 999999;
+    z-index: 999;
     ${column_justify_start};
     transition: all 0.3s;
     max-height: 100vh;

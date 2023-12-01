@@ -247,7 +247,7 @@ type MenuProps = {
 }
 
 export const MenuBackdrop = styled.div<MenuProps>`
-    z-index: 9990;
+    z-index: 990;
     position: fixed;
     top: 0;
     left: 0;
@@ -273,7 +273,7 @@ export const LinkMenuWrapper = styled.div<MenuProps>`
     max-width: 400px;
     min-height: 100vh;
     background-color: ${props => props.theme.primary_color_v1};
-    z-index: 999999;
+    z-index: 999;
     ${column_justify_start};
     transition: all 0.3s;
     max-height: 100vh;

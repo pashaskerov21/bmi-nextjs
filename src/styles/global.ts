@@ -301,7 +301,7 @@ input{
 }
 
 .black-backdrop{
-    z-index: 9990;
+    z-index: 990;
     position: fixed;
     top: 0;
     left: 0;
