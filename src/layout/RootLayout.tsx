@@ -13,6 +13,7 @@ import store from '../redux/store'
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
+import { useDarkMode } from 'usehooks-ts'
 
 const RootLayout: React.FC<RootLayoutType> = ({
     children,
@@ -36,28 +37,32 @@ const RootLayout: React.FC<RootLayoutType> = ({
     eventTranslateData,
     newsData,
     newsTranslateData }) => {
-    const [theme, setTheme] = React.useState<string>(`${settingData.theme}`);
-    const toggleTheme = React.useCallback(() => {
-        if (theme === 'dark') {
-            setTheme('light');
-        } else {
-            setTheme('dark')
+        React.useEffect(() => { Fancybox.bind("[data-fancybox]", {}) }, []);
+        const themes = ['dark','light']
+        const defaultThemeValue = themes.includes(settingData.theme) && settingData.theme === themes[0] ? true : false;
+        const { isDarkMode, toggle } = useDarkMode(defaultThemeValue);
+        const activeTheme = isDarkMode ? darkTheme : lightTheme;
+        const activeThemeValue = isDarkMode ? themes[0] : themes[1]; 
+    
+        const [loading, setLoading] = React.useState(true);
+        React.useEffect(() => {
+            setLoading(false);
+        }, []);
+    
+        const [mounted, setMounted] = React.useState(false);
+        React.useEffect(() => {
+            setMounted(true)
+        },[])
+        if(!mounted){
+            return null;
         }
-    }, [theme])
-
-    const [loading, setLoading] = React.useState(true);
-
-    React.useEffect(() => {
-        setLoading(false);
-    });
-
-    React.useEffect(() => { Fancybox.bind("[data-fancybox]", {}) }, [])
     return (
         <React.Fragment>
             <Provider store={store}>
-                <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+                <ThemeProvider theme={activeTheme}>
                     <GlobalStyles />
                     <body>
+                        {loading && <div className='preloader'></div>}
                         <ScrollButton />
                         <SiteToolbar
                             activeLocale={activeLocale}
@@ -72,8 +77,8 @@ const RootLayout: React.FC<RootLayoutType> = ({
                             menuData={menuData}
                             menuTranslateData={menuTranslateData}
                             settingData={settingData}
-                            theme={theme}
-                            toggleTheme={toggleTheme}
+                            theme={activeThemeValue}
+                            toggleTheme={toggle}
                             activeLocale={activeLocale}
                             trainingCategoryData={trainingCategoryData}
                             trainingCategoryTranslateData={trainingCategoryTranslateData}
@@ -86,8 +91,7 @@ const RootLayout: React.FC<RootLayoutType> = ({
                             newsData={newsData}
                             newsTranslateData={newsTranslateData}
                             errorDictionary={errorDictionary}
-                        />
-                        {loading && <div className='preloader'></div>}
+                        />                    
                         <main>{children}</main>
                         <Footer
                             activeLocale={activeLocale}
