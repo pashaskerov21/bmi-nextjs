@@ -20,8 +20,23 @@ export async function generateMetadata({ params: { lang }, }: { params: { lang: 
       return {
         title: requiredSettingTranslate.title,
         description: requiredSettingTranslate.description,
+        authors: {
+          name: 'Alipasha Askerov',
+          url: 'https://alipashaskerov.vercel.app/'
+        },
         icons: {
           icon: settingData[0].logo.iconWhite
+        },
+        openGraph: {
+          type: "website",
+          title: requiredSettingTranslate.title,
+          description: requiredSettingTranslate.description,
+          siteName: requiredSettingTranslate.title,
+          locale: lang === 'az' ? 'az_AZ' : 'en_GB',
+          alternateLocale: lang === 'az' ? 'en_GB' : 'az_AZ',
+          images: {
+            url: settingData[0].logo.iconWhite,
+          }
         }
       }
     } else {
